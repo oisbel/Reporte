@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Reporte</string>
+    <string name="last_reports_label">Historial de Reportes</string>
+    <string name="my_data_label">Mis Datos</string>
+    <string name="create_report_label">Crear Reporte</string>
+    <string name="biblical_studies_label">Estudios Bíblicos</string>
+    <string name="more_label">Más</string>
+    <string name="events_label">Eventos</string>
+    <string name="scc_label">SCC</string>
+    <string name="radio_label">Radio</string>
 </resources>
