@@ -4,7 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context="com.sccreporte.reporte.MainActivity">
 
+    <ImageView
+        android:id="@+id/imageUserPhoto"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_account" />
+
+    <View
+        android:id="@+id/divView1"
+        style="@style/DivStyle"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageUserPhoto" />
+
+    <TextView
+        android:id="@+id/lastReportTextView"
+        style="@style/MainLabelStyle"
+        android:text="@string/last_reports_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divView1"/>
+    <View
+        android:id="@+id/divView2"
+        style="@style/DivStyle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastReportTextView" />
+
+    <TextView
+        android:id="@+id/myDataTextView"
+        style="@style/MainLabelStyle"
+        android:text="@string/my_data_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divView2" />
 
 </android.support.constraint.ConstraintLayout>
