@@ -15,7 +15,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,5 +51,93 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divView2" />
+
+    <ImageView
+        android:id="@+id/leftRectangle"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/shape_rectangle_stroke"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myDataTextView" />
+
+    <ImageView
+        android:id="@+id/rightRectangle"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/shape_rectangle_stroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myDataTextView" />
+
+    <ImageButton
+        android:id="@+id/imageButtonAddReport"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/leftRectangle"
+        app:layout_constraintEnd_toEndOf="@+id/leftRectangle"
+        app:layout_constraintStart_toStartOf="@+id/leftRectangle"
+        app:layout_constraintTop_toTopOf="@+id/leftRectangle"
+        app:srcCompat="@drawable/ic_action_addreport" />
+
+    <ImageButton
+        android:id="@+id/imageButtonBiblical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/rightRectangle"
+        app:layout_constraintEnd_toEndOf="@+id/rightRectangle"
+        app:layout_constraintStart_toStartOf="@+id/rightRectangle"
+        app:layout_constraintTop_toTopOf="@+id/rightRectangle"
+        app:srcCompat="@drawable/ic_action_biblical" />
+
+    <TextView
+        android:id="@+id/textViewCreateReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/create_report_label"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonAddReport"
+        app:layout_constraintStart_toStartOf="@+id/leftRectangle"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonAddReport" />
+
+    <TextView
+        android:id="@+id/textViewBiblical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/biblical_studies_label"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonBiblical"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonBiblical"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonBiblical" />
+
+    <TextView
+        android:id="@+id/textViewMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/more_label"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonBiblical"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonAddReport"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonAddReport" />
 
 </android.support.constraint.ConstraintLayout>
