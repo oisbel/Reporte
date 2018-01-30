@@ -172,5 +172,35 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewMore"
         app:srcCompat="@drawable/ic_action_radio" />
 
+    <TextView
+        android:id="@+id/textViewScc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/scc_label"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewScc"
+        app:layout_constraintStart_toStartOf="@+id/imageViewScc"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewScc" />
+
+    <TextView
+        android:id="@+id/textViewRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/radio_label"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewRadio"
+        app:layout_constraintStart_toStartOf="@+id/imageViewRadio"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewRadio" />
+
+    <TextView
+        android:id="@+id/textViewEvents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/events_label"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewEvents"
+        app:layout_constraintStart_toStartOf="@+id/imageViewEvents"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEvents" />
+
 
 </android.support.constraint.ConstraintLayout>

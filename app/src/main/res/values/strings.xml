@@ -6,6 +6,6 @@
     <string name="biblical_studies_label">Estudios Bíblicos</string>
     <string name="more_label">...</string>
     <string name="scc_label">SCC</string>
-    <string name="radio_label">Radio</string>
-    <string name="events_label">Eventos</string>
+    <string name="radio_label">RADIO</string>
+    <string name="events_label">EVENTOS</string>
 </resources>
