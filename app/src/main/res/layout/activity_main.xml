@@ -53,7 +53,8 @@
         app:layout_constraintTop_toBottomOf="@+id/divView2" />
 
     <View
-        android:background="@color/colorPrimary"
+        android:id="@+id/rectangleForButton"
+        android:background="@color/colorDifferBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewMore"
@@ -115,6 +116,7 @@
 
     <TextView
         android:id="@+id/textViewCreateReport"
+        style="@style/buttonTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -127,6 +129,7 @@
 
     <TextView
         android:id="@+id/textViewBiblical"
+        style="@style/buttonTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -136,6 +139,15 @@
         app:layout_constraintEnd_toEndOf="@+id/imageButtonBiblical"
         app:layout_constraintStart_toStartOf="@+id/imageButtonBiblical"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonBiblical" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMoreBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rectangleForButton" />
 
     <TextView
         android:id="@+id/textViewMore"
@@ -183,6 +195,7 @@
 
     <TextView
         android:id="@+id/textViewScc"
+        style="@style/moreStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -193,6 +206,7 @@
 
     <TextView
         android:id="@+id/textViewRadio"
+        style="@style/moreStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -203,6 +217,7 @@
 
     <TextView
         android:id="@+id/textViewEvents"
+        style="@style/moreStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
