@@ -24,7 +24,6 @@
     <View
         android:id="@+id/divView1"
         style="@style/DivStyle"
-        android:background="@color/colorAccent"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

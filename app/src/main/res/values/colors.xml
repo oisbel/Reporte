@@ -3,9 +3,10 @@
     <color name="colorPrimary">#283593</color>
     <color name="colorPrimaryDark">#045A72</color>
     <color name="colorAccent">#8C9EFF</color>
-    <color name="colorPrimaryLight">#536DFE</color>
+    <color name="colorPrimaryLight">#7FAFD1</color>
     <color name="colorBackground">#005FA4</color>
     <color name="colorDifferBackground">#007990</color>
     <color name="colorMoreBackground">#B2C1C8</color>
-    <color name="colorMoreForeground">#4E5558</color>
+    <color name="colorMoreForeground">#000000</color>
+    <color name="colorBackgroundLastReports">#EEF2F5</color>
 </resources>
