@@ -31,9 +31,11 @@
         app:layout_constraintTop_toBottomOf="@+id/imageUserPhoto" />
 
     <TextView
-        android:id="@+id/lastReportTextView"
+        android:id="@+id/lastReportsTextView"
         style="@style/MainLabelStyle"
         android:text="@string/last_reports_label"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divView1"/>
@@ -42,7 +44,7 @@
         style="@style/DivStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastReportTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/lastReportsTextView" />
 
     <TextView
         android:id="@+id/myDataTextView"
