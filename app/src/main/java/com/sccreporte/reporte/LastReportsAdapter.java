@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 /**
  * Created by simpson on 2/2/2018.
  */
@@ -20,13 +22,17 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
 
     private int mNumberItems;
 
+    //Lista de datos a mostrar
+    List<LastReportsActivity.Report> mData;
+
     // La interfaz que recibe el mensaje onClick
     public interface ListItemClickListener{
         void onListItemClick(int clickedItemIndex);
     }
 
-    public LastReportsAdapter(int numberOfItems, ListItemClickListener listener) {
-        mNumberItems = numberOfItems;
+    public LastReportsAdapter(List<LastReportsActivity.Report> data, ListItemClickListener listener) {
+        mNumberItems = data.size();
+        mData = data;
         // listener del layout padre
         mOnClickListener = listener;
     }
@@ -48,7 +54,8 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
     @Override
     public void onBindViewHolder(ReportViewHolder holder, int position) {
         Log.d(TAG, "#" + position);
-        holder.bind(position);
+        LastReportsActivity.Report current = mData.get(position);
+        holder.bind(position, current.data);
     }
 
     @Override
@@ -68,8 +75,8 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
             itemView.setOnClickListener(this);
         }
         //Establece el valor que va a tener el item
-        void bind(int listIndex){
-            listItemReportView.setText(String.valueOf(listIndex));
+        void bind(int listIndex, String data){
+            listItemReportView.setText(String.valueOf(listIndex) + "-" + data);
         }
 
         @Override
