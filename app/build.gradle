@@ -17,7 +17,7 @@ android {
         }
     }
     // Enable Data Binding
-    dataBinding.enabled = true;
+    dataBinding.enabled = true
 }
 
 dependencies {

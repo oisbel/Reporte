@@ -9,8 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.sccreporte.reporte.data.ReportsData;
 
 public class LastReportsActivity extends AppCompatActivity
     implements LastReportsAdapter.ListItemClickListener{
@@ -33,7 +32,7 @@ public class LastReportsActivity extends AppCompatActivity
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mReportList.setLayoutManager(layoutManager);
         mReportList.setHasFixedSize(true);
-        mAdapter = new LastReportsAdapter(getData(),this);
+        mAdapter = new LastReportsAdapter(new ReportsData().getData(),this);
         mReportList.setAdapter(mAdapter);
 
         backBT = (ImageButton)findViewById(R.id.backButton);
@@ -43,26 +42,6 @@ public class LastReportsActivity extends AppCompatActivity
                 finish();
             }
         });
-    }
-    List<Report> getData(){
-        List<Report> result = new ArrayList<>();
-        String[] titles={"Home","My Travels","Browse Photos"};
-        Report current;
-        for (int i=0;i<3;i++){
-            current = new Report();
-            current.data = titles[i];
-            result.add(current);
-        }
-        for (int i =0;i<=30;i++){
-            current = new Report();
-            current.data = "caca" + String.valueOf(i);
-            result.add(current);
-        }
-        return result;
-    }
-    public class Report
-    {
-        public String data;
     }
 
     @Override

@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.sccreporte.reporte.data.ReportsData.Report;
+
 import java.util.List;
 
 /**
@@ -23,14 +25,14 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
     private int mNumberItems;
 
     //Lista de datos a mostrar
-    List<LastReportsActivity.Report> mData;
+    List<Report> mData;
 
     // La interfaz que recibe el mensaje onClick
     public interface ListItemClickListener{
         void onListItemClick(int clickedItemIndex);
     }
 
-    public LastReportsAdapter(List<LastReportsActivity.Report> data, ListItemClickListener listener) {
+    public LastReportsAdapter(List<Report> data, ListItemClickListener listener) {
         mNumberItems = data.size();
         mData = data;
         // listener del layout padre
@@ -54,7 +56,7 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
     @Override
     public void onBindViewHolder(ReportViewHolder holder, int position) {
         Log.d(TAG, "#" + position);
-        LastReportsActivity.Report current = mData.get(position);
+        Report current = mData.get(position);
         holder.bind(position, current.data);
     }
 
