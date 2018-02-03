@@ -25,6 +25,7 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
     @Override
     public ReportViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
+        // el layout que representa cada item del recyclerView
         int layoutIdForListItem = R.layout.report_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         boolean shouldAttachToParentImmediately = false;
