@@ -7,13 +7,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
-public class LastReportsActivity extends AppCompatActivity {
+public class LastReportsActivity extends AppCompatActivity
+    implements LastReportsAdapter.ListItemClickListener{
 
     //cantidad de elementos del recycler view
-    private static final int NUM_LIST_ITEMS = 100;
+    private static final int NUM_LIST_ITEMS = 20;
     private LastReportsAdapter mAdapter;
     private RecyclerView mReportList;
+
+    private Toast mToast;
+
     ImageButton backBT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,7 @@ public class LastReportsActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mReportList.setLayoutManager(layoutManager);
         mReportList.setHasFixedSize(true);
-        mAdapter = new LastReportsAdapter(NUM_LIST_ITEMS);
+        mAdapter = new LastReportsAdapter(NUM_LIST_ITEMS,this);
         mReportList.setAdapter(mAdapter);
 
         backBT = (ImageButton)findViewById(R.id.backButton);
@@ -35,5 +40,16 @@ public class LastReportsActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+        if(mToast!=null){
+            mToast.cancel();
+        }
+        String tempToastMessage = "Item #" + clickedItemIndex + " clicked.";
+        mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_LONG);
+
+        mToast.show();
     }
 }

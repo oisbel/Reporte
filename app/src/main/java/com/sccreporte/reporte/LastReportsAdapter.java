@@ -16,10 +16,19 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
 
     private static final String TAG = LastReportsAdapter.class.getSimpleName();
 
+    final private ListItemClickListener mOnClickListener;
+
     private int mNumberItems;
 
-    public LastReportsAdapter(int numberOfItems) {
+    // La interfaz que recibe el mensaje onClick
+    public interface ListItemClickListener{
+        void onListItemClick(int clickedItemIndex);
+    }
+
+    public LastReportsAdapter(int numberOfItems, ListItemClickListener listener) {
         mNumberItems = numberOfItems;
+        // listener del layout padre
+        mOnClickListener = listener;
     }
 
     @Override
@@ -48,17 +57,25 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
     }
 
     // Representa el item xml(report_list_item)
-    class ReportViewHolder extends RecyclerView.ViewHolder{
+    class ReportViewHolder extends RecyclerView.ViewHolder
+        implements View.OnClickListener{
 
         TextView listItemReportView;
 
         public ReportViewHolder(View itemView){
             super(itemView);
             listItemReportView = (TextView)itemView.findViewById(R.id.reportContentTextView);
+            itemView.setOnClickListener(this);
         }
         //Establece el valor que va a tener el item
         void bind(int listIndex){
             listItemReportView.setText(String.valueOf(listIndex));
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getAdapterPosition();
+            mOnClickListener.onListItemClick(clickedPosition);
         }
     }
 }
