@@ -10,6 +10,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.sccreporte.reporte.data.ReportsData;
+import com.sccreporte.reporte.utilities.NetworkUtils;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class LastReportsActivity extends AppCompatActivity
     implements LastReportsAdapter.ListItemClickListener{
@@ -49,9 +53,23 @@ public class LastReportsActivity extends AppCompatActivity
         if(mToast!=null){
             mToast.cancel();
         }
-        String tempToastMessage = "Item #" + clickedItemIndex + " clicked.";
+        String tempToastMessage = "Item #" + clickedItemIndex + " clicked" +
+                makeReportsQuery();
         mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_LONG);
 
         mToast.show();
+    }
+
+    private String makeReportsQuery(){
+        String user_id = "1";
+        URL reportsUrl = NetworkUtils.buildReportsUrl(user_id);
+        String reportsResult = "";
+        try{
+            reportsResult = NetworkUtils.getResponseFromHttpUrl(reportsUrl);
+        }catch (IOException e){
+            e.printStackTrace();
+            return "";
+        }
+        return  reportsResult;
     }
 }
