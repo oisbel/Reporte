@@ -16,9 +16,9 @@ import java.util.Scanner;
 
 public class NetworkUtils {
 
-    final static String BASE_REPORTS_URL = "http://localhost:8000/reports";
+    final static String BASE_REPORTS_URL = "https://api.github.com/search/repositories";
 
-    final static String PARAM_QUERY_USER_ID = "user_id";
+    final static String PARAM_QUERY_USER_ID = "q";
 
     /**
      * Builds the URL used to query sccreporte.
@@ -29,6 +29,7 @@ public class NetworkUtils {
     public static URL buildReportsUrl(String reportsIdUserQuery) {
         Uri builtUri = Uri.parse(BASE_REPORTS_URL).buildUpon()
                 .appendQueryParameter(PARAM_QUERY_USER_ID, reportsIdUserQuery)
+                .appendQueryParameter("sort", "stars")
                 .build();
 
         URL url = null;

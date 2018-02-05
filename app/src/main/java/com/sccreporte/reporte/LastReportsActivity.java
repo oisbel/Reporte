@@ -1,5 +1,6 @@
 package com.sccreporte.reporte;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sccreporte.reporte.data.ReportsData;
@@ -22,6 +24,7 @@ public class LastReportsActivity extends AppCompatActivity
     private static final int NUM_LIST_ITEMS = 20;
     private LastReportsAdapter mAdapter;
     private RecyclerView mReportList;
+    private TextView resultTB;
 
     private Toast mToast;
 
@@ -30,6 +33,7 @@ public class LastReportsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_last_reports);
+        resultTB = (TextView) findViewById(R.id.resultTextView);
 
         // Wiring up RecycerView
         mReportList = (RecyclerView)findViewById(R.id.reportsRecyclerView);
@@ -48,28 +52,47 @@ public class LastReportsActivity extends AppCompatActivity
         });
     }
 
+    /**
+     * To handle the click in the recycler view
+     * @param clickedItemIndex The item position
+     */
     @Override
     public void onListItemClick(int clickedItemIndex) {
         if(mToast!=null){
             mToast.cancel();
         }
-        String tempToastMessage = "Item #" + clickedItemIndex + " clicked" +
-                makeReportsQuery();
+        String tempToastMessage = "Item #" + clickedItemIndex + " clicked";
         mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_LONG);
 
         mToast.show();
+        makeReportsQuery();
     }
 
-    private String makeReportsQuery(){
-        String user_id = "1";
+    private void makeReportsQuery(){
+        String user_id = "casacaca";
         URL reportsUrl = NetworkUtils.buildReportsUrl(user_id);
         String reportsResult = "";
-        try{
-            reportsResult = NetworkUtils.getResponseFromHttpUrl(reportsUrl);
-        }catch (IOException e){
-            e.printStackTrace();
-            return "";
+        new ReportsQueryTask().execute(reportsUrl);
+    }
+
+    public class ReportsQueryTask extends AsyncTask<URL, Void, String>{
+        @Override
+        protected String doInBackground(URL... urls) {
+            URL reportsUrl = urls[0];
+            String reportsResult = null;
+            try {
+                reportsResult = NetworkUtils.getResponseFromHttpUrl(reportsUrl);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            return reportsResult;
         }
-        return  reportsResult;
+
+        @Override
+        protected void onPostExecute(String s) {
+            if(s != null && s != ""){
+               resultTB.setText(s);
+            }
+        }
     }
 }
