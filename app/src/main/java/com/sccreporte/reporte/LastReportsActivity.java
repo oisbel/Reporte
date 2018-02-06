@@ -69,9 +69,8 @@ public class LastReportsActivity extends AppCompatActivity
     }
 
     private void makeReportsQuery(){
-        String user_id = "casacaca";
-        URL reportsUrl = NetworkUtils.buildReportsUrl(user_id);
-        String reportsResult = "";
+        String report_id = "1";
+        URL reportsUrl = NetworkUtils.buildReportsUrl(report_id);
         new ReportsQueryTask().execute(reportsUrl);
     }
 
