@@ -26,7 +26,6 @@ public class LastReportsActivity extends AppCompatActivity
     private static final int NUM_LIST_ITEMS = 20;
     private LastReportsAdapter mReportAdapter;
     private RecyclerView mReportList;
-    private TextView resultTB;
     private TextView mErrorMessageDisplay;
     // Create a ProgressBar variable to store a reference to the ProgressBar
     private ProgressBar mLoadingIndicator;
@@ -47,8 +46,6 @@ public class LastReportsActivity extends AppCompatActivity
             }
         });
 
-        resultTB = (TextView) findViewById(R.id.resultTextView);
-
         // Get a reference to the error TextView using findViewById
         mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
 
@@ -57,6 +54,7 @@ public class LastReportsActivity extends AppCompatActivity
 
         // Wiring up RecycerView
         mReportList = (RecyclerView)findViewById(R.id.reportsRecyclerView);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mReportList.setLayoutManager(layoutManager);
         mReportList.setHasFixedSize(true);
@@ -93,7 +91,6 @@ public class LastReportsActivity extends AppCompatActivity
         mErrorMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, make sure the RecyclerView data is visible
         mReportList.setVisibility(View.VISIBLE);
-        resultTB.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -105,7 +102,6 @@ public class LastReportsActivity extends AppCompatActivity
     private void showErrorMessage() {
         // First, hide the currently visible data
         mReportList.setVisibility(View.INVISIBLE);
-        resultTB.setVisibility(View.INVISIBLE);
         // Then, show the error
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
@@ -166,7 +162,6 @@ public class LastReportsActivity extends AppCompatActivity
 
             if(reportsDataResult != null && reportsDataResult.size() > 0){
                 showReportRecyclerView();
-                resultTB.setText(String.valueOf(reportsDataResult.size()));// temporal
                 // Mando los datos al adaptador para que los muestre en el recyclerView
                 mReportAdapter.setReportData(reportsDataResult);
             }else{
