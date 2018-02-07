@@ -13,28 +13,24 @@ import com.sccreporte.reporte.data.ReportsData.Report;
 import java.util.List;
 
 /**
+ * El adaptador que relaciona los datos con la vista mediante ReportViewHolder
  * Created by simpson on 2/2/2018.
  */
-// El adaptador que relaciona los datos con la vista mediante ReportViewHolder
 public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.ReportViewHolder> {
 
     private static final String TAG = LastReportsAdapter.class.getSimpleName();
 
     final private ListItemClickListener mOnClickListener;
 
-    private int mNumberItems;
-
     //Lista de datos a mostrar
-    List<Report> mData;
+    List<Report> mReportData;
 
     // La interfaz que recibe el mensaje onClick
     public interface ListItemClickListener{
         void onListItemClick(int clickedItemIndex);
     }
 
-    public LastReportsAdapter(List<Report> data, ListItemClickListener listener) {
-        mNumberItems = data.size();
-        mData = data;
+    public LastReportsAdapter(ListItemClickListener listener) {
         // listener del layout padre
         mOnClickListener = listener;
     }
@@ -56,13 +52,25 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
     @Override
     public void onBindViewHolder(ReportViewHolder holder, int position) {
         Log.d(TAG, "#" + position);
-        Report current = mData.get(position);
-        holder.bind(position, current.data);
+        Report current = mReportData.get(position);
+        holder.bind(position, current);
     }
 
     @Override
     public int getItemCount() {
-        return mNumberItems;
+        if(mReportData == null) return 0;
+        return mReportData.size();
+    }
+
+    /**
+     * This method is used to set the report data on a LastReportsAdapter if we've already
+     * created one. This is handy when we get new data from the web but don't want to create a
+     * new LastReportsAdapter to display it.
+     * @param data
+     */
+    public void setReportData(List<Report> data){
+        mReportData = data;
+        notifyDataSetChanged();
     }
 
     // Representa el item xml(report_list_item)
@@ -77,8 +85,10 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
             itemView.setOnClickListener(this);
         }
         //Establece el valor que va a tener el item
-        void bind(int listIndex, String data){
-            listItemReportView.setText(String.valueOf(listIndex) + "-" + data);
+        void bind(int listIndex, Report report){
+            if(report == null) return;
+            listItemReportView.setText(String.valueOf(listIndex) +
+                    "-" +String.valueOf(report.mensajes) + ">" + String.valueOf(report.biblias));
         }
 
         @Override
