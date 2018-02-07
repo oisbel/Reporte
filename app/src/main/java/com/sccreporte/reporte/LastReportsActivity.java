@@ -38,6 +38,7 @@ public class LastReportsActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_last_reports);
 
+        // Back button click
         backBT = (ImageButton)findViewById(R.id.backButton);
         backBT.setOnClickListener(new OnClickListener() {
             @Override
