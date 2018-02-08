@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -42,6 +43,7 @@ public class ReportsData {
                 }
                 if(Reports.size()>0){
                     UserId = Reports.get(0).user_id;
+                    Collections.reverse(Reports);
                 }
             }
         }catch (JSONException e){
