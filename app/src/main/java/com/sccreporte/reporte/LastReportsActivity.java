@@ -33,6 +33,10 @@ public class LastReportsActivity extends AppCompatActivity
     private Toast mToast;
 
     ImageButton backBT;
+
+    // Lista de los reportes
+    List<ReportsData.Report> reportsData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,6 +167,8 @@ public class LastReportsActivity extends AppCompatActivity
 
             if(reportsDataResult != null && reportsDataResult.size() > 0){
                 showReportRecyclerView();
+                // Guardo la referecia de la lista de reportes
+                reportsData = reportsDataResult;
                 // Mando los datos al adaptador para que los muestre en el recyclerView
                 mReportAdapter.setReportData(reportsDataResult);
             }else{
