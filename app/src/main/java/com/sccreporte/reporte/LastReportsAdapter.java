@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sccreporte.reporte.data.ReportsData.Report;
+import com.sccreporte.reporte.utilities.DataUtils;
 
 import java.util.List;
 
@@ -105,7 +106,10 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
             // Estableciendo los valores al list item del reporte
             ayunosTB.setText("Ayunos: " + String.valueOf(report.ayunos));
             avivamientosTB.setText("Avivamientos: " + String.valueOf(report.avivamientos));
-            fechaTB.setText(report.fecha.toString());
+            fechaTB.setText(
+                    String.valueOf(report.fecha.getDate()) + "/" +
+                    DataUtils.Months[report.fecha.getMonth()] + "/" +
+                    String.valueOf(report.fecha.getYear()));
             //lugarTB.setText(String.valueOf(report.lugar));
             visitasTB.setText("Visitas: " + String.valueOf(report.visitas));
         }
