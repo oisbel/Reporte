@@ -42,7 +42,7 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
         int layoutIdForListItem = R.layout.report_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
         boolean shouldAttachToParentImmediately = false;
-
+        // view: report_list_item
         View view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediately);
         ReportViewHolder viewHolder = new ReportViewHolder(view);
 
@@ -77,18 +77,37 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
     class ReportViewHolder extends RecyclerView.ViewHolder
         implements View.OnClickListener{
 
-        TextView listItemReportView;
+        // Todos los campos del layout de los items de los reportes
+        TextView ayunosTB;
+        TextView avivamientosTB;
+        TextView fechaTB;
+        TextView lugarTB;
+        TextView visitasTB;
 
         public ReportViewHolder(View itemView){
             super(itemView);
-            listItemReportView = (TextView)itemView.findViewById(R.id.reportContentTextView);
+            ayunosTB = (TextView)itemView.findViewById(R.id.ayunosTextView);
+            avivamientosTB = (TextView)itemView.findViewById(R.id.avivamientosTextView);
+            fechaTB = (TextView)itemView.findViewById(R.id.fechaTextView);
+            lugarTB = (TextView)itemView.findViewById(R.id.lugarTextView);
+            visitasTB = (TextView)itemView.findViewById(R.id.visitasTextView);
+
             itemView.setOnClickListener(this);
         }
-        //Establece el valor que va a tener el item
+
+        /**
+         * Establece el valor que va a tener el item
+         * @param listIndex posicion del item en el recycler view
+         * @param report valor que se va a hacer bind
+         */
         void bind(int listIndex, Report report){
             if(report == null) return;
-            listItemReportView.setText(String.valueOf(listIndex) +
-                    "-" +String.valueOf(report.mensajes) + ">" + String.valueOf(report.biblias));
+            // Estableciendo los valores al list item del reporte
+            ayunosTB.setText("Ayunos: " + String.valueOf(report.ayunos));
+            avivamientosTB.setText("Avivamientos: " + String.valueOf(report.avivamientos));
+            fechaTB.setText(report.fecha.toString());
+            //lugarTB.setText(String.valueOf(report.lugar));
+            visitasTB.setText("Visitas: " + String.valueOf(report.visitas));
         }
 
         @Override
