@@ -15,7 +15,7 @@
         <item name="android:paddingTop">18dp</item>
         <item name="android:paddingBottom">18dp</item>
         <item name="android:layout_marginTop">2dp</item>
-        <item name="android:background">@drawable/last_report_selector</item>
+        <item name="android:background">@drawable/main_label_selector</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">sans-serif-light</item>
@@ -50,6 +50,16 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="reportListItemStyle">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/list_item_report_selector</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="ayunosStyle">
