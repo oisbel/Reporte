@@ -8,7 +8,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.sccreporte.reporte.databinding.ActivityReportBinding;
+
 public class ReportActivity extends AppCompatActivity {
+
+    // Create a data binding instance
+    ActivityReportBinding mBinding;
 
     ImageButton backBT;
     @Override
