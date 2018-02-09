@@ -55,12 +55,14 @@ public class ReportsData {
     /**
      *
      * @return Lista de reportes del usuario
+     * Deberia crear metodos getter and setter pero lo dejo como variables publicas por ahora por simplicidad
      */
     public List<Report> getData(){
         return Reports;
     }
 
     public class Report implements Comparable<Report>{
+        public JSONObject mySelfReport;
         public int avivamientos;
         public int ayunos;
         public int biblias;
@@ -83,7 +85,7 @@ public class ReportsData {
         public int visitas;
 
         public Report(JSONObject report){
-
+            mySelfReport = report;
             String tempFecha = "04/04/1988";
             SimpleDateFormat formatter = new SimpleDateFormat(
                     "EEE, dd MMM yyyy HH:mm:ss zzz", Locale.getDefault());
