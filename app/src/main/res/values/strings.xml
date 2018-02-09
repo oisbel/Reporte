@@ -12,4 +12,23 @@
     <string name="error_message">No se pudo obtener el resultado, intente de nuevo</string>
     <string name="report_label">Reporte</string>
     <string name="edit_label">Editar</string>
+    
+    <string name="avivamientos_label">Avivamientos</string>
+    <string name="ayunos_label">Ayunos</string>
+    <string name="biblias_label">Biblias</string>
+    <string name="cultos_label">Cultos</string>
+    <string name="devocionales_label">Devocionales</string>
+    <string name="enfermos_label">Enfermos</string>
+    <string name="estudios_asistidos_label">Estudios Asistidos</string>
+    <string name="estudios_establecidos_label">Estudios Establecidos</string>
+    <string name="estudios_realizados_label">Estudios Realizados</string>
+    <string name="hogares_label">Hogares</string>
+    <string name="horas_ayunos_label">Horas Ayunos</string>
+    <string name="mensajeros_label">Mensajeros</string>
+    <string name="mensajes_label">Mensajes</string>
+    <string name="otros_label">Otros</string>
+    <string name="porciones_label">Porciones</string>
+    <string name="sanidades_label">Sanidades</string>
+    <string name="visitas_label">Visitas</string>
+
 </resources>
