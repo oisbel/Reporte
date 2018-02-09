@@ -10,6 +10,6 @@
     <string name="events_label">EVENTOS</string>
 
     <string name="error_message">No se pudo obtener el resultado, intente de nuevo</string>
-
+    <string name="report_label">Reporte</string>
     <string name="edit_label">Editar</string>
 </resources>
