@@ -18,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LastReportsActivity"></activity>
+        <activity android:name=".LastReportsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ReportActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

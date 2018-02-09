@@ -1,5 +1,7 @@
 package com.sccreporte.reporte;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -122,8 +124,12 @@ public class LastReportsActivity extends AppCompatActivity
         }
         String tempToastMessage = "Reporte # " + clickedItemIndex;
         mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_SHORT);
-
         mToast.show();
+        // Ver el reporte seleccionado
+        Context context = LastReportsActivity.this;
+        Class destinationActivity = ReportActivity.class;
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+        startActivity(startChildActivityIntent);
     }
 
     public class ReportsQueryTask extends AsyncTask<String, Void, List<ReportsData.Report>>{

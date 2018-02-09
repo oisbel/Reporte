@@ -8,5 +8,8 @@
     <string name="scc_label">SCC</string>
     <string name="radio_label">RADIO</string>
     <string name="events_label">EVENTOS</string>
+
     <string name="error_message">No se pudo obtener el resultado, intente de nuevo</string>
+
+    <string name="edit_label">Editar</string>
 </resources>
