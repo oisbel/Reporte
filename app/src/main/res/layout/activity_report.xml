@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/backButton"
             style="@style/lastReportLabelStyle"
+            android:textColor="@color/colorOrange"
             android:text="@string/report_label"
             android:layout_marginTop="18dp"
             android:layout_marginLeft="16dp"/>
@@ -43,11 +44,12 @@
 
     <View
         android:background="@color/colorMoreBackground"
-        android:layout_marginTop="8dp"
         android:layout_height="2dp"
         android:layout_width="match_parent"
         android:layout_marginLeft="2dp"
-        android:layout_marginRight="18dp"/>
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"/>
 
     // Tabla de contenido del reporte
     <LinearLayout
@@ -57,12 +59,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/avivamientos_label"/>
+            android:text="@string/avivamientos_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/ayunos_label"/>
+            android:text="@string/ayunos_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,12 +75,14 @@
             android:id="@+id/avivamientosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/ayunosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -86,12 +92,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/biblias_label"/>
+            android:text="@string/biblias_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/horas_ayunos_label"/>
+            android:text="@string/horas_ayunos_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -100,12 +108,14 @@
             android:id="@+id/bibliasTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/horasAyunosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -115,12 +125,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/cultos_label"/>
+            android:text="@string/cultos_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/devocionales_label"/>
+            android:text="@string/devocionales_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -129,12 +141,14 @@
             android:id="@+id/cultosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/devocionalesTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -144,12 +158,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/enfermos_label"/>
+            android:text="@string/enfermos_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/estudios_asistidos_label"/>
+            android:text="@string/estudios_asistidos_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -158,12 +174,14 @@
             android:id="@+id/enfermosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/estudiosAsistidosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -173,12 +191,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/estudios_establecidos_label"/>
+            android:text="@string/estudios_establecidos_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/estudios_realizados_label"/>
+            android:text="@string/estudios_realizados_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -187,12 +207,14 @@
             android:id="@+id/estudiosEstablecidosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/estudiosRealizadosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -202,12 +224,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/hogares_label"/>
+            android:text="@string/hogares_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/mensajeros_label"/>
+            android:text="@string/mensajeros_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -216,12 +240,14 @@
             android:id="@+id/hogaresTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/mensajerosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -231,12 +257,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/mensajes_label"/>
+            android:text="@string/mensajes_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/porciones_label"/>
+            android:text="@string/porciones_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -245,12 +273,14 @@
             android:id="@+id/mensajesTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/porcionesTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -260,12 +290,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/sanidades_label"/>
+            android:text="@string/sanidades_label"
+            style="@style/reporDetailsLabelStyle"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/visitas_label"/>
+            android:text="@string/visitas_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -274,12 +306,14 @@
             android:id="@+id/sanidadesTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
         <TextView
             android:id="@+id/visitasTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -289,7 +323,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/otros_label"/>
+            android:text="@string/otros_label"
+            style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -298,7 +333,8 @@
             android:id="@+id/otrosTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5"
+            style="@style/reportDetailsStyle"/>
     </LinearLayout>
    </LinearLayout>
 </layout>
