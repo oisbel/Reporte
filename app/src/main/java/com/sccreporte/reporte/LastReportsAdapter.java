@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sccreporte.reporte.data.ReportsData.Report;
+import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.utilities.DataUtils;
 
 import java.util.List;

@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.ReportsData;
 import com.sccreporte.reporte.utilities.NetworkUtils;
 
@@ -37,7 +38,7 @@ public class LastReportsActivity extends AppCompatActivity
     ImageButton backBT;
 
     // Lista de los reportes
-    List<ReportsData.Report> reportsData;
+    List<Report> mReportsData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,20 +120,32 @@ public class LastReportsActivity extends AppCompatActivity
      */
     @Override
     public void onListItemClick(int clickedItemIndex) {
-        if(mToast!=null){
-            mToast.cancel();
-        }
-        String tempToastMessage = "Reporte # " + clickedItemIndex;
-        mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_SHORT);
-        mToast.show();
-        // Ver el reporte seleccionado
+        // Ver el reporte seleccionado -  pasar a la otra activity usando Intent
+
         Context context = LastReportsActivity.this;
         Class destinationActivity = ReportActivity.class;
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+        Report selectedReport = null;
+        if(mReportsData != null && mReportsData.size() > 0){
+            selectedReport = mReportsData.get(clickedItemIndex);
+        }
+        if(selectedReport != null) {
+            // Pasar a la otra activity el String Json del reporte
+            startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, selectedReport.reportJSON.toString());
+        }
+
+        if(mToast!=null){
+            mToast.cancel();
+        }
+        String tempToastMessage = "Reporte # " + selectedReport.id;
+        mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_SHORT);
+        mToast.show();
+
         startActivity(startChildActivityIntent);
     }
 
-    public class ReportsQueryTask extends AsyncTask<String, Void, List<ReportsData.Report>>{
+    public class ReportsQueryTask extends AsyncTask<String, Void, List<Report>>{
 
         @Override
         protected void onPreExecute() {
@@ -141,7 +154,7 @@ public class LastReportsActivity extends AppCompatActivity
         }
 
         @Override
-        protected List<ReportsData.Report> doInBackground(String... params) {
+        protected List<Report> doInBackground(String... params) {
 
             if(params.length == 0) return null;
 
@@ -167,14 +180,14 @@ public class LastReportsActivity extends AppCompatActivity
         }
 
         @Override
-        protected void onPostExecute(List<ReportsData.Report> reportsDataResult) {
+        protected void onPostExecute(List<Report> reportsDataResult) {
             // As soon as the loading is complete, hide the loading indicator
             mLoadingIndicator.setVisibility(View.INVISIBLE);
 
             if(reportsDataResult != null && reportsDataResult.size() > 0){
                 showReportRecyclerView();
                 // Guardo la referecia de la lista de reportes
-                reportsData = reportsDataResult;
+                mReportsData = reportsDataResult;
                 // Mando los datos al adaptador para que los muestre en el recyclerView
                 mReportAdapter.setReportData(reportsDataResult);
             }else{

@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
     android:background="@color/colorBackgroundLastReports"
     tools:context="com.sccreporte.reporte.LastReportsActivity">
     <RelativeLayout
@@ -16,7 +17,6 @@
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_alignParentLeft="true"
             android:background="?android:selectableItemBackground"
@@ -28,7 +28,7 @@
             style="@style/lastReportLabelStyle"
             android:text="@string/report_label"
             android:layout_marginTop="18dp"
-            android:layout_marginLeft="32dp"/>
+            android:layout_marginLeft="16dp"/>
 
         <Button
             android:id="@+id/filterDayButton"
@@ -46,7 +46,7 @@
         android:layout_marginTop="8dp"
         android:layout_height="2dp"
         android:layout_width="match_parent"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="2dp"
         android:layout_marginRight="18dp"/>
 
     // Tabla de contenido del reporte
