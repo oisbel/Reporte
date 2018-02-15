@@ -82,8 +82,8 @@ public class LastReportsActivity extends AppCompatActivity
      * Establece el id de usuario, y ejecuta el hilo para descargar sus reportes
      */
     private void makeReportsQuery(){
-        String report_id = "1";
-        new ReportsQueryTask().execute(report_id);
+        String user_id = "1";
+        new ReportsQueryTask().execute(user_id);
     }
 
     // Helper methods
@@ -121,7 +121,6 @@ public class LastReportsActivity extends AppCompatActivity
     @Override
     public void onListItemClick(int clickedItemIndex) {
         // Ver el reporte seleccionado -  pasar a la otra activity usando Intent
-
         Context context = LastReportsActivity.this;
         Class destinationActivity = ReportActivity.class;
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
@@ -158,8 +157,8 @@ public class LastReportsActivity extends AppCompatActivity
 
             if(params.length == 0) return null;
 
-            String report_id = params[0];
-            URL reportsUrl = NetworkUtils.buildReportsUrl(report_id);
+            String user_id = params[0];
+            URL reportsUrl = NetworkUtils.buildReportsUrl(user_id);
             // Para guardar la respuesta string en formato JSON
             String reportsJSONResult = null;
             try {

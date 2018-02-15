@@ -23,12 +23,12 @@ public class NetworkUtils {
     /**
      * Builds the URL used to query sccreporte.
      *
-     * @param reportsIdUserQuery The user id that will be queried for.
+     * @param userId The user id that will be queried for.
      * @return The URL to use to query the sccreporte.
      */
-    public static URL buildReportsUrl(String reportsIdUserQuery) {
+    public static URL buildReportsUrl(String userId) {
         Uri builtUri = Uri.parse(BASE_REPORTS_URL).buildUpon()
-                .appendQueryParameter(PARAM_QUERY_USER_ID, reportsIdUserQuery)
+                .appendQueryParameter(PARAM_QUERY_USER_ID, userId)
                 .build();
 
         URL url = null;
