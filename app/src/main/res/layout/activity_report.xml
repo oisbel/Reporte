@@ -6,18 +6,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
     android:background="@color/colorBackgroundLastReports"
     tools:context="com.sccreporte.reporte.LastReportsActivity">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorBackgroundLastReportsMain">
         <ImageButton
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="14dp"
             android:layout_alignParentLeft="true"
             android:background="?android:selectableItemBackground"
             app:srcCompat="@drawable/ic_action_back" />
@@ -29,30 +31,41 @@
             android:textColor="@color/colorOrange"
             android:text="@string/report_label"
             android:layout_marginTop="18dp"
-            android:layout_marginLeft="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="24dp"/>
 
         <Button
-            android:id="@+id/filterDayButton"
+            android:id="@+id/editButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="14dp"
             android:layout_marginTop="8dp"
-            android:text="@string/edit_label" />
+            android:text="Editar"
+            android:background="?android:attr/selectableItemBackground"/>
 
     </RelativeLayout>
 
     <View
         android:background="@color/colorMoreBackground"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_width="match_parent"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="16dp"/>
 
     // Tabla de contenido del reporte
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -68,7 +81,7 @@
             android:text="@string/ayunos_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -85,7 +98,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -101,7 +114,7 @@
             android:text="@string/horas_ayunos_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -118,7 +131,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -134,7 +147,7 @@
             android:text="@string/devocionales_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -151,7 +164,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -167,7 +180,7 @@
             android:text="@string/estudios_asistidos_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -184,7 +197,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -200,7 +213,7 @@
             android:text="@string/estudios_realizados_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -217,7 +230,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -233,7 +246,7 @@
             android:text="@string/mensajeros_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -250,7 +263,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -266,7 +279,7 @@
             android:text="@string/porciones_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -283,7 +296,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -299,7 +312,7 @@
             android:text="@string/visitas_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -316,7 +329,7 @@
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -326,7 +339,7 @@
             android:text="@string/otros_label"
             style="@style/reporDetailsLabelStyle"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -336,5 +349,7 @@
             android:layout_weight="0.5"
             style="@style/reportDetailsStyle"/>
     </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
    </LinearLayout>
 </layout>
