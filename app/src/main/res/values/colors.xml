@@ -13,4 +13,6 @@
     <color name="colorForegroundAyuno">#1D1D1D</color>
     <color name="colorOrange">#EF7F1A</color>
     <color name="colorBackgroundLastReportsMain">#014876</color>
+    <color name="colorBackgroundRegister">#FBC297</color>
+    <color name="colorForegroundRegister">#554D47</color>
 </resources>

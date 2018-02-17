@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Reporte</string>
+    <string name="scc_splash">SCC</string>
+    <string name="reports_splash">REPORTES</string>
     <string name="last_reports_label">Historial de Reportes</string>
     <string name="my_data_label">Mis Datos</string>
     <string name="create_report_label">Crear Reporte</string>
@@ -12,7 +14,7 @@
     <string name="error_message">No se pudo obtener el resultado, intente de nuevo</string>
     <string name="report_label">Reporte</string>
     <string name="edit_label">Editar</string>
-    
+
     <string name="avivamientos_label">Avivamientos</string>
     <string name="ayunos_label">Ayunos</string>
     <string name="biblias_label">Biblias</string>
@@ -30,5 +32,19 @@
     <string name="porciones_label">Porciones</string>
     <string name="sanidades_label">Sanidades</string>
     <string name="visitas_label">Visitas</string>
+
+    <string name="register_label">CREA UNA CUENTA</string>
+    <string name="nombre_label">Nombre</string>
+    <string name="email_label">Correo</string>
+    <string name="grado_label">Grado</string>
+    <string name="ministerio_label">Ministerio</string>
+    <string name="responsabilidad_label">Responsabilidad</string>
+    <string name="pastor_label">Pastor</string>
+    <string name="lugar_label">Lugar</string>
+    <string name="password_label">Contraseña</string>
+
+    <string name="register_tb_label">Registrarme</string>
+    <string name="already_label">¿Ya tiene una cuenta?</string>
+    <string name="login_tb_label"><u>Entrar</u></string>
 
 </resources>

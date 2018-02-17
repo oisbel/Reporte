@@ -101,4 +101,42 @@
         <item name="android:textColor">@color/colorOrange</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
+    <style name="sccSplashStyle">
+        <item name="android:textSize">42sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
+    </style>
+
+    <style name="reportSplashStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+
+    <style name="registerLabelStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
+    </style>
+
+    <style name="loginStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:ems">10</item>
+    </style>
+
+    <style name="registerTBStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorForegroundRegister</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="loginTBStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorForegroundRegister</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
 </resources>
