@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
@@ -21,6 +22,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
     EditText emailET;
     EditText passwordET;
     CardView registerCV;
+    ProgressBar loadingPB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
         emailET = (EditText) findViewById(R.id.emailEditText);
         passwordET = (EditText) findViewById(R.id.passwordEditText);
         registerCV = (CardView) findViewById(R.id.registerCardView);
+        loadingPB = (ProgressBar) findViewById(R.id.loadingProgressBar);
 
         // Obtener el string pasado de la activity anterior
         Intent intentThatStartedThisActivity = getIntent();
@@ -47,7 +50,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
         registerCV.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
         });
     }
