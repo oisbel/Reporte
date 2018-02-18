@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -44,5 +45,17 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private JSONObject create
+    /**
+     * Crea el objeto JSON que contiene los datos del registro
+     * @return
+     */
+    private JSONObject createPersonalData(){
+        JSONObject obj = new JSONObject();
+        try{
+            obj.put("nombre",nombreET.getText());
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        return obj;
+    }
 }
