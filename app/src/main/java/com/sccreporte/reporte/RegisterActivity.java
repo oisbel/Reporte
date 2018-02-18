@@ -40,6 +40,10 @@ public class RegisterActivity extends AppCompatActivity {
                 Context context = RegisterActivity.this;
                 Class destinationActivity = CreatePasswordActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
+
+                JSONObject dataUserJSON = createPersonalData();
+                startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, dataUserJSON.toString());
+
                 startActivity(startChildActivityIntent);
             }
         });
@@ -53,6 +57,11 @@ public class RegisterActivity extends AppCompatActivity {
         JSONObject obj = new JSONObject();
         try{
             obj.put("nombre",nombreET.getText());
+            obj.put("grado",gradoET.getText());
+            obj.put("ministerio",ministerioET.getText());
+            obj.put("responsabilidad",responsabilidadET.getText());
+            obj.put("pastor",pastorET.getText());
+            obj.put("lugar",lugarET.getText());
         }catch (JSONException e){
             e.printStackTrace();
         }
