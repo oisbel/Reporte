@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     /**
-     * Crea el objeto JSON que contiene los datos del registro
+     * Crea el objeto JSON que contiene los datos del registro del usuario
      * @return
      */
     private JSONObject createPersonalData(){
