@@ -139,4 +139,10 @@
         <item name="android:textColor">@color/colorBackgroundRegister</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
+    <style name="emailTBStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
 </resources>

@@ -15,7 +15,16 @@ public class User {
     public String pastor;
     public String password;
 
-    public User(){
-
+    public User(int id, String nombre, String email, String grado, String ministerio,
+                String responsabilidad, String lugar, String pastor, String password){
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.grado = grado;
+        this.ministerio = ministerio;
+        this.responsabilidad = responsabilidad;
+        this.lugar = lugar;
+        this.pastor = pastor;
+        this.password = password;
     }
 }
