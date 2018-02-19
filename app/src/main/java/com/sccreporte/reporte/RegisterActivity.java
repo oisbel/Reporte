@@ -45,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, dataUserJSON.toString());
 
                 startActivity(startChildActivityIntent);
+                finish();
             }
         });
     }
