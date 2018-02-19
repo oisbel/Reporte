@@ -80,11 +80,13 @@ public class CreatePasswordActivity extends AppCompatActivity {
 
     /**
      * Guarda el usuario creado (userDataJSON), usando SharePreferences
+     * @param user_id
      */
-    private void SaveUser(){
+    private void SaveUser(int user_id){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         try {
+            editor.putInt("id", user_id);
             editor.putString("nombre", userDataJSON.getString("nombre"));
             editor.putString("email", userDataJSON.getString("email"));
             editor.putString("grado", userDataJSON.getString("grado"));
@@ -157,7 +159,13 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 if(jsonObject.has("email")){
                     // sucess
                     ShowCreatedUserMessage();
-                    SaveUser();
+                    int user_id = 0;
+                    try{
+                        user_id = jsonObject.getInt("id");
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                    SaveUser(user_id);
                 }
             } else {
                 ShowErrorMessage();

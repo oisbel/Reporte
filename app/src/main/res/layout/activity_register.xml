@@ -131,7 +131,7 @@
             android:background="@color/colorBackgroundRegister"
             android:padding="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/register_tb_label"
+            android:text="@string/register_bt_label"
             android:textColor="@color/colorForegroundRegister" />
     </LinearLayout>
 

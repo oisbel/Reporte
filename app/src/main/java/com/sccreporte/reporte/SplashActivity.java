@@ -16,6 +16,12 @@ public class SplashActivity extends AppCompatActivity {
 
         // Check if there is a user registered, load the user email
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // temp delete sharepreferences
+        //SharedPreferences.Editor editor = sharedPreferences.edit();
+        //editor.clear();
+        //editor.apply();
+
         final String user_email = sharedPreferences.getString("email","");
 
         Handler handler = new Handler();

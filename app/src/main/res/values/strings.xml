@@ -43,7 +43,7 @@
     <string name="lugar_label">Lugar</string>
     <string name="password_label">Contraseña</string>
 
-    <string name="register_tb_label">Registrarme</string>
+    <string name="register_bt_label">Registrarme</string>
     <string name="already_label">¿Ya tiene una cuenta?</string>
     <string name="login_tb_label"><u>Entrar</u></string>
 
