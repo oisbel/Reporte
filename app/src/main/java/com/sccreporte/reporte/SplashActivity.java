@@ -14,9 +14,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Check if there is a user registered
+        // Check if there is a user registered, load the user email
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        final String user_email = sharedPreferences.getString("user_email","");
+        final String user_email = sharedPreferences.getString("email","");
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -28,6 +28,7 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
+                    // if there is data from existing user: log in
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                     finish();

@@ -47,4 +47,8 @@
     <string name="already_label">¿Ya tiene una cuenta?</string>
     <string name="login_tb_label"><u>Entrar</u></string>
 
+    <string name="create_user_error_message">No se ha podido crear el usuario</string>
+    <string name="user_exist_message">Un usuario con ese correo ya existe</string>
+    <string name="user_created">Su cuenta se ha creado</string>
+
 </resources>
