@@ -79,30 +79,53 @@ public class CreatePasswordActivity extends AppCompatActivity {
         toast.show();
     }
 
+    private void ShowUserNoExistMessage(){
+        Toast toast = Toast.makeText(this, R.string.user_no_exist_message, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
     /**
      * Guarda el usuario creado (userDataJSON), usando SharePreferences
      * Ademas abre la main activity
      * @param user_id
      */
-    private void SaveUser(int user_id){
+    private void SaveUser(int user_id, JSONObject jsonResponse) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        try {
-            editor.putInt("id", user_id);
-            editor.putString("nombre", userDataJSON.getString("nombre"));
-            editor.putString("email", userDataJSON.getString("email"));
-            editor.putString("grado", userDataJSON.getString("grado"));
-            editor.putString("ministerio", userDataJSON.getString("ministerio"));
-            editor.putString("responsabilidad", userDataJSON.getString("responsabilidad"));
-            editor.putString("lugar", userDataJSON.getString("lugar"));
-            editor.putString("pastor", userDataJSON.getString("pastor"));
-            editor.putString("password", userDataJSON.getString("password"));
-            editor.apply();
+        if (user_id != -1) { // se registro
+            try {
+                editor.putInt("id", user_id);
+                editor.putString("nombre", userDataJSON.getString("nombre"));
+                editor.putString("email", userDataJSON.getString("email"));
+                editor.putString("grado", userDataJSON.getString("grado"));
+                editor.putString("ministerio", userDataJSON.getString("ministerio"));
+                editor.putString("responsabilidad", userDataJSON.getString("responsabilidad"));
+                editor.putString("lugar", userDataJSON.getString("lugar"));
+                editor.putString("pastor", userDataJSON.getString("pastor"));
+                editor.putString("password", userDataJSON.getString("password"));
+                editor.apply();
 
-        }catch (JSONException e){
-            e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        else {// se logeo
+            try {
+                editor.putInt("id", jsonResponse.getInt("id"));
+                editor.putString("nombre", jsonResponse.getString("nombre"));
+                editor.putString("email", userDataJSON.getString("email"));
+                editor.putString("grado", jsonResponse.getString("grado"));
+                editor.putString("ministerio", jsonResponse.getString("ministerio"));
+                editor.putString("responsabilidad", jsonResponse.getString("responsabilidad"));
+                editor.putString("lugar", jsonResponse.getString("lugar"));
+                editor.putString("pastor", jsonResponse.getString("pastor"));
+                editor.putString("password", userDataJSON.getString("password"));
+                editor.apply();
+            }catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         finish();
 
@@ -125,7 +148,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
     }
 
     /**
-     * Crea el objeto JSON que se va a mandar con el rewuest de crear
+     * Crea el objeto JSON que se va a mandar con el request de crear
      * el usuario y ejecuta el asynctask
      */
     private void makeCreateUserQuery(){
@@ -141,6 +164,26 @@ public class CreatePasswordActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Crea el objeto JSON con email y pass del
+     * usuario que se intenta logear, y ejecuta el asynctask
+     */
+    private void makeGetUserQuery(){
+        if(!checkEntries()) return;
+        userDataJSON = new JSONObject();
+        try{
+            userDataJSON.put("email", emailET.getText());
+            userDataJSON.put("password", passwordET.getText());
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        new GetUserQueryTask().execute(userDataJSON);
+    }
+
+    /**
+     * Ejecuta el pedido de crear un usuario nuevo pasandole el objeto json
+     * con toda la informacion del usuario
+     */
     public class CreateUserQueryTask extends AsyncTask<JSONObject, Void, JSONObject>{
         @Override
         protected void onPreExecute() {
@@ -187,6 +230,71 @@ public class CreatePasswordActivity extends AppCompatActivity {
                     if(user_id != -1){
                         SaveUser(user_id);
                     }
+                }
+            } else {
+                ShowErrorMessage();
+            }
+        }
+    }
+
+    /**
+     * Ejecuta el pedido de logear un usuario pasandole el header authorization
+     * que seria el objeto json con email y password
+     */
+    public class GetUserQueryTask extends AsyncTask<JSONObject, Void, JSONObject>{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loadingPB.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected JSONObject doInBackground(JSONObject... jsonObjects) {
+            if(jsonObjects.length == 0) return null;
+            JSONObject jsonData = jsonObjects[0];
+            URL getUserUrl = NetworkUtils.buildGetUserUrl();
+            String createUserJSONResult = null;
+            String user_name = "";
+            String pass = "";
+
+            try{
+                user_name = jsonData.getString("email");
+                pass = jsonData.getString("password");
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+
+            try {
+                createUserJSONResult = NetworkUtils.getUserFromHttpUrl(getUserUrl, user_name, pass);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            JSONObject result = null;
+            try {
+                result = new JSONObject(createUserJSONResult);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            loadingPB.setVisibility(View.INVISIBLE);
+            if(jsonObject != null){
+                String status = "fail";
+                try{
+                    status = jsonObject.getString("status");
+                    if(status == "fail"){
+                        ShowUserNoExistMessage();
+                    }else{
+                        // sucess
+                        SaveUser(-1, jsonObject);
+
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                    ShowErrorMessage();
                 }
             } else {
                 ShowErrorMessage();

@@ -148,6 +148,9 @@ public class LastReportsActivity extends AppCompatActivity
         startActivity(startChildActivityIntent);
     }
 
+    /**
+     * Ejecuta el pedido de obtener los reportes de un usuario pasandole el user_id
+     */
     public class ReportsQueryTask extends AsyncTask<String, Void, List<Report>>{
 
         @Override
