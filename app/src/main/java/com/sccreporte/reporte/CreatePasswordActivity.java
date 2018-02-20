@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
@@ -31,6 +32,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
     EditText emailET;
     EditText passwordET;
     Button registerBT;
+    TextView loginTB;
     ProgressBar loadingPB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
         passwordET = (EditText) findViewById(R.id.passwordEditText);
         registerBT = (Button) findViewById(R.id.registerButton);
         loadingPB = (ProgressBar) findViewById(R.id.loadingProgressBar);
+        loginTB = (TextView) findViewById(R.id.loginTextView);
 
         // Obtener el string pasado de la activity anterior
         Intent intentThatStartedThisActivity = getIntent();
@@ -60,6 +63,13 @@ public class CreatePasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 makeCreateUserQuery();
+            }
+        });
+
+        loginTB.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeGetUserQuery();
             }
         });
     }
@@ -82,6 +92,21 @@ public class CreatePasswordActivity extends AppCompatActivity {
     private void ShowUserNoExistMessage(){
         Toast toast = Toast.makeText(this, R.string.user_no_exist_message, Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    private void ShowGoToRegisterScreen(){
+        Toast toast = Toast.makeText(this, R.string.must_register, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    private void showLoading(){
+        loadingPB.setVisibility(View.VISIBLE);
+        loginTB.setVisibility(View.INVISIBLE);
+    }
+
+    private void showLogin(){
+        loadingPB.setVisibility(View.INVISIBLE);
+        loginTB.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -161,6 +186,8 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             new CreateUserQueryTask().execute(userDataJSON);
+        }else{
+            ShowGoToRegisterScreen();
         }
     }
 
@@ -174,10 +201,10 @@ public class CreatePasswordActivity extends AppCompatActivity {
         try{
             userDataJSON.put("email", emailET.getText());
             userDataJSON.put("password", passwordET.getText());
+            new GetUserQueryTask().execute(userDataJSON);
         }catch (JSONException e){
             e.printStackTrace();
         }
-        new GetUserQueryTask().execute(userDataJSON);
     }
 
     /**
@@ -188,32 +215,33 @@ public class CreatePasswordActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            loadingPB.setVisibility(View.VISIBLE);
+            showLoading();
         }
 
         @Override
         protected JSONObject doInBackground(JSONObject... jsonObjects) {
-            if(jsonObjects.length == 0) return null;
+            if(jsonObjects == null || jsonObjects.length == 0) return null;
             JSONObject jsonData = jsonObjects[0];
             URL createUserUrl = NetworkUtils.buildCreateUserUrl();
             String createUserJSONResult = null;
+            JSONObject result = null;
             try {
                 createUserJSONResult = NetworkUtils.geCreateUserFromHttpUrl(createUserUrl,jsonData);
             }catch (IOException e){
                 e.printStackTrace();
             }
-            JSONObject result = null;
             try {
                 result = new JSONObject(createUserJSONResult);
             }catch (JSONException e){
                 e.printStackTrace();
+                return result;
             }
             return result;
         }
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            loadingPB.setVisibility(View.INVISIBLE);
+            showLoading();
             if(jsonObject != null){
                 if(jsonObject.has("message")){
                     ShowUserExistMessage();
@@ -228,7 +256,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     if(user_id != -1){
-                        SaveUser(user_id);
+                        SaveUser(user_id, null);
                     }
                 }
             } else {
@@ -245,12 +273,14 @@ public class CreatePasswordActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            loadingPB.setVisibility(View.VISIBLE);
+            showLoading();
         }
 
         @Override
         protected JSONObject doInBackground(JSONObject... jsonObjects) {
             if(jsonObjects.length == 0) return null;
+            JSONObject result = null;
+
             JSONObject jsonData = jsonObjects[0];
             URL getUserUrl = NetworkUtils.buildGetUserUrl();
             String createUserJSONResult = null;
@@ -268,8 +298,9 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 createUserJSONResult = NetworkUtils.getUserFromHttpUrl(getUserUrl, user_name, pass);
             }catch (IOException e){
                 e.printStackTrace();
+                return result;
             }
-            JSONObject result = null;
+
             try {
                 result = new JSONObject(createUserJSONResult);
             }catch (JSONException e){
@@ -280,7 +311,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            loadingPB.setVisibility(View.INVISIBLE);
+            showLogin();
             if(jsonObject != null){
                 String status = "fail";
                 try{
@@ -290,7 +321,6 @@ public class CreatePasswordActivity extends AppCompatActivity {
                     }else{
                         // sucess
                         SaveUser(-1, jsonObject);
-
                     }
                 }catch (JSONException e){
                     e.printStackTrace();

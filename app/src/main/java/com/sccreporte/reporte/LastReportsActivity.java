@@ -172,6 +172,7 @@ public class LastReportsActivity extends AppCompatActivity
                 reportsJSONResult = NetworkUtils.getReportsFromHttpUrl(reportsUrl, mUser.email, mUser.password);
             }catch (IOException e){
                 e.printStackTrace();
+                return null;
             }
             ReportsData reportsData = null;
             try {
