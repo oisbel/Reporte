@@ -36,12 +36,14 @@ public class Report implements Comparable<Report>{
     public int sanidades;
     public int user_id;
     public int visitas;
+    // para especificar cuando se pudo parsear satisfactoriamente la fecha
+    public boolean fechaOK;
 
     public Report(JSONObject report){
         reportJSON = report;
         String tempFecha = "04/04/1988";
         SimpleDateFormat formatter = new SimpleDateFormat(
-                "EEE, dd MMM yyyy HH:mm:ss zzz", Locale.getDefault());
+                "EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
         try {
             avivamientos = report.getInt("avivamientos");
             ayunos = report.getInt("ayunos");
@@ -70,8 +72,11 @@ public class Report implements Comparable<Report>{
 
         try {
             fecha = formatter.parse(tempFecha);
+            fechaOK =true;
         } catch (ParseException e){
             e.printStackTrace();
+            fechaOK = false;
+            fecha = new Date(2014,11,11);
         }
     }
 

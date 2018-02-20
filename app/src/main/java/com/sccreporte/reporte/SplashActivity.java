@@ -31,9 +31,9 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         // temp delete sharepreferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
+        //SharedPreferences.Editor editor = sharedPreferences.edit();
+        //editor.clear();
+        //editor.apply();
 
         // Load user data to see if is already register
         final String user_email = sharedPreferences.getString("email","");

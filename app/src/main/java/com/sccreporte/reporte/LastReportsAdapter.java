@@ -106,10 +106,14 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
             // Estableciendo los valores al list item del reporte
             ayunosTB.setText("Ayunos: " + String.valueOf(report.ayunos));
             avivamientosTB.setText("Avivamientos: " + String.valueOf(report.avivamientos));
+
+            String year = report.fechaOK ? String.valueOf(report.fecha.getYear() + 1900):
+                    String.valueOf(report.fecha.getYear());
+
             fechaTB.setText(
                     String.valueOf(report.fecha.getDate()) + "/" +
                     DataUtils.Months[report.fecha.getMonth()] + "/" +
-                    String.valueOf(report.fecha.getYear() + 1900));
+                    year);
             //lugarTB.setText(String.valueOf(report.lugar));
             visitasTB.setText("Visitas: " + String.valueOf(report.visitas));
         }
