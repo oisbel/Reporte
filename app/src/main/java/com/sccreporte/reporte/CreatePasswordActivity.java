@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
+import com.sccreporte.reporte.utilities.DataUtils;
 import com.sccreporte.reporte.utilities.NetworkUtils;
 
 import org.json.JSONException;
@@ -108,10 +109,27 @@ public class CreatePasswordActivity extends AppCompatActivity {
     }
 
     /**
+     * Verifica que se hayan entrado los campos obligatorios(nombre
+     * @return
+     */
+    private boolean checkEntries(){
+        if(passwordET.getText().toString().equalsIgnoreCase("")){
+            passwordET.setError("Correo Inválido");
+            return false;
+        }
+        if(!DataUtils.validateEmail(emailET.getText().toString())){
+            emailET.setError("Obligatorio");
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Crea el objeto JSON que se va a mandar con el rewuest de crear
      * el usuario y ejecuta el asynctask
      */
     private void makeCreateUserQuery(){
+        if(!checkEntries()) return;
         if(userDataJSON != null){
             try {
                 userDataJSON.put("email", emailET.getText());
