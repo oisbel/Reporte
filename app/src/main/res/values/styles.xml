@@ -135,7 +135,7 @@
     </style>
 
     <style name="loginTBStyle">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/colorBackgroundRegister</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
