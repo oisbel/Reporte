@@ -6,8 +6,8 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -30,7 +30,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
     JSONObject userDataJSON;
     EditText emailET;
     EditText passwordET;
-    CardView registerCV;
+    Button registerBT;
     ProgressBar loadingPB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
 
         emailET = (EditText) findViewById(R.id.emailEditText);
         passwordET = (EditText) findViewById(R.id.passwordEditText);
-        registerCV = (CardView) findViewById(R.id.registerCardView);
+        registerBT = (Button) findViewById(R.id.registerButton);
         loadingPB = (ProgressBar) findViewById(R.id.loadingProgressBar);
 
         // Obtener el string pasado de la activity anterior
@@ -47,7 +47,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
         if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
             mUserDataJSONString = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
         }
-        // Crear el objeto JSON
+        // Crear el objeto JSON a partir del string pasado de la activity anterior
         if(mUserDataJSONString != ""){
             try{
                 userDataJSON = new JSONObject(mUserDataJSONString);
@@ -56,7 +56,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
             }
         }
 
-        registerCV.setOnClickListener(new OnClickListener() {
+        registerBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 makeCreateUserQuery();
