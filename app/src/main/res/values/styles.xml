@@ -24,7 +24,7 @@
     </style>
 
     <style name="DivStyle">
-        <item name="android:background">@color/colorAccent</item>
+        <item name="android:background">@drawable/div_gradient</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_marginTop">2dp</item>
