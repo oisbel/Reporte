@@ -43,7 +43,7 @@ public class Report implements Comparable<Report>{
         reportJSON = report;
         String tempFecha = "04/04/1988";
         SimpleDateFormat formatter = new SimpleDateFormat(
-                "EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
+                "EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH );
         try {
             avivamientos = report.getInt("avivamientos");
             ayunos = report.getInt("ayunos");

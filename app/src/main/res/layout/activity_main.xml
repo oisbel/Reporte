@@ -7,14 +7,52 @@
     android:background="@color/colorBackground"
     tools:context="com.sccreporte.reporte.MainActivity">
 
+    <RelativeLayout
+        android:id="@+id/menuRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="14dp"
+            android:layout_alignParentLeft="true"
+            android:background="?android:selectableItemBackground"
+            app:srcCompat="@drawable/ic_action_menu" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/menuButton"
+            android:layout_toEndOf="@+id/menuButton"
+            style="@style/lastReportLabelStyle"
+            android:text="@string/welcome_message"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"/>
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="14dp"
+            android:layout_alignParentRight="true"
+            android:background="?android:selectableItemBackground"
+            app:srcCompat="@drawable/ic_action_settings" />
+
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/imageUserPhoto"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuRelativeLayout"
         app:srcCompat="@drawable/ic_action_account" />
 
     <TextView
@@ -62,7 +100,7 @@
 
     <View
         android:id="@+id/rectangleForButton"
-        android:background="@color/colorDifferBackground"
+        android:background="@drawable/create_report_gradient"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewMore"

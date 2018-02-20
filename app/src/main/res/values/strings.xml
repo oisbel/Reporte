@@ -11,6 +11,8 @@
     <string name="radio_label">RADIO</string>
     <string name="events_label">EVENTOS</string>
 
+    <string name="welcome_message">Bienvenido</string>
+
     <string name="error_message">No se pudo obtener el resultado, intente de nuevo</string>
     <string name="empty_message">No ha llenado reportes hasta el momento</string>
     <string name="report_label">Reporte</string>
