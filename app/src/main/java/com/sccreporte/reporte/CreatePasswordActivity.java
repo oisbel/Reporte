@@ -229,19 +229,19 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 createUserJSONResult = NetworkUtils.geCreateUserFromHttpUrl(createUserUrl,jsonData);
             }catch (IOException e){
                 e.printStackTrace();
+                return result;
             }
             try {
                 result = new JSONObject(createUserJSONResult);
             }catch (JSONException e){
                 e.printStackTrace();
-                return result;
             }
             return result;
         }
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            showLoading();
+            showLogin();
             if(jsonObject != null){
                 if(jsonObject.has("message")){
                     ShowUserExistMessage();
@@ -283,7 +283,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
 
             JSONObject jsonData = jsonObjects[0];
             URL getUserUrl = NetworkUtils.buildGetUserUrl();
-            String createUserJSONResult = null;
+            String getUserJSONResult = null;
             String user_name = "";
             String pass = "";
 
@@ -295,14 +295,14 @@ public class CreatePasswordActivity extends AppCompatActivity {
             }
 
             try {
-                createUserJSONResult = NetworkUtils.getUserFromHttpUrl(getUserUrl, user_name, pass);
+                getUserJSONResult = NetworkUtils.getUserFromHttpUrl(getUserUrl, user_name, pass);
             }catch (IOException e){
                 e.printStackTrace();
                 return result;
             }
 
             try {
-                result = new JSONObject(createUserJSONResult);
+                result = new JSONObject(getUserJSONResult);
             }catch (JSONException e){
                 e.printStackTrace();
             }

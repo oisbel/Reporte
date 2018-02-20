@@ -32,6 +32,7 @@ public class LastReportsActivity extends AppCompatActivity
     private LastReportsAdapter mReportAdapter;
     private RecyclerView mReportList;
     private TextView mErrorMessageDisplay;
+    private TextView mEmptyMessageDisplay;
     // Create a ProgressBar variable to store a reference to the ProgressBar
     private ProgressBar mLoadingIndicator;
 
@@ -60,6 +61,9 @@ public class LastReportsActivity extends AppCompatActivity
 
         // Get a reference to the error TextView using findViewById
         mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
+
+        // Get a reference to the empty TextView using findViewById
+        mEmptyMessageDisplay = (TextView) findViewById(R.id.emptyMessageTextView);
 
         // Get a reference to the ProgressBar using findViewById
         mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
@@ -116,6 +120,19 @@ public class LastReportsActivity extends AppCompatActivity
         mReportList.setVisibility(View.INVISIBLE);
         // Then, show the error
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * This method will make the empty message visible and hide the Recycler View.
+     * <p>
+     * Since it is okay to redundantly set the visibility of a View, we don't
+     * need to check whether each view is currently visible or invisible.
+     */
+    private void showEmptyMessage() {
+        // First, hide the currently visible data
+        mReportList.setVisibility(View.INVISIBLE);
+        // Then, show the error
+        mEmptyMessageDisplay.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -197,6 +214,8 @@ public class LastReportsActivity extends AppCompatActivity
                 mReportsData = reportsDataResult;
                 // Mando los datos al adaptador para que los muestre en el recyclerView
                 mReportAdapter.setReportData(reportsDataResult);
+            }else if(reportsDataResult != null && reportsDataResult.size() == 0){
+                showEmptyMessage();
             }else{
                 showErrorMessage();
             }

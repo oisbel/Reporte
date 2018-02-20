@@ -23,9 +23,9 @@ public class NetworkUtils {
 
     final static String BASE_REPORTS_URL = Base_URL + "/reports";
 
-    final static String BASE_GET_USER_URL = Base_URL + "/user/get";
+    final static String BASE_GET_USER_URL = Base_URL + "/getuser";
 
-    final static String BASE_CREATE_USER_URL = Base_URL + "/user";
+    final static String BASE_CREATE_USER_URL = Base_URL + "/adduser";
 
     final static String PARAM_QUERY_USER_ID = "user_id";
 
