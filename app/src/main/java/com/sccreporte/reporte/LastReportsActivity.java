@@ -166,7 +166,7 @@ public class LastReportsActivity extends AppCompatActivity
             // Para guardar la respuesta string en formato JSON
             String reportsJSONResult = null;
             try {
-                reportsJSONResult = NetworkUtils.getResponseFromHttpUrl(reportsUrl);
+                reportsJSONResult = NetworkUtils.getReportsFromHttpUrl(reportsUrl, mUser.email, mUser.password);
             }catch (IOException e){
                 e.printStackTrace();
             }

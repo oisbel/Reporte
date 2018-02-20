@@ -1,6 +1,7 @@
 package com.sccreporte.reporte.utilities;
 
 import android.net.Uri;
+import android.util.Base64;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -54,8 +55,14 @@ public class NetworkUtils {
      * @return The contents of the HTTP response.
      * @throws IOException Related to network and stream reading
      */
-    public static String getResponseFromHttpUrl(URL url) throws IOException {
+    public static String getReportsFromHttpUrl(URL url, String username, String password) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+        urlConnection.setRequestMethod("GET");
+        String basicAuth = buildBasicAuthorizationString(username, password);
+        urlConnection.setRequestProperty("Authorization", basicAuth);
+        urlConnection.setRequestProperty("Accept","application/json");
+
         try {
             InputStream in = urlConnection.getInputStream();
 
@@ -125,5 +132,11 @@ public class NetworkUtils {
         } finally {
             urlConnection.disconnect();
         }
+    }
+
+    private static String buildBasicAuthorizationString(String username, String password) {
+
+        String credentials = username + ":" + password;
+        return "Basic " + new String(Base64.encode(credentials.getBytes(), Base64.DEFAULT));
     }
 }
