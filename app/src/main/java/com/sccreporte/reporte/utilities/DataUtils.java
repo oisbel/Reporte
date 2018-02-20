@@ -1,5 +1,11 @@
 package com.sccreporte.reporte.utilities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import com.sccreporte.reporte.data.User;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +24,22 @@ public class DataUtils {
     public static boolean validateEmail(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
         return matcher.find();
+    }
+
+    /**
+     * Get the user data form SharePreferences
+     */
+    public static User loadUserData(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return new User(sharedPreferences.getInt("id",-1),
+                sharedPreferences.getString("nombre",""),
+                sharedPreferences.getString("email",""),
+                sharedPreferences.getString("grado",""),
+                sharedPreferences.getString("ministerio",""),
+                sharedPreferences.getString("responsabilidad",""),
+                sharedPreferences.getString("lugar",""),
+                sharedPreferences.getString("pastor",""),
+                sharedPreferences.getString("password",""));
     }
 }
 

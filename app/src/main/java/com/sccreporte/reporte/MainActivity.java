@@ -2,8 +2,6 @@ package com.sccreporte.reporte;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.sccreporte.reporte.data.User;
+import com.sccreporte.reporte.utilities.DataUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,23 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startChildActivityIntent);
             }
         });
-        loadUserData();
+        mUser = DataUtils.loadUserData(this);
         emailTV.setText(mUser.email);
-    }
-
-    /**
-     * Get the user data form SharePreferences
-     */
-    private void loadUserData(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mUser = new User(sharedPreferences.getInt("id",-1),
-                sharedPreferences.getString("nombre",""),
-                sharedPreferences.getString("email",""),
-                sharedPreferences.getString("grado",""),
-                sharedPreferences.getString("ministerio",""),
-                sharedPreferences.getString("responsabilidad",""),
-                sharedPreferences.getString("lugar",""),
-                sharedPreferences.getString("pastor",""),
-                sharedPreferences.getString("password",""));
     }
 }

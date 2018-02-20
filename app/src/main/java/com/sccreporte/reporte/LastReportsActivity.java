@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.ReportsData;
+import com.sccreporte.reporte.data.User;
+import com.sccreporte.reporte.utilities.DataUtils;
 import com.sccreporte.reporte.utilities.NetworkUtils;
 
 import java.io.IOException;
@@ -39,6 +41,8 @@ public class LastReportsActivity extends AppCompatActivity
 
     // Lista de los reportes
     List<Report> mReportsData;
+
+    private User mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,7 @@ public class LastReportsActivity extends AppCompatActivity
         mReportAdapter = new LastReportsAdapter(this);
         mReportList.setAdapter(mReportAdapter);
 
+        mUser = DataUtils.loadUserData(this);
         /* Once all of our views are setup, we can load the reports data. */
         loadReportData();
     }
@@ -82,8 +87,7 @@ public class LastReportsActivity extends AppCompatActivity
      * Establece el id de usuario, y ejecuta el hilo para descargar sus reportes
      */
     private void makeReportsQuery(){
-        String user_id = "1";
-        new ReportsQueryTask().execute(user_id);
+        new ReportsQueryTask().execute(Integer.toString(mUser.id));
     }
 
     // Helper methods
