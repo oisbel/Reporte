@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
 
-<android.support.constraint.ConstraintLayout
+    <android.support.constraint.ConstraintLayout
+    android:id="@+id/contentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.sccreporte.reporte.MainActivity">
@@ -47,7 +48,7 @@
             android:layout_marginRight="14dp"
             android:layout_alignParentRight="true"
             android:background="?android:selectableItemBackground"
-            app:srcCompat="@drawable/ic_action_settings" />
+            app:srcCompat="@drawable/ic_action_toolbar" />
 
     </RelativeLayout>
     <ScrollView
@@ -57,7 +58,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:scrollbars="none"
         android:fillViewport="true"
-        android:layout_marginTop="48dp">
+        android:layout_marginTop="56dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -293,4 +294,17 @@
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/leftDrawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#111">
+
+    </ListView>
+
 </android.support.v4.widget.DrawerLayout>
