@@ -36,6 +36,11 @@
     <string name="sanidades_label">Sanidades</string>
     <string name="visitas_label">Visitas</string>
 
+    <string name="estudios_label">Estudios</string>
+    <string name="asistidosE_label">Asistidos</string>
+    <string name="establecidosE_label">Establecidos</string>
+    <string name="realizadosE_label">Realizados</string>
+
     <string name="register_label">CREA UNA CUENTA</string>
     <string name="nombre_label">Nombre</string>
     <string name="email_label">Correo</string>
