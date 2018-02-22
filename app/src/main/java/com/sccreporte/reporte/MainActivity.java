@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.sccreporte.reporte.utilities.DataUtils;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton toolsBT;
+    private ImageButton addReportBT;
     private TextView lastReportsTV;
     private TextView emailTV; // El email del usuario
     private User mUser;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolsBT = (ImageButton) findViewById(R.id.toolsButton);
+        addReportBT = findViewById(R.id.imageButtonAddReport);
         lastReportsTV = (TextView)findViewById(R.id.lastReportsTextView);
         emailTV = (TextView)findViewById(R.id.emailTextView);
 
@@ -38,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // Agregarle estilo al popup menu
+                // Agregarle estilo al contenido del popup menu
                 ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(
                         MainActivity.this, R.style.popupMenuStyle);
 
-                PopupMenu popup = new PopupMenu(contextThemeWrapper,view);
+                PopupMenu popup = new PopupMenu(contextThemeWrapper, view);
                 MenuInflater inflater = popup.getMenuInflater();
                 inflater.inflate(R.menu.main, popup.getMenu());
                 popup.show();
@@ -70,12 +73,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // establecer el click listener para los ultimos reportes
+        // establecer el click listener para ultimos reportes
         lastReportsTV.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = MainActivity.this;
                 Class destinationActivity = LastReportsActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
+            }
+        });
+
+        // establecer el click para crear reporte
+        addReportBT.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = MainActivity.this;
+                Class destinationActivity = CreateReportActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
