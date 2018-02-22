@@ -8,42 +8,91 @@
     tools:context="com.sccreporte.reporte.CreateReportActivity">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/create_report_gradient"
-        android:layout_marginBottom="16dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="14dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="14dp"
-            android:layout_alignParentLeft="true"
             android:background="?android:selectableItemBackground"
             app:srcCompat="@drawable/ic_action_back" />
+
         <TextView
+            style="@style/lastReportLabelStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/backButton"
-            style="@style/lastReportLabelStyle"
-            android:text="@string/create_report_label"
-            android:layout_marginTop="18dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginLeft="32dp"/>
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="18dp"
+            android:layout_toRightOf="@+id/backButton"
+            android:text="@string/create_report_label" />
 
         <ImageButton
             android:id="@+id/doneButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_alignParentRight="true"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="14dp"
-            android:layout_alignParentRight="true"
+            android:layout_marginTop="16dp"
             android:background="?android:selectableItemBackground"
             app:srcCompat="@drawable/ic_action_done" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/lugarTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        style="@style/createReportDataStyle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <TextView
+        android:id="@+id/fechaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        style="@style/createReportDataStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        style="@style/createReportNameStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lugarTextView" />
+
+    <View
+        android:background="@color/colorMoreBackground"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"/>
+
+
 
 </android.support.constraint.ConstraintLayout>
