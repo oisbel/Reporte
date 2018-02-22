@@ -35,7 +35,7 @@
             android:layout_marginLeft="16dp"/>
 
         <ImageButton
-            android:id="@+id/settingsButton"
+            android:id="@+id/toolsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

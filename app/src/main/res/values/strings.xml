@@ -58,4 +58,6 @@
 
     <string name="mandatory_error">Obligatorio</string>
 
+    <string name="logout_menu_label">Salir</string>
+
 </resources>
