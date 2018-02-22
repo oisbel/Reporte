@@ -96,7 +96,9 @@ public class MainActivity extends AppCompatActivity {
         });
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(this);
-        emailTV.setText(mUser.email);
+        if(mUser.email!=""){
+            emailTV.setText(mUser.email);
+        }
     }
 
     //@Override
