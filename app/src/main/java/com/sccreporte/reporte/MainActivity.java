@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Agregarle estilo al contenido del popup menu
                 ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(
-                        MainActivity.this, R.style.popupMenuStyle);
+                        MainActivity.this, R.style.wraperPopupMenuStyle);
 
                 PopupMenu popup = new PopupMenu(contextThemeWrapper, view);
                 MenuInflater inflater = popup.getMenuInflater();

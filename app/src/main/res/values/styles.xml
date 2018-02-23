@@ -1,13 +1,26 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:popupMenuStyle">@style/myPopupTheme</item>
     </style>
 
+    <style name="myPopupTheme" parent="@android:style/Widget.Holo.PopupMenu">
+       
+    </style>
+
+    <style name="wraperPopupMenuStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:background">@color/colorBackground</item>
+        <item name="android:width">20dp</item>
+        <item name="android:layout_width">20dp</item>
+    </style>
     <style name="MainLabelStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/white</item>
@@ -144,13 +157,6 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
-    <style name="popupMenuStyle">
-        <item name="android:textSize">16dp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:background">@color/colorBackground</item>
     </style>
 
     <style name="createReportDataStyle">
