@@ -31,7 +31,7 @@ public class Report implements Comparable<Report>{
     public int id;
     public int mensajeros;
     public int mensajes;
-    public String otros;
+    public String otros = "";
     public int porciones;
     public int sanidades;
     public int user_id;
@@ -76,14 +76,17 @@ public class Report implements Comparable<Report>{
             e.printStackTrace();
         }
 
-        try {
-            fecha = formatter.parse(tempFecha);
-            fechaOK =true;
-        } catch (ParseException e){
-            e.printStackTrace();
-            fechaOK = false;
-            fecha = new Date(2014,11,11);
+        if(report.has("fecha")) {
+            try {
+                fecha = formatter.parse(tempFecha);
+                fechaOK =true;
+            } catch (ParseException e){
+                e.printStackTrace();
+                fechaOK = false;
+                fecha = new Date(2014,11,11);
+            }
         }
+
     }
 
     @Override

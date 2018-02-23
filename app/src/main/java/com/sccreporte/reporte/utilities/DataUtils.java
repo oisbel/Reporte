@@ -31,13 +31,15 @@ public class DataUtils {
     }
 
     /**
-     * Get the user data form SharePreferences
+     * Get the not save report data form SharePreferences
      */
-    public static Report loadUserData(Context context){
+    public static Report loadReportData(Context context){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         try{
-            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("reportTemp",""));
-            return new Report(jsonObject);
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("reportInfo",""));
+            if(jsonObject.toString() != ""){
+                return new Report(jsonObject);
+            } else return null;
         }catch (JSONException e){
             e.printStackTrace();
             return null;
@@ -45,9 +47,9 @@ public class DataUtils {
     }
 
     /**
-     * Get the not save report data form SharePreferences
+     * Get the user data form SharePreferences
      */
-    public static User loadReportData(Context context){
+    public static User loadUserData(Context context){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return new User(sharedPreferences.getInt("id",-1),
                 sharedPreferences.getString("nombre",""),
