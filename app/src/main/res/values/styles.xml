@@ -10,7 +10,7 @@
     </style>
 
     <style name="myPopupTheme" parent="@android:style/Widget.Holo.PopupMenu">
-       
+
     </style>
 
     <style name="wraperPopupMenuStyle">
