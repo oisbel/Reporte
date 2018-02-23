@@ -26,6 +26,7 @@ public class CreateReportActivity extends AppCompatActivity {
     ActivityCreateReportBinding mBinding;
 
     private ImageButton backBT;
+    private ImageButton doneBT;
 
     private User mUser;
     private Report mReport;
@@ -41,6 +42,7 @@ public class CreateReportActivity extends AppCompatActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_create_report);
 
         backBT = findViewById(R.id.backButton);
+        doneBT = findViewById(R.id.doneButton);
         nameTV = findViewById(R.id.nameTextView);
         lugarTV = findViewById(R.id.lugarTextView);
         fechaTV = findViewById(R.id.fechaTextView);
@@ -65,7 +67,8 @@ public class CreateReportActivity extends AppCompatActivity {
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(this);
         if(mUser.id!=-1){
-
+            // no hay usuario registrado??
+            finish();
         }
 
         // cargar los datos del reporte que no se ha terminado
@@ -73,6 +76,14 @@ public class CreateReportActivity extends AppCompatActivity {
         if(mReport != null){
             displayReportInfo(mReport);
         }
+
+        // click para guardar el reporte en el servidor
+        doneBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
