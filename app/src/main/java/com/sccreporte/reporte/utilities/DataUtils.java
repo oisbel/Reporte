@@ -4,7 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,7 +33,21 @@ public class DataUtils {
     /**
      * Get the user data form SharePreferences
      */
-    public static User loadUserData(Context context){
+    public static Report loadUserData(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        try{
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("reportTemp",""));
+            return new Report(jsonObject);
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Get the not save report data form SharePreferences
+     */
+    public static User loadReportData(Context context){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return new User(sharedPreferences.getInt("id",-1),
                 sharedPreferences.getString("nombre",""),

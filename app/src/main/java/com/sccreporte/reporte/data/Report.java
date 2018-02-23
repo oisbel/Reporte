@@ -54,16 +54,22 @@ public class Report implements Comparable<Report>{
             estudios_asistidos = report.getInt("estudios_asistidos");
             estudios_establecidos = report.getInt("estudios_establecidos");
             estudios_realizados = report.getInt("estudios_realizados");
-            tempFecha = report.getString("fecha");
+            if(report.has("fecha")) {
+                tempFecha = report.getString("fecha");
+            }
             hogares = report.getInt("hogares");
             horas_ayunos = report.getInt("horas_ayunos");
-            id = report.getInt("id");
+            if(report.has("id")){
+                id = report.getInt("id");
+            }
             mensajeros = report.getInt("mensajeros");
             mensajes = report.getInt("mensajes");
             otros = report.getString("otros");
             porciones = report.getInt("porciones");
             sanidades = report.getInt("sanidades");
-            user_id = report.getInt("user_id");
+            if(report.has("user_id")){
+                user_id = report.getInt("user_id");
+            }
             visitas = report.getInt("visitas");
 
         }catch (JSONException e){
