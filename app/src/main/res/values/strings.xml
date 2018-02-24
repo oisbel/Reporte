@@ -65,4 +65,7 @@
 
     <string name="logout_menu_label">Salir</string>
 
+    <string name="create_report_error_message">No se ha podido agregar el reporte</string>
+    <string name="create_report_success_message">El reporte se a agregado correctamente</string>
+
 </resources>

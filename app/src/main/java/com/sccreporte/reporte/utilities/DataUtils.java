@@ -47,6 +47,17 @@ public class DataUtils {
     }
 
     /**
+     * Limplia los datos del reporte temporal guardado
+     * @param context
+     */
+    public static void clearReportData(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("reportInfo","{}");
+        editor.apply();
+    }
+
+    /**
      * Get the user data form SharePreferences
      */
     public static User loadUserData(Context context){

@@ -78,10 +78,6 @@ public class LastReportsActivity extends AppCompatActivity
         mReportList.setAdapter(mReportAdapter);
 
         mUser = DataUtils.loadUserData(this);
-        if(mUser.id!=-1){
-            // no hay usuario registrado??
-            finish();
-        }
 
         /* Once all of our views are setup, we can load the reports data. */
         loadReportData();

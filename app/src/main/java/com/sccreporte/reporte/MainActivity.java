@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 popup.show();
 
                 // set the click for the items on the popout menu
+                // logout
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {

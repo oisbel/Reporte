@@ -1,22 +1,30 @@
 package com.sccreporte.reporte;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.databinding.ActivityCreateReportBinding;
 import com.sccreporte.reporte.utilities.DataUtils;
+import com.sccreporte.reporte.utilities.NetworkUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,12 +35,18 @@ public class CreateReportActivity extends AppCompatActivity {
 
     private ImageButton backBT;
     private ImageButton doneBT;
+    private ProgressBar mLoadingIndicator;
+    private ScrollView reportSV;
 
     private User mUser;
     private Report mReport;
     private TextView nameTV;
     private TextView lugarTV;
     private TextView fechaTV;
+
+    // Indica si el reporte se ha salvado al servidor y no se necesita una salva local temporal
+    private boolean reportSaved;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +57,9 @@ public class CreateReportActivity extends AppCompatActivity {
 
         backBT = findViewById(R.id.backButton);
         doneBT = findViewById(R.id.doneButton);
+        mLoadingIndicator = findViewById(R.id.loadingIndicatorProgressBar);
+        reportSV = findViewById(R.id.reportScrollView);
+
         nameTV = findViewById(R.id.nameTextView);
         lugarTV = findViewById(R.id.lugarTextView);
         fechaTV = findViewById(R.id.fechaTextView);
@@ -66,10 +83,6 @@ public class CreateReportActivity extends AppCompatActivity {
 
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(this);
-        if(mUser.id!=-1){
-            // no hay usuario registrado??
-            finish();
-        }
 
         // cargar los datos del reporte que no se ha terminado
         mReport = DataUtils.loadReportData(this);
@@ -81,15 +94,37 @@ public class CreateReportActivity extends AppCompatActivity {
         doneBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                new CreateReportQueryTask().execute(makeReportData());
             }
         });
+    }
+
+    private void showLoading(){
+        mLoadingIndicator.setVisibility(View.VISIBLE);
+        reportSV.getBackground().setAlpha(128);
+    }
+
+    private void hideLoading(){
+        mLoadingIndicator.setVisibility(View.INVISIBLE);
+        reportSV.getBackground().setAlpha(0);
+    }
+
+    private void ShowErrorMessage(){
+        Toast toast = Toast.makeText(this, R.string.create_report_error_message, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    private void ShowSuccessMessage(){
+        Toast toast = Toast.makeText(this, R.string.create_report_success_message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SaveTempReportInfo();
+        if(!reportSaved){
+            SaveTempReportInfo();
+        }
     }
 
     /**
@@ -152,7 +187,8 @@ public class CreateReportActivity extends AppCompatActivity {
      * Guarda en shared preferences los datos del reporte que no se ha terminado
      */
     private void SaveTempReportInfo(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(
+                CreateReportActivity.this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         JSONObject jsonObject = new JSONObject();
@@ -197,6 +233,92 @@ public class CreateReportActivity extends AppCompatActivity {
 
         }catch (JSONException e){
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Crea un objeto object con los valores del reporte que se quiere mandar
+     * @return
+     */
+    private JSONObject makeReportData(){
+        JSONObject result = new JSONObject();
+        try {
+            result.put("avivamientos", mBinding.avivamientosEditText.getText());
+            result.put("biblias", mBinding.bibliasEditText.getText());
+            result.put("ayunos", mBinding.ayunosEditText.getText());
+            result.put("horas_ayunos", mBinding.horasAyunosEditText.getText());
+            result.put("cultos", mBinding.cultosEditText.getText());
+            result.put("devocionales", mBinding.devocionalesEditText.getText());
+            result.put("enfermos", mBinding.enfermosEditText.getText());
+            result.put("hogares", mBinding.hogaresEditText.getText());
+            result.put("estudios_asistidos", mBinding.asistidsosEEditText.getText());
+            result.put("estudios_establecidos", mBinding.establecidosEEditText.getText());
+            result.put("estudios_realizados", mBinding.realizadosEEditText.getText());
+            result.put("mensajeros", mBinding.mensajerosEditText.getText());
+            result.put("mensajes", mBinding.mensajesEditText.getText());
+            result.put("porciones", mBinding.porcionesEditText.getText());
+            result.put("sanidades", mBinding.sanidadesEditText.getText());
+            result.put("visitas", mBinding.visitasEditTExt.getText());
+            result.put("otros", mBinding.otrosEditText.getText());
+
+
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+        return result;
+    }
+
+    public class CreateReportQueryTask extends AsyncTask<JSONObject, Void, JSONObject>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            showLoading();
+        }
+
+        @Override
+        protected JSONObject doInBackground(JSONObject... jsonObjects) {
+            if(jsonObjects == null || jsonObjects.length == 0) return null;
+            JSONObject jsonData = jsonObjects[0];
+            URL createReportUrl = NetworkUtils.buildCreateReportUrl();
+            String createReportJSONResult = null;
+            JSONObject result = null;
+            try {
+                createReportJSONResult = NetworkUtils.geCreateReportFromHttpUrl(
+                        createReportUrl, jsonData, mUser.email, mUser.password);
+            }catch (IOException e){
+                e.printStackTrace();
+                return result;
+            }
+            try {
+                result = new JSONObject(createReportJSONResult);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            hideLoading();
+            if(jsonObject != null){
+                if(jsonObject.has("report")){
+                    //success
+                    ShowSuccessMessage();
+
+                    reportSaved = true;
+
+                    // Remove report data from sharepreferences
+                    DataUtils.clearReportData(CreateReportActivity.this);
+
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }else{
+                ShowErrorMessage();
+            }
         }
     }
 }
