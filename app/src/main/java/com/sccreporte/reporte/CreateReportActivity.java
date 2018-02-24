@@ -124,6 +124,7 @@ public class CreateReportActivity extends AppCompatActivity {
         super.onDestroy();
         if(!reportSaved){
             SaveTempReportInfo();
+            reportSaved = false;
         }
     }
 
@@ -242,23 +243,56 @@ public class CreateReportActivity extends AppCompatActivity {
      */
     private JSONObject makeReportData(){
         JSONObject result = new JSONObject();
+        String temp = "";
         try {
-            result.put("avivamientos", mBinding.avivamientosEditText.getText());
-            result.put("biblias", mBinding.bibliasEditText.getText());
-            result.put("ayunos", mBinding.ayunosEditText.getText());
-            result.put("horas_ayunos", mBinding.horasAyunosEditText.getText());
-            result.put("cultos", mBinding.cultosEditText.getText());
-            result.put("devocionales", mBinding.devocionalesEditText.getText());
-            result.put("enfermos", mBinding.enfermosEditText.getText());
-            result.put("hogares", mBinding.hogaresEditText.getText());
-            result.put("estudios_asistidos", mBinding.asistidsosEEditText.getText());
-            result.put("estudios_establecidos", mBinding.establecidosEEditText.getText());
-            result.put("estudios_realizados", mBinding.realizadosEEditText.getText());
-            result.put("mensajeros", mBinding.mensajerosEditText.getText());
-            result.put("mensajes", mBinding.mensajesEditText.getText());
-            result.put("porciones", mBinding.porcionesEditText.getText());
-            result.put("sanidades", mBinding.sanidadesEditText.getText());
-            result.put("visitas", mBinding.visitasEditTExt.getText());
+            temp = mBinding.avivamientosEditText.getText().toString();
+            result.put("avivamientos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.bibliasEditText.getText().toString();
+            result.put("biblias", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.ayunosEditText.getText().toString();
+            result.put("ayunos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.horasAyunosEditText.getText().toString();
+            result.put("horas_ayunos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.cultosEditText.getText().toString();
+            result.put("cultos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.devocionalesEditText.getText().toString();
+            result.put("devocionales", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.enfermosEditText.getText().toString();
+            result.put("enfermos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.hogaresEditText.getText().toString();
+            result.put("hogares", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.asistidsosEEditText.getText().toString();
+            result.put("estudios_asistidos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.establecidosEEditText.getText().toString();
+            result.put("estudios_establecidos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.realizadosEEditText.getText().toString();
+            result.put("estudios_realizados", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.mensajerosEditText.getText().toString();
+            result.put("mensajeros", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.mensajesEditText.getText().toString();
+            result.put("mensajes", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.porcionesEditText.getText().toString();
+            result.put("porciones", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.sanidadesEditText.getText().toString();
+            result.put("sanidades", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.visitasEditTExt.getText().toString();
+            result.put("visitas", temp.isEmpty() ? "0" : temp);
+
             result.put("otros", mBinding.otrosEditText.getText());
 
 
