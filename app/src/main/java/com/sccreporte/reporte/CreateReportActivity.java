@@ -94,6 +94,8 @@ public class CreateReportActivity extends AppCompatActivity {
         doneBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(allFieldEmpty())
+                    return;
                 new CreateReportQueryTask().execute(makeReportData());
             }
         });
@@ -301,6 +303,48 @@ public class CreateReportActivity extends AppCompatActivity {
             return null;
         }
         return result;
+    }
+
+    /**
+     * Check for all the field of report to see if they are empty
+     * @return true if not data enter
+     */
+    private boolean allFieldEmpty(){
+        if(!mBinding.avivamientosEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.bibliasEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.ayunosEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.horasAyunosEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.cultosEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.devocionalesEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.enfermosEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.hogaresEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.asistidsosEEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.establecidosEEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.realizadosEEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.mensajerosEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.mensajesEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.porcionesEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.sanidadesEditText.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.visitasEditTExt.getText().toString().isEmpty())
+            return false;
+        if(!mBinding.otrosEditText.getText().toString().isEmpty())
+            return false;
+        return true;
     }
 
     public class CreateReportQueryTask extends AsyncTask<JSONObject, Void, JSONObject>{
