@@ -10,8 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackgroundLastReportsMain"
-        android:layout_marginBottom="16dp">
+        android:background="@color/colorBackgroundLastReportsMain">
 
         <ImageButton
             android:id="@+id/backButton"
