@@ -134,28 +134,38 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
+                
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/avivamientosEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/avivamientos_label"
-                    android:inputType="number" />
+                    android:inputType="number"/>
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/bibliasEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/biblias_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -168,16 +178,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/avivamientosLinearLayout">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/ayunosEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/ayunos_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     style="@style/reportDataStyle"
@@ -185,16 +200,21 @@
                     android:layout_height="wrap_content"
                     android:text=":" />
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/horasAyunosEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/horas_ayunos_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -207,27 +227,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ayunosLinearlayout">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/cultosEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/cultos_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/devocionalesEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/devocionales_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -240,27 +270,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cultosLinerLayout">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/enfermosEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/enfermos_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/hogaresEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hogares_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <TextView
@@ -282,38 +322,53 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/estudiosTextView">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/asistidsosEEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/asistidosE_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/establecidosEEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/establecidosE_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/realizadosEEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/realizadosE_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -326,27 +381,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/estudiosLinerLayout">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/mensajerosEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/mensajeros_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/mensajesEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/mensajes_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -359,6 +424,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mensajerosLinearLayout">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/porcionesEditText"
                     style="@style/reportDataStyle"
@@ -369,7 +439,13 @@
                     android:gravity="center"
                     android:hint="@string/porciones_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/sanidadesEditText"
                     style="@style/reportDataStyle"
@@ -380,6 +456,7 @@
                     android:gravity="center"
                     android:hint="@string/sanidades_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
@@ -393,6 +470,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/porcionesLinerLayout">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/visitasEditTExt"
                     style="@style/reportDataStyle"
@@ -403,7 +485,13 @@
                     android:gravity="center"
                     android:hint="@string/visitas_label"
                     android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle"
+                    android:layout_weight="1">
                 <EditText
                     android:id="@+id/otrosEditText"
                     style="@style/reportDataStyle"
@@ -413,6 +501,7 @@
                     android:gravity="center"
                     android:hint="@string/otros_label"
                     android:inputType="textMultiLine" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>
