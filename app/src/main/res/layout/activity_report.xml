@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/backButton"
             style="@style/lastReportLabelStyle"
-            android:textColor="@color/colorOrange"
             android:text="@string/report_label"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="16dp"
@@ -36,12 +35,13 @@
 
         <Button
             android:id="@+id/editButton"
+            style="@style/editButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="14dp"
             android:layout_marginTop="8dp"
-            android:text="Editar"
+            android:text="@string/edit_label"
             android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
     </RelativeLayout>

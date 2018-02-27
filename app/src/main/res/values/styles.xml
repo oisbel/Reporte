@@ -64,6 +64,12 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="editButtonStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorOrange</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
     <style name="reportListItemStyle">
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingTop">8dp</item>
