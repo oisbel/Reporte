@@ -3,11 +3,11 @@ package com.sccreporte.reporte;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
-import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton addReportBT;
     private TextView lastReportsTV;
     private TextView emailTV; // El email del usuario
+    private ImageButton sccBT;
+    private ImageButton radioBT;
+    private ImageButton facebookBT;
     private User mUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         addReportBT = findViewById(R.id.imageButtonAddReport);
         lastReportsTV = (TextView)findViewById(R.id.lastReportsTextView);
         emailTV = (TextView)findViewById(R.id.emailTextView);
+        sccBT = findViewById(R.id.sccImageButton);
+        radioBT = findViewById(R.id.radioImageButton);
+        facebookBT = findViewById(R.id.faceBookImageButton);
 
         // pop up the menu for logout
         toolsBT.setOnClickListener(new OnClickListener() {
@@ -95,6 +101,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startChildActivityIntent);
             }
         });
+
+        // Abrir el sitio web de scc
+        sccBT.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSCCWebPage(getString(R.string.scc_website_url));
+            }
+        });
+
+        // Abrir el sitio web de la radio
+        radioBT.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSCCWebPage(getString(R.string.radio_website_url));
+            }
+        });
+
+        // Abrir el facebook
+        facebookBT.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSCCWebPage(getString(R.string.facebook_url));
+            }
+        });
+
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(this);
         if(mUser.email!=""){
@@ -102,9 +133,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //@Override
-    //public boolean onCreateOptionsMenu(Menu menu) {
-    //    getMenuInflater().inflate(R.menu.main,menu);
-    //    return true;
-    //}
+    private void openSCCWebPage(String url){
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if(intent.resolveActivity(getPackageManager()) != null){
+            startActivity(intent);
+        }
+    }
 }
