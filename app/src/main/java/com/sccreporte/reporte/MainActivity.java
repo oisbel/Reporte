@@ -3,6 +3,7 @@ package com.sccreporte.reporte;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         facebookBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                openSCCWebPage(getString(R.string.facebook_url));
+                openSCCWebPage(getFacebookPageURL());
             }
         });
 
@@ -139,5 +140,39 @@ public class MainActivity extends AppCompatActivity {
         if(intent.resolveActivity(getPackageManager()) != null){
             startActivity(intent);
         }
+    }
+
+    /**
+     * Devuelve el valor url en dependencia de si facebook app esta
+     * instalado o no (para que se abra el browser o la app)
+     * @return
+     */
+    public String getFacebookPageURL(){
+        if(appInstalled("com.facebook.katana")){
+            return "fb://page/" + getString(R.string.facebook_page_id);
+        }else {
+            return getString(R.string.facebook_url);
+        }
+    }
+
+    /**
+     * To know if facebook app is installed
+     * @param uri
+     * @return
+     */
+    private boolean appInstalled(String uri)
+    {
+        PackageManager packageManager = getPackageManager();
+        try
+        {
+            packageManager.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            boolean activated =  packageManager.getApplicationInfo(uri, 0).enabled;
+            return activated;
+        }
+        catch(PackageManager.NameNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
