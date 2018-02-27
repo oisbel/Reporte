@@ -159,7 +159,7 @@ public class LastReportsActivity extends AppCompatActivity
         if(mToast!=null){
             mToast.cancel();
         }
-        String tempToastMessage = "Reporte # " + selectedReport.id;
+        String tempToastMessage = "Reporte " + selectedReport.id;
         mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_SHORT);
         mToast.show();
 

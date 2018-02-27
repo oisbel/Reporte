@@ -28,7 +28,7 @@
                 android:layout_marginBottom="14dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:background="?android:selectableItemBackground"
+                android:background="?android:selectableItemBackgroundBorderless"
                 app:srcCompat="@drawable/ic_action_back" />
 
             <TextView
@@ -49,7 +49,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginRight="14dp"
                 android:layout_marginTop="16dp"
-                android:background="?android:selectableItemBackground"
+                android:background="?android:selectableItemBackgroundBorderless"
                 app:srcCompat="@drawable/ic_action_done" />
 
         </RelativeLayout>
