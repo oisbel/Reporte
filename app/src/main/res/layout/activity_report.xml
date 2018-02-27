@@ -11,7 +11,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:background="@color/colorBackgroundLastReportsMain">
         <ImageButton
             android:id="@+id/backButton"
@@ -45,6 +44,43 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/lugarTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            style="@style/createReportDataStyle" />
+
+        <TextView
+            android:id="@+id/fechaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            style="@style/createReportDataStyle" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:layout_gravity="center"
+        style="@style/createReportNameStyle"/>
 
     <View
         android:background="@color/colorMoreBackground"

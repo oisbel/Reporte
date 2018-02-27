@@ -11,16 +11,22 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.sccreporte.reporte.data.Report;
+import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.databinding.ActivityReportBinding;
+import com.sccreporte.reporte.utilities.DataUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class ReportActivity extends AppCompatActivity {
 
     // Create a data binding instance
     ActivityReportBinding mBinding;
     String mReportJSONString;
+    private User mUser;
 
     ImageButton backBT;
     @Override
@@ -30,6 +36,9 @@ public class ReportActivity extends AppCompatActivity {
 
         // Set the content view to the layout
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_report);
+
+        // Load the user data
+        mUser = DataUtils.loadUserData(this);
 
         // Create the report
         Report report = null;
@@ -75,6 +84,12 @@ public class ReportActivity extends AppCompatActivity {
      * @param report
      */
     private void displayReportInfo(Report report){
+        mBinding.lugarTextView.setText(String.valueOf(mUser.lugar));
+        mBinding.nameTextView.setText(String.valueOf(mUser.nombre));
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        mBinding.fechaTextView.setText(dateFormat.format(report.fecha));
+
         mBinding.avivamientosTextView.setText(String.valueOf(report.avivamientos));
         mBinding.ayunosTextView.setText(String.valueOf(report.ayunos));
         mBinding.bibliasTextView.setText(String.valueOf(report.biblias));
