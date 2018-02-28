@@ -3,6 +3,7 @@ package com.sccreporte.reporte;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -103,12 +104,12 @@ public class CreateReportActivity extends AppCompatActivity {
 
     private void showLoading(){
         mLoadingIndicator.setVisibility(View.VISIBLE);
-        reportSV.getBackground().setAlpha(128);
+        reportSV.setAlpha(.5f);
     }
 
     private void hideLoading(){
         mLoadingIndicator.setVisibility(View.INVISIBLE);
-        reportSV.getBackground().setAlpha(0);
+        reportSV.setAlpha(0);
     }
 
     private void ShowErrorMessage(){
