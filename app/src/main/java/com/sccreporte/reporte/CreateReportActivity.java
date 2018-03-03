@@ -3,7 +3,6 @@ package com.sccreporte.reporte;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +44,11 @@ public class CreateReportActivity extends AppCompatActivity {
     private TextView lugarTV;
     private TextView fechaTV;
 
+    private Date dateToday;
+    private int year;
+    private int month;
+    private int day;
+
     // Indica si el reporte se ha salvado al servidor y no se necesita una salva local temporal
     private boolean reportSaved;
 
@@ -71,8 +75,14 @@ public class CreateReportActivity extends AppCompatActivity {
         nameTV.setText(mUser.nombre);
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
-        fechaTV.setText(dateFormat.format(date));
+        dateToday = new Date();
+        String date = dateFormat.format(dateToday);
+
+        year = Integer.parseInt(date.substring(6));
+        month = Integer.parseInt(date.substring(3,5));
+        day = Integer.parseInt(date.substring(0,2));
+
+        fechaTV.setText(date);
 
         // Back button click
         backBT.setOnClickListener(new View.OnClickListener() {
@@ -248,6 +258,11 @@ public class CreateReportActivity extends AppCompatActivity {
         JSONObject result = new JSONObject();
         String temp = "";
         try {
+
+            result.put("year", year);
+            result.put("month", month);
+            result.put("day", day);
+
             temp = mBinding.avivamientosEditText.getText().toString();
             result.put("avivamientos", temp.isEmpty() ? "0" : temp);
 

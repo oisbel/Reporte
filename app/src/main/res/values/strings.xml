@@ -66,7 +66,7 @@
     <string name="logout_menu_label">Cerrar Sesión</string>
 
     <string name="create_report_error_message">No se ha podido agregar el reporte</string>
-    <string name="create_report_success_message">El reporte se a agregado correctamente</string>
+    <string name="create_report_success_message">Reporte agregado correctamente</string>
 
     <string name="scc_website_url">https://www.soldadosdelacruz.org/</string>
     <string name="radio_website_url">http://radiodirectoalcorazon.com//</string>

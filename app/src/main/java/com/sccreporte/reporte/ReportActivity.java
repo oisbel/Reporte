@@ -87,8 +87,9 @@ public class ReportActivity extends AppCompatActivity {
         mBinding.lugarTextView.setText(String.valueOf(mUser.lugar));
         mBinding.nameTextView.setText(String.valueOf(mUser.nombre));
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        mBinding.fechaTextView.setText(dateFormat.format(report.fecha));
+        mBinding.fechaTextView.setText(String.valueOf(report.day) + "/" +
+                DataUtils.Months[report.month - 1] + "/" +
+                String.valueOf(report.year));
 
         mBinding.avivamientosTextView.setText(String.valueOf(report.avivamientos));
         mBinding.ayunosTextView.setText(String.valueOf(report.ayunos));
