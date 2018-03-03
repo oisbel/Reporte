@@ -107,6 +107,8 @@ public class CreateReportActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(allFieldEmpty())
                     return;
+                if(toLongInt(3))
+                    return;
                 new CreateReportQueryTask().execute(makeReportData());
             }
         });
@@ -361,6 +363,49 @@ public class CreateReportActivity extends AppCompatActivity {
         if(!mBinding.otrosEditText.getText().toString().isEmpty())
             return false;
         return true;
+    }
+
+    /**
+     * heck for all the field of report to see if they have to long integer
+     * @param max
+     * @return true if any big big int
+     */
+    private boolean toLongInt(int max){
+        if(mBinding.avivamientosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.bibliasEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.ayunosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.horasAyunosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.cultosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.devocionalesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.enfermosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.hogaresEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.asistidsosEEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.establecidosEEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.realizadosEEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.mensajerosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.mensajesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.porcionesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.sanidadesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.visitasEditTExt.getText().toString().length()>max)
+            return true;
+        if(mBinding.otrosEditText.getText().toString().length()>max)
+            return true;
+        return false;
     }
 
     public class CreateReportQueryTask extends AsyncTask<JSONObject, Void, JSONObject>{
