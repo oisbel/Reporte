@@ -54,25 +54,40 @@
 
             <Spinner
                 android:id="@+id/gradoSpinner"
+                style="@style/reportDataStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:layout_gravity="right"
                 android:gravity="right">
             </Spinner>
 
-            <EditText
-                android:id="@+id/nombreEditText"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:hint="@string/nombre_label" />
+                style="@style/reportDataStyle">
+                <EditText
+                    android:id="@+id/nombreEditText"
+                    style="@style/reportDataStyle"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:hint="@string/nombre_label" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportDataStyle">
             <EditText
                 android:id="@+id/ministerioEditText"
+                style="@style/reportDataStyle"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -80,9 +95,16 @@
                 android:gravity="center"
                 android:inputType="textPersonName"
                 android:hint="@string/ministerio_label" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportDataStyle">
             <EditText
                 android:id="@+id/responsabilidadEditText"
+                style="@style/reportDataStyle"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -90,9 +112,16 @@
                 android:gravity="center"
                 android:inputType="textPersonName"
                 android:hint="@string/responsabilidad_label" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportDataStyle">
             <EditText
                 android:id="@+id/pastorEditText"
+                style="@style/reportDataStyle"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -100,9 +129,16 @@
                 android:gravity="center"
                 android:inputType="textPersonName"
                 android:hint="@string/pastor_label" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportDataStyle">
             <EditText
                 android:id="@+id/lugardEditText"
+                style="@style/reportDataStyle"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -110,6 +146,7 @@
                 android:gravity="center"
                 android:inputType="textPersonName"
                 android:hint="@string/lugar_label" />
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
     </ScrollView>

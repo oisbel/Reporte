@@ -17,6 +17,7 @@
     <string name="empty_message">No ha llenado reportes hasta el momento</string>
     <string name="report_label">Reporte</string>
     <string name="edit_label">Editar</string>
+    <string name="update_label">Actualizar</string>
 
     <string name="avivamientos_label">Avivamientos</string>
     <string name="ayunos_label">Ayunos</string>

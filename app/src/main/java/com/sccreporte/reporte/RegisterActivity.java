@@ -95,12 +95,12 @@ public class RegisterActivity extends AppCompatActivity {
             nombreET.setError(getResources().getString(R.string.mandatory_error));
             return false;
         }
-        if(lugarET.getText().toString().equalsIgnoreCase("")){
-            lugarET.setError(getResources().getString(R.string.mandatory_error));
-            return false;
-        }
         if(pastorET.getText().toString().equalsIgnoreCase("")){
             pastorET.setError(getResources().getString(R.string.mandatory_error));
+            return false;
+        }
+        if(lugarET.getText().toString().equalsIgnoreCase("")){
+            lugarET.setError(getResources().getString(R.string.mandatory_error));
             return false;
         }
         if(gradoSpinner.getSelectedItem().toString().equals(getResources().getString(R.string.grado_label))){

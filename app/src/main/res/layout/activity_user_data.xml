@@ -41,7 +41,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="14dp"
             android:layout_marginTop="8dp"
-            android:text="@string/edit_label"
+            android:text="@string/update_label"
             android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
     </RelativeLayout>
