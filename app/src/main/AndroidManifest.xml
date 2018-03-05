@@ -35,7 +35,8 @@
         <activity
             android:name=".CreatePasswordActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CreateReportActivity"></activity>
+        <activity android:name=".CreateReportActivity" />
+        <activity android:name=".UserDataActivity"></activity>
     </application>
 
 </manifest>

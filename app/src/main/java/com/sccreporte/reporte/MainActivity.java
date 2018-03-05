@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton toolsBT;
     private ImageButton addReportBT;
     private TextView lastReportsTV;
+    private TextView userDataTV;
     private TextView emailTV; // El email del usuario
     private ImageButton sccBT;
     private ImageButton radioBT;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         toolsBT = (ImageButton) findViewById(R.id.toolsButton);
         addReportBT = findViewById(R.id.imageButtonAddReport);
         lastReportsTV = (TextView)findViewById(R.id.lastReportsTextView);
+        userDataTV = findViewById(R.id.myDataTextView);
         emailTV = (TextView)findViewById(R.id.emailTextView);
         sccBT = findViewById(R.id.sccImageButton);
         radioBT = findViewById(R.id.radioImageButton);
@@ -87,6 +89,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Context context = MainActivity.this;
                 Class destinationActivity = LastReportsActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
+            }
+        });
+
+        // establecer el click listener para mis datos
+        userDataTV.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = MainActivity.this;
+                Class destinationActivity = UserDataActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
