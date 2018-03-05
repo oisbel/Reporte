@@ -403,8 +403,6 @@ public class CreateReportActivity extends AppCompatActivity {
             return true;
         if(mBinding.visitasEditTExt.getText().toString().length()>max)
             return true;
-        if(mBinding.otrosEditText.getText().toString().length()>max)
-            return true;
         return false;
     }
 
