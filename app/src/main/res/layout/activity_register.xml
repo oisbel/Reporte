@@ -52,26 +52,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Spinner
+                android:id="@+id/gradoSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="right"
+                android:gravity="right">
+            </Spinner>
+
             <EditText
                 android:id="@+id/nombreEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:ems="10"
                 android:gravity="center"
                 android:inputType="textPersonName"
                 android:hint="@string/nombre_label" />
-
-
-            <EditText
-                android:id="@+id/gradoEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:hint="@string/grado_label" />
 
             <EditText
                 android:id="@+id/ministerioEditText"

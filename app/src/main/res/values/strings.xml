@@ -62,6 +62,7 @@
     <string name="must_register">Debe introducir sus datos personales antes de registarse</string>
 
     <string name="mandatory_error">Obligatorio</string>
+    <string name="mandatory_grado">Debe especificar su grado</string>
 
     <string name="logout_menu_label">Cerrar Sesión</string>
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="grado">
+        <item>@string/grado_label</item>
+        <item>Buen Samaritano</item>
+        <item>Centinela</item>
+        <item>Brigada de Luz</item>
+        <item>Predicador Auxiliar</item>
+        <item>Predicador</item>
+        <item>Pre-Evangelista</item>
+        <item>Evangelista (o Diaconisa)</item>
+        <item>Maestro Evangelista</item>
+        <item>Supervisor</item>
+        <item>Superintendente</item>
+        <item>Obispo</item>
+        <item>Arzobispo</item>
+        <item>Apostol</item>
+    </string-array>
+</resources>
