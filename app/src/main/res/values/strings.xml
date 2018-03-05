@@ -59,9 +59,10 @@
     <string name="user_exist_message">Un usuario con ese correo ya existe</string>
     <string name="user_no_exist_message">El usuario indicado no existe</string>
     <string name="user_created">Su cuenta se ha creado</string>
-    <string name="must_register">Debe introducir sus datos personales antes de registarse</string>
+    <string name="must_register">Debe introducir sus datos personales antes de registarse, o seleccionar entrar</string>
 
     <string name="mandatory_error">Obligatorio</string>
+    <string name="invalid_email">Correo Inválido</string>
     <string name="mandatory_grado">Debe especificar su grado</string>
 
     <string name="logout_menu_label">Cerrar Sesión</string>

@@ -161,12 +161,12 @@ public class CreatePasswordActivity extends AppCompatActivity {
      * @return
      */
     private boolean checkEntries(){
-        if(passwordET.getText().toString().equalsIgnoreCase("")){
-            passwordET.setError("Correo Inválido");
+        if(!DataUtils.validateEmail(emailET.getText().toString())){
+            emailET.setError(getResources().getString(R.string.invalid_email));
             return false;
         }
-        if(!DataUtils.validateEmail(emailET.getText().toString())){
-            emailET.setError("Obligatorio");
+        if(passwordET.getText().toString().equalsIgnoreCase("")){
+            passwordET.setError(getResources().getString(R.string.mandatory_error));
             return false;
         }
         return true;
