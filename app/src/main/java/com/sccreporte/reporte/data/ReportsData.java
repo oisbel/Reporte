@@ -38,7 +38,7 @@ public class ReportsData {
                 if(Reports.size()>0){
                     UserId = Reports.get(0).user_id;
                     // reverse para tener el ultimo reporte arriba
-                    Collections.reverse(Reports);
+                    //Collections.reverse(Reports);
                 }
             }
         }catch (JSONException e){
