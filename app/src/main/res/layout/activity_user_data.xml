@@ -114,6 +114,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lugarUserTextView" />
 
+        <TextView
+            android:id="@+id/ministerioLabelTextView"
+            style="@style/labelUserDataStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/ministerio_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divView1" />
+
+        <TextView
+            android:id="@+id/ministerioTextView"
+            style="@style/userDataStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="La juventud"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ministerioLabelTextView" />
+
+        <View
+            android:id="@+id/divView2"
+            style="@style/userDataDivStyle"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ministerioTextView" />
+
+
     </android.support.constraint.ConstraintLayout>
 
 

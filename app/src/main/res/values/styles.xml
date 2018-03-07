@@ -205,4 +205,16 @@
         <item name="android:textColor">@android:color/secondary_text_light</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
+    <style name="labelUserDataStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="userDataStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/secondary_text_light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
 </resources>
