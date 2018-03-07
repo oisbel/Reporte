@@ -46,6 +46,17 @@
         <item name="android:layout_marginStart">26dp</item>
     </style>
 
+    <style name="userDataDivStyle">
+        <item name="android:background">@drawable/div_gradient_user_data</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginRight">26dp</item>
+        <item name="android:layout_marginLeft">26dp</item>
+        <item name="android:layout_marginEnd">26dp</item>
+        <item name="android:layout_marginStart">26dp</item>
+    </style>
+
     <style name="buttonTextStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/white</item>
@@ -181,5 +192,17 @@
         <item name="android:textColor">@android:color/tab_indicator_text</item>
         <item name="android:fontFamily">sans-serif-smallcaps</item>
         <item name="android:textColorHint">@android:color/tab_indicator_text</item>
+    </style>
+
+    <style name="nameUserDataStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="lugarUserDataStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/secondary_text_light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 </resources>

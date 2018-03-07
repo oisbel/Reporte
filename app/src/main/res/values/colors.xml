@@ -16,4 +16,5 @@
     <color name="colorBackgroundLastReportsMain">#014876</color>
     <color name="colorBackgroundRegister">#FBC297</color>
     <color name="colorForegroundRegister">#554D47</color>
+    <color name="topRectangleUserData">#F1F1F1</color>
 </resources>

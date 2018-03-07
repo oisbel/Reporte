@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.sccreporte.reporte.data.User;
+import com.sccreporte.reporte.utilities.DataUtils;
+
 public class UserDataActivity extends AppCompatActivity {
 
     ImageButton backBT;
+    User mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +26,9 @@ public class UserDataActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        mUser = DataUtils.loadUserData(this);
+        if(mUser.id == -1)
+            finish();
     }
 }
