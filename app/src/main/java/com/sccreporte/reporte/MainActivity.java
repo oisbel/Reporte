@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import com.sccreporte.reporte.utilities.DataUtils;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton toolsBT;
+    private ImageView imageUserIV;
     private ImageButton addReportBT;
     private TextView lastReportsTV;
     private TextView userDataTV;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolsBT = (ImageButton) findViewById(R.id.toolsButton);
+        imageUserIV = findViewById(R.id.imageUserPhoto);
         addReportBT = findViewById(R.id.imageButtonAddReport);
         lastReportsTV = (TextView)findViewById(R.id.lastReportsTextView);
         userDataTV = findViewById(R.id.myDataTextView);
@@ -96,6 +99,15 @@ public class MainActivity extends AppCompatActivity {
 
         // establecer el click listener para mis datos
         userDataTV.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = MainActivity.this;
+                Class destinationActivity = UserDataActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
+            }
+        });
+        imageUserIV.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = MainActivity.this;
