@@ -46,16 +46,21 @@ public class UserDataActivity extends AppCompatActivity {
         mBinding.nameUserTextView.setText(String.valueOf(mUser.nombre));
         mBinding.lugarUserTextView.setText(String.valueOf(mUser.lugar));
 
-        String temp = String.valueOf(mUser.ministerio);
+        String temp = String.valueOf(mUser.grado);
         if(temp != "")
-            mBinding.ministerioTextView.setText(String.valueOf(mUser.ministerio));
+            mBinding.gradoTextView.setText(temp);
+
+
+        temp = String.valueOf(mUser.ministerio);
+        if(temp != "")
+            mBinding.ministerioTextView.setText(temp);
 
         temp = String.valueOf(mUser.responsabilidad);
         if(temp != "")
-            mBinding.responsabilidadTextView.setText(String.valueOf(mUser.responsabilidad));
+            mBinding.responsabilidadTextView.setText(temp);
 
         temp = String.valueOf(mUser.pastor);
         if(temp != "")
-            mBinding.pastorTextView.setText(String.valueOf(mUser.pastor));
+            mBinding.pastorTextView.setText(temp);
     }
 }

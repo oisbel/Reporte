@@ -116,6 +116,38 @@
             app:layout_constraintTop_toBottomOf="@+id/lugarUserTextView" />
 
         <TextView
+            android:id="@+id/gradoLabelTextView"
+            style="@style/labelUserDataStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/grado_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divView1" />
+
+        <TextView
+            android:id="@+id/gradoTextView"
+            style="@style/userDataStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/ninguno_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gradoLabelTextView" />
+
+        <View
+            android:id="@+id/divView4"
+            style="@style/userDataDivStyle"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gradoTextView" />
+
+        <TextView
             android:id="@+id/ministerioLabelTextView"
             style="@style/labelUserDataStyle"
             android:layout_width="wrap_content"
@@ -125,7 +157,7 @@
             android:layout_marginLeft="16dp"
             android:text="@string/ministerio_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divView1" />
+            app:layout_constraintTop_toBottomOf="@+id/divView4" />
 
         <TextView
             android:id="@+id/ministerioTextView"
@@ -202,14 +234,6 @@
             android:text="@string/ninguno_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pastorLabelTextView" />
-
-        <View
-            android:id="@+id/divView4"
-            style="@style/userDataDivStyle"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pastorTextView" />
 
 
     </android.support.constraint.ConstraintLayout>
