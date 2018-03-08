@@ -115,126 +115,138 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lugarUserTextView" />
 
-        <TextView
-            android:id="@+id/gradoLabelTextView"
-            style="@style/labelUserDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/grado_label"
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/divView1"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divView1" />
+            app:layout_constraintEnd_toEndOf="parent">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/gradoTextView"
-            style="@style/userDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/ninguno_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gradoLabelTextView" />
+                <TextView
+                    android:id="@+id/gradoLabelTextView"
+                    style="@style/labelUserDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/grado_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-        <View
-            android:id="@+id/divView4"
-            style="@style/userDataDivStyle"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gradoTextView" />
+                <TextView
+                    android:id="@+id/gradoTextView"
+                    style="@style/userDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/ninguno_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gradoLabelTextView" />
 
-        <TextView
-            android:id="@+id/ministerioLabelTextView"
-            style="@style/labelUserDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/ministerio_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divView4" />
+                <View
+                    android:id="@+id/divView4"
+                    style="@style/userDataDivStyle"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gradoTextView" />
 
-        <TextView
-            android:id="@+id/ministerioTextView"
-            style="@style/userDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/ninguno_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ministerioLabelTextView" />
+                <TextView
+                    android:id="@+id/ministerioLabelTextView"
+                    style="@style/labelUserDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/ministerio_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divView4" />
 
-        <View
-            android:id="@+id/divView2"
-            style="@style/userDataDivStyle"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ministerioTextView" />
+                <TextView
+                    android:id="@+id/ministerioTextView"
+                    style="@style/userDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/ninguno_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ministerioLabelTextView" />
 
-        <TextView
-            android:id="@+id/responsabilidadLabelTextView"
-            style="@style/labelUserDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/responsabilidad_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divView2" />
+                <View
+                    android:id="@+id/divView2"
+                    style="@style/userDataDivStyle"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ministerioTextView" />
 
-        <TextView
-            android:id="@+id/responsabilidadTextView"
-            style="@style/userDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/ninguno_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/responsabilidadLabelTextView" />
+                <TextView
+                    android:id="@+id/responsabilidadLabelTextView"
+                    style="@style/labelUserDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/responsabilidad_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divView2" />
 
-        <View
-            android:id="@+id/divView3"
-            style="@style/userDataDivStyle"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/responsabilidadTextView" />
+                <TextView
+                    android:id="@+id/responsabilidadTextView"
+                    style="@style/userDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/ninguno_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/responsabilidadLabelTextView" />
 
-        <TextView
-            android:id="@+id/pastorLabelTextView"
-            style="@style/labelUserDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/pastor_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divView3" />
+                <View
+                    android:id="@+id/divView3"
+                    style="@style/userDataDivStyle"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/responsabilidadTextView" />
 
-        <TextView
-            android:id="@+id/pastorTextView"
-            style="@style/userDataStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="@string/ninguno_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pastorLabelTextView" />
+                <TextView
+                    android:id="@+id/pastorLabelTextView"
+                    style="@style/labelUserDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/pastor_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divView3" />
 
+                <TextView
+                    android:id="@+id/pastorTextView"
+                    style="@style/userDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/ninguno_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pastorLabelTextView" />
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
 
     </android.support.constraint.ConstraintLayout>
 
