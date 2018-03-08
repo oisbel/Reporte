@@ -27,6 +27,9 @@ import java.util.List;
 public class LastReportsActivity extends AppCompatActivity
     implements LastReportsAdapter.ListItemClickListener{
 
+    private TextView nameUserTV;
+    private TextView lugarUserTV;
+
     //cantidad de elementos del recycler view
     private static final int NUM_LIST_ITEMS = 20;
     private LastReportsAdapter mReportAdapter;
@@ -49,6 +52,9 @@ public class LastReportsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_last_reports);
+
+        nameUserTV = findViewById(R.id.nameUserTextView);
+        lugarUserTV = findViewById(R.id.lugarUserTextView);
 
         // Back button click
         backBT = (ImageButton)findViewById(R.id.backButton);
@@ -80,6 +86,9 @@ public class LastReportsActivity extends AppCompatActivity
         mUser = DataUtils.loadUserData(this);
         if(mUser.id == -1)
             finish();
+        // agregar el nombre y el lugar del usuario
+        nameUserTV.setText(mUser.nombre);
+        lugarUserTV.setText(mUser.lugar);
 
         /* Once all of our views are setup, we can load the reports data. */
         loadReportData();

@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginRight="24dp"
-        android:text="Oisbel Simpson"
+        android:text="@string/nombre_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topRelativeLayout" />
 
@@ -101,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Kingwood"
+        android:text="@string/lugar_label"
         app:layout_constraintEnd_toEndOf="@+id/nameUserTextView"
         app:layout_constraintTop_toBottomOf="@+id/nameUserTextView" />
 
