@@ -69,25 +69,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fechaTextView" />
 
-    <TextView
-        android:id="@+id/visitasTextView"
-        style="@style/ayunosStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Visitas: 0"
-        app:layout_constraintStart_toEndOf="@+id/avivamientosTextView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/detailsTextView"
-        style="@style/pointsStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="... ..."
-        app:layout_constraintEnd_toEndOf="@id/visitasTextView"
-        app:layout_constraintTop_toBottomOf="@id/visitasTextView" />
 </android.support.constraint.ConstraintLayout>

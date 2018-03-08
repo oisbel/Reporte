@@ -167,12 +167,12 @@ public class LastReportsActivity extends AppCompatActivity
             startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, selectedReport.reportJSON.toString());
         }
 
-        if(mToast!=null){
+        /*if(mToast!=null){
             mToast.cancel();
         }
         String tempToastMessage = "Reporte " + selectedReport.id;
         mToast = Toast.makeText(this, tempToastMessage,Toast.LENGTH_SHORT);
-        mToast.show();
+        mToast.show();*/
 
         startActivity(startChildActivityIntent);
     }

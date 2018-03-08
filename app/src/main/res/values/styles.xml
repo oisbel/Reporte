@@ -91,23 +91,25 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+
     <style name="ayunosStyle">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorForegroundAyuno</item>
         <item name="android:fontFamily">sans-serif-smallcaps</item>
     </style>
 
     <style name="fechaStyle">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorMoreForeground</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
     <style name="lugarStyle">
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/colorMoreForeground</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
 
     <style name="moreDetailsStyle">
         <item name="android:textSize">14sp</item>

@@ -83,7 +83,7 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
         TextView avivamientosTB;
         TextView fechaTB;
         TextView lugarTB;
-        TextView visitasTB;
+        //TextView visitasTB;
 
         public ReportViewHolder(View itemView){
             super(itemView);
@@ -91,7 +91,7 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
             avivamientosTB = (TextView)itemView.findViewById(R.id.avivamientosTextView);
             fechaTB = (TextView)itemView.findViewById(R.id.fechaTextView);
             lugarTB = (TextView)itemView.findViewById(R.id.lugarTextView);
-            visitasTB = (TextView)itemView.findViewById(R.id.visitasTextView);
+            //visitasTB = (TextView)itemView.findViewById(R.id.visitasTextView);
 
             itemView.setOnClickListener(this);
         }
@@ -111,7 +111,7 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
                     DataUtils.Months[report.month - 1] + "/" +
                     String.valueOf(report.year));
             //lugarTB.setText(String.valueOf(report.lugar));
-            visitasTB.setText("Visitas: " + String.valueOf(report.visitas));
+            //visitasTB.setText("Visitas: " + String.valueOf(report.visitas));
         }
 
         @Override
