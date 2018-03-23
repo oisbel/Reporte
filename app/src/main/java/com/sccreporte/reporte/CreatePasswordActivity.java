@@ -127,6 +127,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 editor.putString("responsabilidad", userDataJSON.getString("responsabilidad"));
                 editor.putString("lugar", userDataJSON.getString("lugar"));
                 editor.putString("pastor", userDataJSON.getString("pastor"));
+                editor.putString("numero", userDataJSON.getString("numero"));
                 editor.putString("password", userDataJSON.getString("password"));
                 editor.apply();
 
@@ -144,6 +145,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 editor.putString("responsabilidad", jsonResponse.getString("responsabilidad"));
                 editor.putString("lugar", jsonResponse.getString("lugar"));
                 editor.putString("pastor", jsonResponse.getString("pastor"));
+                editor.putString("numero", jsonResponse.getString("numero"));
                 editor.putString("password", userDataJSON.getString("password"));
                 editor.apply();
             }catch (JSONException e) {
