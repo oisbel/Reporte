@@ -33,6 +33,7 @@
     <string name="mensajeros_label">Mensajeros</string>
     <string name="mensajes_label">Mensajes</string>
     <string name="otros_label">Otros</string>
+    <string name="horas_trabajo_label">Horas de Trabajo</string>
     <string name="porciones_label">Porciones</string>
     <string name="sanidades_label">Sanidades</string>
     <string name="visitas_label">Visitas</string>

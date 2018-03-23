@@ -33,6 +33,7 @@ public class Report{
     public int id;
     public int mensajeros;
     public int mensajes;
+    public int horas_trabajo;
     public String otros = "";
     public int porciones;
     public int sanidades;
@@ -65,6 +66,7 @@ public class Report{
             }
             mensajeros = report.getInt("mensajeros");
             mensajes = report.getInt("mensajes");
+            horas_trabajo = report.getInt("horas_trabajo");
             otros = report.getString("otros");
             porciones = report.getInt("porciones");
             sanidades = report.getInt("sanidades");

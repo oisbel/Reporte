@@ -107,6 +107,7 @@ public class ReportActivity extends AppCompatActivity {
         mBinding.porcionesTextView.setText(String.valueOf(report.porciones));
         mBinding.sanidadesTextView.setText(String.valueOf(report.sanidades));
         mBinding.visitasTextView.setText(String.valueOf(report.visitas));
+        mBinding.horasTrabajoTextView.setText(String.valueOf(report.horas_trabajo));
         mBinding.otrosTextView.setText(report.otros);
     }
 }
