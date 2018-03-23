@@ -70,6 +70,7 @@ public class DataUtils {
                 sharedPreferences.getString("responsabilidad",""),
                 sharedPreferences.getString("lugar",""),
                 sharedPreferences.getString("pastor",""),
+                sharedPreferences.getString("numero",""),
                 sharedPreferences.getString("password",""));
     }
 }
