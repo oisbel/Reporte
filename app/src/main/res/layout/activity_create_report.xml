@@ -494,6 +494,26 @@
                     style="@style/reportDataStyle"
                     android:layout_weight="1">
                 <EditText
+                    android:id="@+id/horasTrabajoEditText"
+                    style="@style/reportDataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/horas_trabajo_label"
+                    android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/visitasLinerLayout"
+                style="@style/reportDataStyle"
+                android:layout_weight="1">
+                <EditText
                     android:id="@+id/otrosEditText"
                     style="@style/reportDataStyle"
                     android:layout_width="match_parent"
@@ -502,8 +522,7 @@
                     android:gravity="center"
                     android:hint="@string/otros_label"
                     android:inputType="textMultiLine" />
-                </android.support.design.widget.TextInputLayout>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
         </android.support.constraint.ConstraintLayout>
 

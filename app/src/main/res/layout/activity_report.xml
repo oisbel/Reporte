@@ -135,7 +135,8 @@
             android:layout_height="match_parent"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:layout_margin="8dp">
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_rectangle_stroke">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -448,13 +449,15 @@
             android:layout_marginBottom="8dp">
             <TextView
                 android:id="@+id/horasTrabajoTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.5"
                 style="@style/reportDetailsStyle"/>
             <TextView
                 android:id="@+id/otrosTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.5"
                 android:gravity="right"
                 style="@style/reportDetailsStyle"/>
         </LinearLayout>

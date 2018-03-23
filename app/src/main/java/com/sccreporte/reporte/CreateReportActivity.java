@@ -196,6 +196,9 @@ public class CreateReportActivity extends AppCompatActivity {
         if(report.visitas != 0){
             mBinding.visitasEditTExt.setText(String.valueOf(report.visitas));
         }
+        if(report.horas_trabajo != 0){
+            mBinding.horasTrabajoEditText.setText(String.valueOf(report.horas_trabajo));
+        }
         mBinding.otrosEditText.setText(report.otros);
     }
 
@@ -240,6 +243,8 @@ public class CreateReportActivity extends AppCompatActivity {
                     mBinding.mensajerosEditText.getText() : 0);
             jsonObject.put("mensajes",mBinding.mensajesEditText.getText().length() != 0 ?
                     mBinding.mensajesEditText.getText() : 0);
+            jsonObject.put("horas_trabajo",mBinding.horasTrabajoEditText.getText().length() != 0 ?
+                    mBinding.horasTrabajoEditText.getText() : 0);
             jsonObject.put("otros",mBinding.otrosEditText.getText());
             jsonObject.put("porciones",mBinding.porcionesEditText.getText().length() != 0 ?
                     mBinding.porcionesEditText.getText() : 0);
@@ -317,6 +322,9 @@ public class CreateReportActivity extends AppCompatActivity {
             temp = mBinding.visitasEditTExt.getText().toString();
             result.put("visitas", temp.isEmpty() ? "0" : temp);
 
+            temp = mBinding.horasTrabajoEditText.getText().toString();
+            result.put("horas_trabajo", temp.isEmpty() ? "0" : temp);
+
             result.put("otros", mBinding.otrosEditText.getText());
 
 
@@ -364,6 +372,8 @@ public class CreateReportActivity extends AppCompatActivity {
             return false;
         if(!mBinding.visitasEditTExt.getText().toString().isEmpty())
             return false;
+        if(!mBinding.horasTrabajoEditText.getText().toString().isEmpty())
+            return false;
         if(!mBinding.otrosEditText.getText().toString().isEmpty())
             return false;
         return true;
@@ -406,6 +416,8 @@ public class CreateReportActivity extends AppCompatActivity {
         if(mBinding.sanidadesEditText.getText().toString().length()>max)
             return true;
         if(mBinding.visitasEditTExt.getText().toString().length()>max)
+            return true;
+        if(mBinding.horasTrabajoEditText.getText().toString().length()>max)
             return true;
         return false;
     }
