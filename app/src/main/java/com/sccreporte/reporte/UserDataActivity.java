@@ -50,7 +50,6 @@ public class UserDataActivity extends AppCompatActivity {
         if(temp != "")
             mBinding.gradoTextView.setText(temp);
 
-
         temp = String.valueOf(mUser.ministerio);
         if(temp != "")
             mBinding.ministerioTextView.setText(temp);
@@ -62,5 +61,9 @@ public class UserDataActivity extends AppCompatActivity {
         temp = String.valueOf(mUser.pastor);
         if(temp != "")
             mBinding.pastorTextView.setText(temp);
+
+        temp = String.valueOf(mUser.numero);
+        if(temp != "")
+            mBinding.numeroTextView.setText(temp);
     }
 }

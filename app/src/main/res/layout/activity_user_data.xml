@@ -215,12 +215,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/responsabilidadLabelTextView" />
 
                 <View
-                    android:id="@+id/divView3"
-                    style="@style/userDataDivStyle"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/responsabilidadTextView" />
+                android:id="@+id/divView3"
+                style="@style/userDataDivStyle"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/responsabilidadTextView" />
 
                 <TextView
                     android:id="@+id/pastorLabelTextView"
@@ -245,6 +245,38 @@
                     android:text="@string/ninguno_label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/pastorLabelTextView" />
+
+                <View
+                    android:id="@+id/divView5"
+                    style="@style/userDataDivStyle"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pastorTextView" />
+
+                <TextView
+                    android:id="@+id/numeroLabelTextView"
+                    style="@style/labelUserDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/numero_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divView5" />
+
+                <TextView
+                    android:id="@+id/numeroTextView"
+                    style="@style/userDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/ninguno_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/numeroLabelTextView" />
             </android.support.constraint.ConstraintLayout>
         </ScrollView>
 

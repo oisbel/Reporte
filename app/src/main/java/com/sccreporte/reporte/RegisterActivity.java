@@ -22,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText ministerioET;
     private EditText responsabilidadET;
     private EditText pastorET;
+    private EditText numeroET;
     private EditText lugarET;
     private Button registerB;
     private Spinner gradoSpinner;
@@ -36,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         responsabilidadET = (EditText) findViewById(R.id.responsabilidadEditText);
         pastorET = (EditText) findViewById(R.id.pastorEditText);
         lugarET = (EditText) findViewById(R.id.lugardEditText);
+        numeroET = (EditText) findViewById(R.id.numeroEditText);
         registerB = (Button) findViewById(R.id.registerButton);
 
         // Agregar un spinner para el grado
@@ -79,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
             obj.put("ministerio",ministerioET.getText());
             obj.put("responsabilidad",responsabilidadET.getText());
             obj.put("pastor",pastorET.getText());
+            obj.put("numero",numeroET.getText());
             obj.put("lugar",lugarET.getText());
         }catch (JSONException e){
             e.printStackTrace();

@@ -51,6 +51,7 @@
     <string name="responsabilidad_label">Responsabilidad</string>
     <string name="pastor_label">Pastor</string>
     <string name="lugar_label">Lugar</string>
+    <string name="numero_label">Numero de Feligresía</string>
     <string name="password_label">Contraseña</string>
     <string name="ninguno_label">No</string>
 
