@@ -209,6 +209,10 @@ public class CreateReportActivity extends AppCompatActivity {
 
         JSONObject jsonObject = new JSONObject();
         try{
+            jsonObject.put("year", year);
+            jsonObject.put("month", month);
+            jsonObject.put("day", day);
+
             jsonObject.put("avivamientos",
                     mBinding.avivamientosEditText.getText().length() != 0 ?
                             mBinding.avivamientosEditText.getText() : 0);
@@ -366,7 +370,7 @@ public class CreateReportActivity extends AppCompatActivity {
     }
 
     /**
-     * heck for all the field of report to see if they have to long integer
+     * check for all the field of report to see if they have to long integer
      * @param max
      * @return true if any big big int
      */
