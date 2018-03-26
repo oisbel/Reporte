@@ -47,23 +47,31 @@ public class UserDataActivity extends AppCompatActivity {
         mBinding.lugarUserTextView.setText(String.valueOf(mUser.lugar));
 
         String temp = String.valueOf(mUser.grado);
-        if(temp != "")
+        if(!temp.isEmpty())
             mBinding.gradoTextView.setText(temp);
+        else
+            mBinding.gradoTextView.setText("No");
 
         temp = String.valueOf(mUser.ministerio);
-        if(temp != "")
+        if(!temp.isEmpty())
             mBinding.ministerioTextView.setText(temp);
+        else
+            mBinding.ministerioTextView.setText("No");
 
         temp = String.valueOf(mUser.responsabilidad);
-        if(temp != "")
+        if(!temp.isEmpty())
             mBinding.responsabilidadTextView.setText(temp);
+        else
+            mBinding.responsabilidadTextView.setText("No");
 
         temp = String.valueOf(mUser.pastor);
-        if(temp != "")
+        if(!temp.isEmpty())
             mBinding.pastorTextView.setText(temp);
 
         temp = String.valueOf(mUser.numero);
-        if(temp != "")
+        if(!temp.isEmpty())
             mBinding.numeroTextView.setText(temp);
+        else
+            mBinding.numeroTextView.setText("No");
     }
 }

@@ -122,12 +122,24 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 editor.putInt("id", user_id);
                 editor.putString("nombre", userDataJSON.getString("nombre"));
                 editor.putString("email", userDataJSON.getString("email"));
-                editor.putString("grado", userDataJSON.getString("grado"));
-                editor.putString("ministerio", userDataJSON.getString("ministerio"));
-                editor.putString("responsabilidad", userDataJSON.getString("responsabilidad"));
+
+                String temp = userDataJSON.getString("grado").toString();
+                editor.putString("grado", temp.isEmpty() ? "No" : temp);
+
+                temp = userDataJSON.getString("ministerio").toString();
+                editor.putString("ministerio",temp.isEmpty() ? "No" : temp);
+
+                temp = userDataJSON.getString("responsabilidad").toString();
+                editor.putString("responsabilidad", temp.isEmpty() ? "No" : temp);
+
                 editor.putString("lugar", userDataJSON.getString("lugar"));
-                editor.putString("pastor", userDataJSON.getString("pastor"));
-                editor.putString("numero", userDataJSON.getString("numero"));
+
+                temp = userDataJSON.getString("pastor").toString();
+                editor.putString("pastor", temp.isEmpty() ? "No" : temp);
+
+                temp = userDataJSON.getString("numero").toString();
+                editor.putString("numero", temp.isEmpty() ? "No" : temp);
+
                 editor.putString("password", userDataJSON.getString("password"));
                 editor.apply();
 

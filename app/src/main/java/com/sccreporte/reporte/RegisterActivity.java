@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
             obj.put("ministerio",ministerioET.getText());
             obj.put("responsabilidad",responsabilidadET.getText());
             obj.put("pastor",pastorET.getText());
-            obj.put("numero",numeroET.getText());
+            obj.put("numero",numeroET.getText().toString().isEmpty() ? "0" : numeroET.getText());
             obj.put("lugar",lugarET.getText());
         }catch (JSONException e){
             e.printStackTrace();
