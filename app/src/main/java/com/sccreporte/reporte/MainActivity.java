@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton toolsBT;
     private ImageView imageUserIV;
     private ImageButton addReportBT;
+    private ImageButton biblicalBT;
     private TextView lastReportsTV;
     private TextView userDataTV;
     private TextView emailTV; // El email del usuario
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         toolsBT = (ImageButton) findViewById(R.id.toolsButton);
         imageUserIV = findViewById(R.id.imageUserPhoto);
         addReportBT = findViewById(R.id.imageButtonAddReport);
+        biblicalBT = findViewById(R.id.imageButtonBiblical);
         lastReportsTV = (TextView)findViewById(R.id.lastReportsTextView);
         userDataTV = findViewById(R.id.myDataTextView);
         emailTV = (TextView)findViewById(R.id.emailTextView);
@@ -112,6 +114,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Context context = MainActivity.this;
                 Class destinationActivity = UserDataActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
+            }
+        });
+
+        // establecer el click para ir a los estudios biblicos
+        biblicalBT.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = MainActivity.this;
+                Class destinationActivity = BiblicalActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
