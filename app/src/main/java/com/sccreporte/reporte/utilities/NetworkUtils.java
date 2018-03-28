@@ -245,6 +245,59 @@ public class NetworkUtils {
         }
     }
 
+    /**
+     * Builds the URL used to query sccreporte.
+     *
+     * @param userId The user id that will be queried for.
+     * @return The URL to use to query the sccreporte get biblicals.
+     */
+    public static URL buildBiblicalsUrl(String userId) {
+        Uri builtUri = Uri.parse(BASE_BIBLICALS_URL).buildUpon()
+                .appendQueryParameter(PARAM_QUERY_USER_ID, userId)
+                .build();
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
+    /**
+     * Returns the entire result from the HTTP response.
+     *
+     * @param url The URL to fetch the HTTP response from.
+     * @return The contents of the HTTP response.
+     * @throws IOException Related to network and stream reading
+     */
+    public static String getBiblicalsFromHttpUrl(URL url, String username, String password) throws IOException {
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+        urlConnection.setRequestMethod("GET");
+        String basicAuth = buildBasicAuthorizationString(username, password);
+        urlConnection.setRequestProperty("Authorization", basicAuth);
+        urlConnection.setRequestProperty("Accept","application/json");
+
+        try {
+            InputStream in = urlConnection.getInputStream();
+
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
+
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+            urlConnection.disconnect();
+        }
+    }
+    //TODO : Eliminar todas los get FromHTTpURl, do que osn lo mismo
+
     private static String buildBasicAuthorizationString(String username, String password) {
 
         String credentials = username + ":" + password;
