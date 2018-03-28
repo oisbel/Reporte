@@ -31,6 +31,10 @@ public class NetworkUtils {
 
     final static String PARAM_QUERY_USER_ID = "user_id";
 
+    final static String BASE_BIBLICALS_URL = Base_URL + "/biblicals";
+
+    final static String BASE_CREATE_BIBLICAL_URL = Base_URL + "/addbiblical";
+
     /**
      * Builds the URL used to query sccreporte.
      *
