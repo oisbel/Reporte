@@ -296,7 +296,7 @@ public class NetworkUtils {
             urlConnection.disconnect();
         }
     }
-    //TODO : Eliminar todas los get FromHTTpURl, do que osn lo mismo
+    //TODO : Eliminar todas los get FromHTTpURl, dado que son lo mismo
 
     private static String buildBasicAuthorizationString(String username, String password) {
 

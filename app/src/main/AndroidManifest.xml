@@ -37,7 +37,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".CreateReportActivity" />
         <activity android:name=".UserDataActivity" />
-        <activity android:name=".BiblicalActivity"></activity>
+        <activity android:name=".BiblicalActivity" />
     </application>
 
 </manifest>
