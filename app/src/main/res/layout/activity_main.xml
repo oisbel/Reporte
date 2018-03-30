@@ -173,7 +173,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/rightRectangle"
                 app:layout_constraintStart_toStartOf="@+id/rightRectangle"
                 app:layout_constraintTop_toTopOf="@+id/rightRectangle"
-                app:srcCompat="@drawable/ic_action_biblical" />
+                app:srcCompat="@drawable/ic_action_bible" />
 
             <TextView
                 android:id="@+id/textViewCreateReport"
