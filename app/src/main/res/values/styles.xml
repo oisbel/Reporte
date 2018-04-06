@@ -228,4 +228,28 @@
         <item name="android:textColor">@android:color/secondary_text_light</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
+    <style name="biblicalNombreStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorForegroundAyuno</item>
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
+    </style>
+
+    <style name="biblicalMonthStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorForegroundAyuno</item>
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
+    </style>
+
+    <style name="biblicalYearStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorForegroundAyuno</item>
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
+    </style>
+
+    <style name="biblicalDireccionStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorForegroundAyuno</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
 </resources>
