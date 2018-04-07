@@ -23,7 +23,7 @@ import com.sccreporte.reporte.utilities.DataUtils;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton toolsBT;
+    private ImageButton menuBT;
     private ImageView imageUserIV;
     private ImageButton addReportBT;
     private ImageButton biblicalBT;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolsBT = (ImageButton) findViewById(R.id.toolsButton);
+        menuBT = (ImageButton) findViewById(R.id.menuButton);
         imageUserIV = findViewById(R.id.imageUserPhoto);
         addReportBT = findViewById(R.id.imageButtonAddReport);
         biblicalBT = findViewById(R.id.imageButtonBiblical);
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         facebookBT = findViewById(R.id.faceBookImageButton);
 
         // pop up the menu for logout
-        toolsBT.setOnClickListener(new OnClickListener() {
+        menuBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 

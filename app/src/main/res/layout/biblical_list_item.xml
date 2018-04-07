@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/reportListItemStyle"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageView"
@@ -48,6 +48,7 @@
         style="@style/biblicalYearStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="18"
         app:layout_constraintEnd_toEndOf="@+id/monthTextView"
         app:layout_constraintTop_toBottomOf="@+id/monthTextView" />
