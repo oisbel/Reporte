@@ -70,7 +70,7 @@ public class BiblicalsAdapter extends RecyclerView.Adapter<BiblicalsAdapter.Bibl
      * new LastReportsAdapter to display it.
      * @param data
      */
-    public void setReportData(List<Biblical> data){
+    public void setBiblicalData(List<Biblical> data){
         mBiblicaltData = data;
         notifyDataSetChanged();
     }
