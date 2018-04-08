@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView lastReportsTV;
     private TextView userDataTV;
     private TextView emailTV; // El email del usuario
+    private TextView nameTV;
+    private TextView lugarTV;
     private ImageButton sccBT;
     private ImageButton radioBT;
     private ImageButton facebookBT;
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         lastReportsTV = (TextView)findViewById(R.id.lastReportsTextView);
         userDataTV = findViewById(R.id.myDataTextView);
         emailTV = (TextView)findViewById(R.id.emailTextView);
+        nameTV = findViewById(R.id.nameUserTextView);
+        lugarTV = findViewById(R.id.lugarUserTextView);
         sccBT = findViewById(R.id.sccImageButton);
         radioBT = findViewById(R.id.radioImageButton);
         facebookBT = findViewById(R.id.faceBookImageButton);
@@ -169,6 +173,8 @@ public class MainActivity extends AppCompatActivity {
         mUser = DataUtils.loadUserData(this);
         if(mUser.email!=""){
             emailTV.setText(mUser.email);
+            nameTV.setText(mUser.nombre);
+            lugarTV.setText(mUser.lugar);
         }
     }
 

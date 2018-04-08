@@ -15,6 +15,7 @@
 
     <string name="error_message">No se pudo obtener el resultado, intente de nuevo</string>
     <string name="empty_message">No ha llenado reportes hasta el momento</string>
+    <string name="empty_message_biblical">No ha creado estudios bíblicos hasta el momento</string>
     <string name="report_label">Reporte</string>
     <string name="edit_label">Editar</string>
     <string name="update_label">Actualizar</string>
