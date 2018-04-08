@@ -24,6 +24,7 @@
             app:srcCompat="@drawable/ic_action_menu" />
 
         <TextView
+            android:id="@+id/emailTextView"
             style="@style/lastReportLabelStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
             android:text="@string/welcome_message" />
 
         <ImageButton
-            android:id="@+id/toolsButton"
+            android:id="@+id/imageUserButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -59,24 +60,59 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageUserPhoto"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+            <View
+                android:id="@+id/topRectangle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBackground"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_action_account"
-                android:clickable="true"/>
+                app:layout_constraintBottom_toTopOf="@+id/divView1" />
 
             <TextView
-                android:id="@+id/emailTextView"
-                style="@style/emailTBStyle"
+                android:id="@+id/sccTextView"
+                style="@style/sccSplashStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="16dp"
+                android:text="@string/scc_splash"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="32dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageUserPhoto" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/reportSplashStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reports_splash"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/sccTextView"
+                app:layout_constraintStart_toStartOf="@+id/sccTextView"
+                app:layout_constraintTop_toBottomOf="@+id/sccTextView" />
+
+            <TextView
+                android:id="@+id/nameUserTextView"
+                style="@style/nameUserDataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="24dp"
+                android:text="Oisbel Simpson"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lugarUserTextView"
+                style="@style/lugarUserDataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Kingwood"
+                app:layout_constraintEnd_toEndOf="@+id/nameUserTextView"
+                app:layout_constraintTop_toBottomOf="@+id/nameUserTextView" />
 
             <View
                 android:id="@+id/divView1"
@@ -84,7 +120,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/lugarUserTextView" />
 
             <TextView
                 android:id="@+id/lastReportsTextView"

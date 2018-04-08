@@ -24,7 +24,7 @@ import com.sccreporte.reporte.utilities.DataUtils;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton menuBT;
-    private ImageView imageUserIV;
+    private ImageButton imageUserBT;
     private ImageButton addReportBT;
     private ImageButton biblicalBT;
     private TextView lastReportsTV;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         menuBT = (ImageButton) findViewById(R.id.menuButton);
-        imageUserIV = findViewById(R.id.imageUserPhoto);
+        imageUserBT = findViewById(R.id.imageUserButton);
         addReportBT = findViewById(R.id.imageButtonAddReport);
         biblicalBT = findViewById(R.id.imageButtonBiblical);
         lastReportsTV = (TextView)findViewById(R.id.lastReportsTextView);
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startChildActivityIntent);
             }
         });
-        imageUserIV.setOnClickListener(new OnClickListener() {
+        imageUserBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = MainActivity.this;
