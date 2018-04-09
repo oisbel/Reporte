@@ -92,9 +92,6 @@ public class CreateReportActivity extends AppCompatActivity {
             }
         });
 
-        // cargar los datos del usuario desde share preferences
-        mUser = DataUtils.loadUserData(this);
-
         // cargar los datos del reporte que no se ha terminado
         mReport = DataUtils.loadReportData(this);
         if(mReport != null){
