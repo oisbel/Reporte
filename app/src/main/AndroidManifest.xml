@@ -38,6 +38,7 @@
         <activity android:name=".CreateReportActivity" />
         <activity android:name=".UserDataActivity" />
         <activity android:name=".BiblicalActivity" />
+        <activity android:name=".CreateBiblicalActivity"></activity>
     </application>
 
 </manifest>

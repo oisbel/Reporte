@@ -1,5 +1,7 @@
 package com.sccreporte.reporte;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +41,7 @@ public class BiblicalActivity extends AppCompatActivity
     private Toast mToast;
 
     private ImageButton backBT;
+    private ImageButton addBT;
 
     // Lista de los estudios biblicos
     List<Biblical> mBiblicalsData;
@@ -59,6 +62,18 @@ public class BiblicalActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        // Add button click
+        addBT = findViewById(R.id.addButton);
+        addBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = BiblicalActivity.this;
+                Class destinationActivity = CreateBiblicalActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
             }
         });
 
