@@ -74,6 +74,7 @@ public class BiblicalActivity extends AppCompatActivity
                 Class destinationActivity = CreateBiblicalActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
+                finish();
             }
         });
 
@@ -113,7 +114,7 @@ public class BiblicalActivity extends AppCompatActivity
     }
 
     /**
-     * Establece el id de usuario, y ejecuta el hilo para descargar sus reportes
+     * Establece el id de usuario, y ejecuta el hilo para descargar sus estudios biblicos
      */
     private void makeBiblicalsQuery(){
         new BiblicalsQueryTask().execute(Integer.toString(mUser.id));
