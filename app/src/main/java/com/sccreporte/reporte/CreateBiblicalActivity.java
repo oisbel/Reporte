@@ -1,5 +1,7 @@
 package com.sccreporte.reporte;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,13 @@ import android.widget.Toast;
 import com.sccreporte.reporte.data.Biblical;
 import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.utilities.DataUtils;
+import com.sccreporte.reporte.utilities.NetworkUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -75,15 +83,36 @@ public class CreateBiblicalActivity extends AppCompatActivity {
 
         fechaTV.setText(date);
 
-        // click para guardar el reporte en el servidor
+        // click para guardar el estudio biblico en el servidor
         doneBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(allFieldEmpty())
                     return;
-                //new CreateReportQueryTask().execute(makeReportData());
+                new CreateBiblicalQueryTask().execute(makeBiblicalData());
             }
         });
+    }
+
+    /**
+     * Crea un objeto object con los valores del estudio biblico que se quiere crear
+     * @return
+     */
+    private JSONObject makeBiblicalData(){
+        JSONObject result = new JSONObject();
+        try {
+            result.put("year", year);
+            result.put("month", month);
+            result.put("day", day);
+
+            result.put("nombre", nombreET.getText());
+            result.put("direccion", direccionET.getText());
+
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+        return result;
     }
 
     private void showLoading(){
@@ -111,5 +140,52 @@ public class CreateBiblicalActivity extends AppCompatActivity {
         if(nombreET.getText().toString().isEmpty() && direccionET.getText().toString().isEmpty())
             return true;
         return false;
+    }
+
+    public class CreateBiblicalQueryTask extends AsyncTask<JSONObject, Void, JSONObject>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            showLoading();
+        }
+
+        @Override
+        protected JSONObject doInBackground(JSONObject... jsonObjects) {
+            if(jsonObjects == null || jsonObjects.length == 0) return null;
+            JSONObject jsonData = jsonObjects[0];
+            URL createBiblicalUrl = NetworkUtils.buildCreateBiblicalUrl();
+            String createBiblicalJSONResult = null;
+            JSONObject result = null;
+            try {
+                createBiblicalJSONResult = NetworkUtils.geCreateBiblicalFromHttpUrl(
+                        createBiblicalUrl, jsonData, mUser.email, mUser.password);
+            }catch (IOException e){
+                e.printStackTrace();
+                return result;
+            }
+            try {
+                result = new JSONObject(createBiblicalJSONResult);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            hideLoading();
+            if(jsonObject != null){
+                if(jsonObject.has("biblical")){
+                    //success
+                    ShowSuccessMessage();
+                    Intent intent = new Intent(getApplicationContext(), BiblicalActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }else{
+                ShowErrorMessage();
+            }
+        }
     }
 }
