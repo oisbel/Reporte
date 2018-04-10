@@ -72,6 +72,7 @@
     <string name="mandatory_grado">Debe especificar su grado</string>
 
     <string name="logout_menu_label">Cerrar Sesión</string>
+    <string name="help_menu_label">Ayuda</string>
 
     <string name="create_report_error_message">No se ha podido agregar el reporte</string>
     <string name="create_report_success_message">Reporte agregado correctamente</string>
