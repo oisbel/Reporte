@@ -77,5 +77,21 @@ public class DataUtils {
                 sharedPreferences.getString("numero",""),
                 sharedPreferences.getString("password",""));
     }
+
+    public static void clearUserData(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("id","-1");
+        editor.putString("nombre","");
+        editor.putString("email","");
+        editor.putString("grado","");
+        editor.putString("ministerio","");
+        editor.putString("responsabilidad","");
+        editor.putString("lugar","");
+        editor.putString("pastor","");
+        editor.putString("numero","");
+        editor.putString("password","");
+        editor.apply();
+    }
 }
 

@@ -70,12 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         if(menuItem.getItemId() == R.id.action_logout){
-                            // Remove user data from sharepreferences
-                            SharedPreferences sharedPreferences =
-                                    PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.clear();
-                            editor.apply();
+                            // Clear user data from sharepreferences
+                            DataUtils.clearUserData(MainActivity.this);
 
                             // open splash activity
                             Intent intent = new Intent(getApplicationContext(),SplashActivity.class);

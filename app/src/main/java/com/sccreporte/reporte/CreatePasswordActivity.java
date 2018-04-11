@@ -110,9 +110,10 @@ public class CreatePasswordActivity extends AppCompatActivity {
     }
 
     /**
-     * Guarda el usuario creado (userDataJSON), usando SharePreferences
+     * Guarda el usuario creado o logeado(userDataJSON), usando SharePreferences
      * Ademas abre la main activity
-     * @param user_id
+     * @param user_id es -1 si se esta logeando sino es el nuevo id del que se registro
+     * @param jsonResponse es null si se esta creando el usuario, sino seria la respuesta desde el servidor
      */
     private void SaveUser(int user_id, JSONObject jsonResponse) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
