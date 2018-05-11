@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.utilities.DataUtils;
+import com.sccreporte.reporte.utilities.NotificationUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
                             startActivity(intent);
                             finish();
+                        }
+                        if(menuItem.getItemId() == R.id.action_help){
+                            NotificationUtils.remindUserCreateReport(MainActivity.this);
                         }
                         return true;
                     }

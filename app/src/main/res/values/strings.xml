@@ -88,4 +88,10 @@
     <string name="facebook_url">https://www.facebook.com/radiodirectoalcorazon</string>
     <string name="facebook_page_id">886750211342788</string>
 
+    <string name="main_notification_channel_name">reports</string>
+    <string name="create_report_reminder_notification_title">Termine de llenar el reporte</string>
+    <string name="create_report_reminder_notification_body">
+        Recuerde actualizar su reporte en caso que tenga mas información que agregar. Gracias
+    </string>
+
 </resources>
