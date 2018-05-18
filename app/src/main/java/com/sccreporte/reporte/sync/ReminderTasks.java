@@ -10,6 +10,7 @@ import com.sccreporte.reporte.utilities.NotificationUtils;
 
 public class ReminderTasks {
 
+    // Tareas que se van a ejecutar
     public static final String ACTION_CREATE_REPORT_REMINDER = "create-report-reminder";
 
     public static void executeTask(Context context, String action) {

@@ -41,6 +41,13 @@
         <activity android:name=".UserDataActivity" />
         <activity android:name=".BiblicalActivity" />
         <activity android:name=".CreateBiblicalActivity"></activity>
+
+        <service android:name=".sync.CreateReportReminderFirebaseJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
