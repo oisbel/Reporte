@@ -3,10 +3,8 @@ package com.sccreporte.reporte.sync;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.firebase.jobdispatcher.Job;
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
-import com.firebase.jobdispatcher.RetryStrategy;
 
 /**
  * Created by simpson on 5/18/2018.

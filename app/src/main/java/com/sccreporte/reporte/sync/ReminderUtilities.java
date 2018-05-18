@@ -2,7 +2,6 @@ package com.sccreporte.reporte.sync;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-
 import com.firebase.jobdispatcher.Driver;
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
 import com.firebase.jobdispatcher.GooglePlayDriver;
@@ -18,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class ReminderUtilities {
-    private static final int REMINDER_INTERVAL_MINUTES = 2;
+    private static final int REMINDER_INTERVAL_MINUTES = 1440;
     private static final int REMINDER_INTERVAL_SECONDS = (int) (TimeUnit.MINUTES.toSeconds(REMINDER_INTERVAL_MINUTES));
     private static final int SYNC_FLEXTIME_SECONDS = REMINDER_INTERVAL_SECONDS;
 
