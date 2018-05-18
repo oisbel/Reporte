@@ -19,6 +19,8 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.sccreporte.reporte.data.User;
+import com.sccreporte.reporte.sync.ReminderTasks;
+import com.sccreporte.reporte.sync.ReminderUtilities;
 import com.sccreporte.reporte.utilities.DataUtils;
 import com.sccreporte.reporte.utilities.NotificationUtils;
 
@@ -80,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
                             finish();
                         }
                         if(menuItem.getItemId() == R.id.action_help){
-                            NotificationUtils.remindUserCreateReport(MainActivity.this);
+                            //NotificationUtils.remindUserCreateReport(MainActivity.this);
+                            ReminderTasks.executeTask(MainActivity.this, ReminderTasks.ACTION_CREATE_REPORT_REMINDER);
                         }
                         return true;
                     }
@@ -170,6 +173,11 @@ public class MainActivity extends AppCompatActivity {
         if(mUser.email!=""){
             emailTV.setText(mUser.email);
         }
+
+        // Schedule the create report reminder
+        ReminderUtilities.scheduleCreateReportReminder(this);
+
+
     }
 
     private void openSCCWebPage(String url){
