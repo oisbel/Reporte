@@ -25,6 +25,8 @@ public class NetworkUtils {
 
     final static String BASE_CREATE_REPORT_URL = Base_URL + "/addreport";
 
+    final static String BASE_EDIT_REPORT_URL = Base_URL + "/editreport";
+
     final static String BASE_GET_USER_URL = Base_URL + "/getuser";
 
     final static String BASE_CREATE_USER_URL = Base_URL + "/adduser";
@@ -113,6 +115,62 @@ public class NetworkUtils {
      * @throws IOException Related to network and stream reading
      */
     public static String geCreateReportFromHttpUrl(URL url, JSONObject jsonParam,
+                                                   String username, String password) throws IOException {
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+        urlConnection.setRequestMethod("POST");
+        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+        String basicAuth = buildBasicAuthorizationString(username, password);
+        urlConnection.setRequestProperty("Authorization", basicAuth);
+        urlConnection.setRequestProperty("Accept","application/json");
+        urlConnection.setDoOutput(true);
+        urlConnection.setDoInput(true);
+
+        DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
+        out.writeBytes(jsonParam.toString());
+        try {
+            InputStream in = urlConnection.getInputStream();
+
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
+
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+            urlConnection.disconnect();
+        }
+    }
+
+    /**
+     * Builds the URL used to query sccreporte.
+     * @return The URL to use to query the sccreporte edit report.
+     */
+    public static URL buildEditReportUrl(int report_id) {
+        Uri builtUri = Uri.parse(BASE_EDIT_REPORT_URL + "/" + report_id).buildUpon()
+                .build();
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
+    /**
+     * Returns the entire result from the HTTP response after edit report.
+     *
+     * @param url The URL to fetch the HTTP response from.
+     * @param jsonParam The json object to sent it with the request.
+     * @return The contents of the HTTP response.
+     * @throws IOException Related to network and stream reading
+     */
+    public static String geEditReportFromHttpUrl(URL url, JSONObject jsonParam,
                                                    String username, String password) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
