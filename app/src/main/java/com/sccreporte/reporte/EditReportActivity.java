@@ -86,25 +86,57 @@ public class EditReportActivity extends AppCompatActivity {
         mBinding.fechaTextView.setText(String.valueOf(report.day) + "/" +
                 DataUtils.Months[report.month - 1] + "/" +
                 String.valueOf(report.year));
-        /**
-         mBinding.avivamientosTextView.setText(String.valueOf(report.avivamientos));
-         mBinding.ayunosTextView.setText(String.valueOf(report.ayunos));
-         mBinding.bibliasTextView.setText(String.valueOf(report.biblias));
-         mBinding.horasAyunosTextView.setText(String.valueOf(report.horas_ayunos));
-         mBinding.cultosTextView.setText(String.valueOf(report.cultos));
-         mBinding.devocionalesTextView.setText(String.valueOf(report.devocionales));
-         mBinding.enfermosTextView.setText(String.valueOf(report.enfermos));
-         mBinding.estudiosAsistidosTextView.setText(String.valueOf(report.estudios_asistidos));
-         mBinding.estudiosEstablecidosTextView.setText(String.valueOf(report.estudios_establecidos));
-         mBinding.estudiosRealizadosTextView.setText(String.valueOf(report.estudios_realizados));
-         mBinding.hogaresTextView.setText(String.valueOf(report.hogares));
-         mBinding.mensajerosTextView.setText(String.valueOf(report.mensajeros));
-         mBinding.mensajesTextView.setText(String.valueOf(report.mensajes));
-         mBinding.porcionesTextView.setText(String.valueOf(report.porciones));
-         mBinding.sanidadesTextView.setText(String.valueOf(report.sanidades));
-         mBinding.visitasTextView.setText(String.valueOf(report.visitas));
-         mBinding.horasTrabajoTextView.setText(String.valueOf(report.horas_trabajo));
-         mBinding.otrosTextView.setText(report.otros);
-         */
+        if(report.avivamientos != 0){
+            mBinding.avivamientosEditText.setText(String.valueOf(report.avivamientos));
+        }
+        if(report.ayunos != 0){
+            mBinding.ayunosEditText.setText(String.valueOf(report.ayunos));
+        }
+        if(report.biblias != 0){
+            mBinding.bibliasEditText.setText(String.valueOf(report.biblias));
+        }
+        if(report.horas_ayunos != 0){
+            mBinding.horasAyunosEditText.setText(String.valueOf(report.horas_ayunos));
+        }
+        if(report.cultos != 0){
+            mBinding.cultosEditText.setText(String.valueOf(report.cultos));
+        }
+        if(report.devocionales != 0){
+            mBinding.devocionalesEditText.setText(String.valueOf(report.devocionales));
+        }
+        if(report.enfermos != 0){
+            mBinding.enfermosEditText.setText(String.valueOf(report.enfermos));
+        }
+        if(report.estudios_asistidos != 0){
+            mBinding.asistidsosEEditText.setText(String.valueOf(report.estudios_asistidos));
+        }
+        if(report.estudios_establecidos != 0){
+            mBinding.establecidosEEditText.setText(String.valueOf(report.estudios_establecidos));
+        }
+        if(report.estudios_realizados != 0){
+            mBinding.realizadosEEditText.setText(String.valueOf(report.estudios_realizados));
+        }
+        if(report.hogares != 0){
+            mBinding.hogaresEditText.setText(String.valueOf(report.hogares));
+        }
+        if(report.mensajeros != 0){
+            mBinding.mensajerosEditText.setText(String.valueOf(report.mensajeros));
+        }
+        if(report.mensajes != 0){
+            mBinding.mensajesEditText.setText(String.valueOf(report.mensajes));
+        }
+        if(report.porciones != 0){
+            mBinding.porcionesEditText.setText(String.valueOf(report.porciones));
+        }
+        if(report.sanidades != 0){
+            mBinding.sanidadesEditText.setText(String.valueOf(report.sanidades));
+        }
+        if(report.visitas != 0){
+            mBinding.visitasEditTExt.setText(String.valueOf(report.visitas));
+        }
+        if(report.horas_trabajo != 0){
+            mBinding.horasTrabajoEditText.setText(String.valueOf(report.horas_trabajo));
+        }
+        mBinding.otrosEditText.setText(report.otros);
     }
 }
