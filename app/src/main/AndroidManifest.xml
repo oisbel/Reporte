@@ -17,14 +17,14 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".LastReportsActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ReportActivity"
             android:screenOrientation="portrait" />
@@ -46,15 +46,18 @@
         <activity android:name=".CreateReportActivity" />
         <activity android:name=".UserDataActivity" />
         <activity android:name=".BiblicalActivity" />
-        <activity android:name=".CreateBiblicalActivity"></activity>
+        <activity android:name=".CreateBiblicalActivity" />
 
-        <service android:name=".sync.CreateReportReminderFirebaseJobService"
+        <service
+            android:name=".sync.CreateReportReminderFirebaseJobService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE">
             <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
+
+        <activity android:name=".EditReportActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.sccreporte.reporte;
 
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -27,8 +29,10 @@ public class ReportActivity extends AppCompatActivity {
     ActivityReportBinding mBinding;
     String mReportJSONString;
     private User mUser;
+    Report report;
 
     ImageButton backBT;
+    Button editBT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +45,6 @@ public class ReportActivity extends AppCompatActivity {
         mUser = DataUtils.loadUserData(this);
 
         // Create the report
-        Report report = null;
         // Obtener el string pasado de la activity anterior
         Intent intentThatStartedThisActivity = getIntent();
         if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
@@ -59,6 +62,19 @@ public class ReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        // Edit button
+        editBT = findViewById(R.id.editButton);
+        editBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = ReportActivity.this;
+                Class destinationActivity = EditReportActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, mReportJSONString);
+                startActivity(startChildActivityIntent);
             }
         });
     }
