@@ -26,7 +26,7 @@ public class NotificationUtils {
      * This notification ID can be used to access our notification after we've displayed it. This
      * can be handy when we need to cancel the notification, or perhaps update it.
      */
-    private static final int CREATE_REPORT_REMINDER_NOTIFICATION_ID = 120;
+    private static final int CREATE_REPORT_REMINDER_NOTIFICATION_ID = 1120;
     /**
      * This pending intent id is used to uniquely reference the pending intent
      */

@@ -49,7 +49,8 @@
         <activity android:name=".CreateBiblicalActivity"></activity>
 
         <service android:name=".sync.CreateReportReminderFirebaseJobService"
-            android:exported="false">
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
             <intent-filter>
                 <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
             </intent-filter>
