@@ -69,6 +69,7 @@ public class ReportActivity extends AppCompatActivity {
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, mReportJSONString);
                 startActivity(startChildActivityIntent);
+                finish();
             }
         });
     }

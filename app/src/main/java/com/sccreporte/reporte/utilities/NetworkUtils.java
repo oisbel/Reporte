@@ -37,6 +37,8 @@ public class NetworkUtils {
 
     final static String BASE_CREATE_BIBLICAL_URL = Base_URL + "/addbiblical";
 
+    final static String BASE_ITISTIME_URL = Base_URL + "/ask";
+
     /**
      * Builds the URL used to query sccreporte.
      *
@@ -411,7 +413,56 @@ public class NetworkUtils {
         }
     }
 
-    //TODO : Eliminar todas los get FromHTTpURl, y build urls dado que son lo mismo
+    /**
+     * Builds the URL used to query sccreporte.
+     * @return The URL to use to query the sccreporte ItIsTime To New Report.
+     */
+    public static URL buildItIsTimeUrl() {
+        Uri builtUri = Uri.parse(BASE_ITISTIME_URL).buildUpon()
+                .build();
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
+    /**
+     * Returns the entire result from the HTTP response.
+     *
+     * @param url The URL to fetch the HTTP response from.
+     * @return The contents of the HTTP response.
+     * @throws IOException Related to network and stream reading
+     */
+    public static String getItIsTimeFromHttpUrl(URL url, String username, String password) throws IOException {
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+        urlConnection.setRequestMethod("GET");
+        String basicAuth = buildBasicAuthorizationString(username, password);
+        urlConnection.setRequestProperty("Authorization", basicAuth);
+        urlConnection.setRequestProperty("Accept","application/json");
+
+        try {
+            InputStream in = urlConnection.getInputStream();
+
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
+
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+            urlConnection.disconnect();
+        }
+    }
+
+    //TODO : Fusionar todas los get FromHTTpURl, y build urls dado que son lo mismo
 
     private static String buildBasicAuthorizationString(String username, String password) {
 
