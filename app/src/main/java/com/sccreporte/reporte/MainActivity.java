@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
@@ -15,10 +16,18 @@ import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.sync.ReminderTasks;
 import com.sccreporte.reporte.sync.ReminderUtilities;
 import com.sccreporte.reporte.utilities.DataUtils;
+import com.sccreporte.reporte.utilities.NetworkUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton radioBT;
     private ImageButton facebookBT;
     private User mUser;
+
+    private AsyncTask mBackgroundTask; // para llamar a ItIsTimeToNewReport
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,10 +145,7 @@ public class MainActivity extends AppCompatActivity {
         addReportBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = MainActivity.this;
-                Class destinationActivity = CreateReportActivity.class;
-                Intent startChildActivityIntent = new Intent(context, destinationActivity);
-                startActivity(startChildActivityIntent);
+                createOrEditReport();
             }
         });
 
@@ -174,6 +183,68 @@ public class MainActivity extends AppCompatActivity {
         ReminderUtilities.scheduleCreateReportReminder(this);
 
 
+    }
+
+    /**
+     * Abre create report activity
+     */
+    private void openCreateReport() {
+        Context context = MainActivity.this;
+        Class destinationActivity = CreateReportActivity.class;
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+        startActivity(startChildActivityIntent);
+    }
+    /**
+     * Abre edit report activity
+     */
+    private void openEditReport(JSONObject report) {
+        Context context = MainActivity.this;
+        Class destinationActivity = EditReportActivity.class;
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+        startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, report.toString());
+        startActivity(startChildActivityIntent);
+    }
+
+    /**
+     * Se encarga de preguntar si es tiempo de crear un nuevo reporte y abrir create report activity
+     * o simplemente abrir la activity para editar el ultimo reporte
+     */
+    private void createOrEditReport(){
+        mBackgroundTask = new AsyncTask<Void, Void, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(Void... voids) {
+                URL itIsTimeUrl = NetworkUtils.buildItIsTimeUrl();
+                String lastReportJSONResult;
+                JSONObject result = null;
+                try{
+                    lastReportJSONResult = NetworkUtils.getItIsTimeFromHttpUrl(
+                            itIsTimeUrl, mUser.email, mUser.password);
+                }catch (IOException e){
+                    e.printStackTrace();
+                    return result;
+                }
+                try {
+                    result = new JSONObject(lastReportJSONResult);
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                if(jsonObject != null){
+                    if(jsonObject.has("id")){
+                        // solo editar
+                        openEditReport(jsonObject);
+                    }
+                    else{
+                        //crear nuevo
+                        openCreateReport();
+                    }
+                }
+            }
+        }.execute();
     }
 
     private void openSCCWebPage(String url){

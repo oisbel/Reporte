@@ -1,5 +1,6 @@
 package com.sccreporte.reporte;
 
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
@@ -68,6 +69,10 @@ public class EditReportActivity extends AppCompatActivity {
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Context context = EditReportActivity.this;
+                Class destinationActivity = LastReportsActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
                 finish();
             }
         });

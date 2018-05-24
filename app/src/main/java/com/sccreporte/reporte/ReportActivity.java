@@ -55,6 +55,10 @@ public class ReportActivity extends AppCompatActivity {
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Context context = ReportActivity.this;
+                Class destinationActivity = LastReportsActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
                 finish();
             }
         });

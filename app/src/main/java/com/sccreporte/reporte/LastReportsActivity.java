@@ -175,6 +175,7 @@ public class LastReportsActivity extends AppCompatActivity
         mToast.show();*/
 
         startActivity(startChildActivityIntent);
+        finish();
     }
 
     /**
