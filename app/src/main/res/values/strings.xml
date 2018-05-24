@@ -78,6 +78,9 @@
     <string name="create_report_error_message">No se ha podido agregar el reporte</string>
     <string name="create_report_success_message">Reporte agregado correctamente</string>
 
+    <string name="edit_report_error_message">No se ha podido editar el reporte</string>
+    <string name="edit_report_success_message">Se ha cambiado el reporte correctamente</string>
+
     <string name="create_biblical_error_message">No se ha podido agregar el Estudio Bíblico</string>
     <string name="create_biblical_success_message">Estudio Bíblico agregado correctamente</string>
 

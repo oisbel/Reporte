@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
                 android:id="@+id/sccTextView"
@@ -123,10 +123,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divView"/>
 
+            <ProgressBar
+                android:id="@+id/loadingIndicatorProgressBar"
+                android:layout_height="42dp"
+                android:layout_width="42dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+                android:visibility="invisible"/>
+
         </android.support.constraint.ConstraintLayout>
 
         // Tabla de contenido del reporte
         <ScrollView
+            android:id="@+id/reportScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <android.support.constraint.ConstraintLayout

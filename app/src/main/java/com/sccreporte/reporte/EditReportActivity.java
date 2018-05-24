@@ -2,18 +2,26 @@ package com.sccreporte.reporte;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.databinding.ActivityEditReportBinding;
 import com.sccreporte.reporte.utilities.DataUtils;
+import com.sccreporte.reporte.utilities.NetworkUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class EditReportActivity extends AppCompatActivity {
 
@@ -22,10 +30,12 @@ public class EditReportActivity extends AppCompatActivity {
     String mReportJSONString;
     private User mUser;
     Report report;
+    int report_id;
 
     ImageButton backBT;
     ImageButton doneBT;
-
+    private ProgressBar mLoadingIndicator;
+    private ScrollView reportSV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +43,10 @@ public class EditReportActivity extends AppCompatActivity {
 
         // Set the content view to the layout
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_edit_report);
+        backBT = findViewById(R.id.backButton);
+        doneBT = findViewById(R.id.doneButton);
+        mLoadingIndicator = findViewById(R.id.loadingIndicatorProgressBar);
+        reportSV = findViewById(R.id.reportScrollView);
 
         // Load the user data
         mUser = DataUtils.loadUserData(this);
@@ -43,6 +57,7 @@ public class EditReportActivity extends AppCompatActivity {
         if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
             mReportJSONString = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
             report = createReport(mReportJSONString);
+            report_id = report.id;
         }
         // Bind the data with the layout
         if (report != null){
@@ -50,13 +65,41 @@ public class EditReportActivity extends AppCompatActivity {
         }
 
         // Back button click
-        backBT = findViewById(R.id.backButton);
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+        // click para editar el reporte en el servidor
+        doneBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(toLongInt(3))
+                    return;
+                new EditReportQueryTask().execute(makeReportData());
+            }
+        });
+    }
+
+    private void showLoading(){
+        mLoadingIndicator.setVisibility(View.VISIBLE);
+        reportSV.setAlpha(.5f);
+    }
+
+    private void hideLoading(){
+        mLoadingIndicator.setVisibility(View.INVISIBLE);
+        reportSV.setAlpha(0);
+    }
+
+    private void ShowErrorMessage(){
+        Toast toast = Toast.makeText(this, R.string.edit_report_error_message, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    private void ShowSuccessMessage(){
+        Toast toast = Toast.makeText(this, R.string.edit_report_success_message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     /**
@@ -74,7 +117,6 @@ public class EditReportActivity extends AppCompatActivity {
         }
         return  result;
     }
-
     /**
      * Bind each attribute in the views to the corresponding data
      * @param report
@@ -138,5 +180,166 @@ public class EditReportActivity extends AppCompatActivity {
             mBinding.horasTrabajoEditText.setText(String.valueOf(report.horas_trabajo));
         }
         mBinding.otrosEditText.setText(report.otros);
+    }
+
+    /**
+     * check for all the field of report to see if they have to long integer
+     * @param max
+     * @return true if any big big int
+     */
+    private boolean toLongInt(int max){
+        if(mBinding.avivamientosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.bibliasEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.ayunosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.horasAyunosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.cultosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.devocionalesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.enfermosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.hogaresEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.asistidsosEEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.establecidosEEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.realizadosEEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.mensajerosEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.mensajesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.porcionesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.sanidadesEditText.getText().toString().length()>max)
+            return true;
+        if(mBinding.visitasEditTExt.getText().toString().length()>max)
+            return true;
+        if(mBinding.horasTrabajoEditText.getText().toString().length()>max)
+            return true;
+        return false;
+    }
+
+    /**
+     * Crea un objeto object con los valores del reporte que se quiere mandar
+     * @return
+     */
+    private JSONObject makeReportData(){
+        JSONObject result = new JSONObject();
+        String temp = "";
+        try {
+            temp = mBinding.avivamientosEditText.getText().toString();
+            result.put("avivamientos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.bibliasEditText.getText().toString();
+            result.put("biblias", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.ayunosEditText.getText().toString();
+            result.put("ayunos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.horasAyunosEditText.getText().toString();
+            result.put("horas_ayunos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.cultosEditText.getText().toString();
+            result.put("cultos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.devocionalesEditText.getText().toString();
+            result.put("devocionales", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.enfermosEditText.getText().toString();
+            result.put("enfermos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.hogaresEditText.getText().toString();
+            result.put("hogares", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.asistidsosEEditText.getText().toString();
+            result.put("estudios_asistidos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.establecidosEEditText.getText().toString();
+            result.put("estudios_establecidos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.realizadosEEditText.getText().toString();
+            result.put("estudios_realizados", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.mensajerosEditText.getText().toString();
+            result.put("mensajeros", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.mensajesEditText.getText().toString();
+            result.put("mensajes", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.porcionesEditText.getText().toString();
+            result.put("porciones", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.sanidadesEditText.getText().toString();
+            result.put("sanidades", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.visitasEditTExt.getText().toString();
+            result.put("visitas", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.horasTrabajoEditText.getText().toString();
+            result.put("horas_trabajo", temp.isEmpty() ? "0" : temp);
+
+            result.put("otros", mBinding.otrosEditText.getText());
+
+
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+        return result;
+    }
+
+    /**
+     * Clase que manda los datos del reporte a editar al servidor, y maneja el resultado devuelto
+     * usando otro hilo
+     */
+    public class EditReportQueryTask extends AsyncTask<JSONObject, Void, JSONObject>{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            showLoading();
+        }
+        @Override
+        protected JSONObject doInBackground(JSONObject... jsonObjects) {
+            if(jsonObjects == null || jsonObjects.length == 0) return null;
+            JSONObject jsonData = jsonObjects[0];
+            URL editReportUrl = NetworkUtils.buildEditReportUrl(report_id);
+            String editReportJSONResult;
+            JSONObject result = null;
+            try {
+                editReportJSONResult = NetworkUtils.geEditReportFromHttpUrl(
+                        editReportUrl, jsonData, mUser.email, mUser.password);
+            }catch (IOException e){
+                e.printStackTrace();
+                return result;
+            }
+            try {
+                result = new JSONObject(editReportJSONResult);
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            hideLoading();
+            if(jsonObject != null){
+                if(jsonObject.has("report")){
+                    //success
+                    ShowSuccessMessage();
+                    Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }else{
+                ShowErrorMessage();
+            }
+        }
     }
 }
