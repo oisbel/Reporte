@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name=".LastReportsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ReportActivity"
             android:screenOrientation="portrait" />
@@ -43,10 +43,18 @@
         <activity
             android:name=".CreatePasswordActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CreateReportActivity" />
-        <activity android:name=".UserDataActivity" />
-        <activity android:name=".BiblicalActivity" />
-        <activity android:name=".CreateBiblicalActivity" />
+        <activity android:name=".CreateReportActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UserDataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".BiblicalActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CreateBiblicalActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EditReportActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HelpActivity"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".sync.CreateReportReminderFirebaseJobService"
@@ -57,7 +65,6 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".EditReportActivity"></activity>
     </application>
 
 </manifest>

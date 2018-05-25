@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
                             finish();
                         }
                         if(menuItem.getItemId() == R.id.action_help){
-                            //NotificationUtils.remindUserCreateReport(MainActivity.this);
-                            ReminderTasks.executeTask(MainActivity.this, ReminderTasks.ACTION_CREATE_REPORT_REMINDER);
+                            Intent intent = new Intent(getApplicationContext(),HelpActivity.class);
+                            startActivity(intent);
                         }
                         return true;
                     }
