@@ -100,7 +100,7 @@ public class BiblicalsAdapter extends RecyclerView.Adapter<BiblicalsAdapter.Bibl
             // Estableciendo los valores al list item del estudio biblico
             nombreTB.setText(String.valueOf(biblical.nombre));
             monthTB.setText(DataUtils.MonthsShort[biblical.month - 1]);
-            yearTB.setText(String.valueOf(biblical.year).substring(2));
+            yearTB.setText(String.valueOf(biblical.year));
             direccionTB.setText(String.valueOf(biblical.direccion));
         }
 
