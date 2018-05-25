@@ -99,5 +99,11 @@
     </string>
 
     <string name="help_main_label">Tutorial</string>
+    <string name="topic_create_report">Como crear un Informe Evangelístico Mensual</string>
+    <string name="details_create_report_help">
+        1-En la vista principal seleccione Crear Reporte.
+        \n2-Cuando termine de llenar los datos correspondientes a su informe,
+        seleccione guardar en la parte superior derecha.
+    </string>
 
 </resources>
