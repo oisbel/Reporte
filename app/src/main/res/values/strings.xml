@@ -105,5 +105,6 @@
         \n2-Cuando termine de llenar los datos correspondientes a su informe,
         seleccione guardar en la parte superior derecha.
     </string>
+    <string name="delete">Eliminar</string>
 
 </resources>

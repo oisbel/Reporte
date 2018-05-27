@@ -18,4 +18,5 @@
     <color name="colorForegroundRegister">#554D47</color>
     <color name="topRectangleUserData">#F1F1F1</color>
     <color name="colorNameLabel">#f2f7f3</color>
+    <color name="colorBackgroundDelete">#fa315b</color>
 </resources>
