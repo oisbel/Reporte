@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sccreporte.reporte.data.Biblical;
@@ -64,6 +65,20 @@ public class BiblicalsAdapter extends RecyclerView.Adapter<BiblicalsAdapter.Bibl
         return  mBiblicaltData.size();
     }
 
+    public void removeItem(int position) {
+        mBiblicaltData.remove(position);
+        // notify the item removed by position
+        // to perform recycler view delete animations
+        // NOTE: don't call notifyDataSetChanged()
+        notifyItemRemoved(position);
+    }
+
+    public void restoreItem(Biblical item, int position) {
+        mBiblicaltData.add(position, item);
+        // notify item added by position
+        notifyItemInserted(position);
+    }
+
     /**
      * This method is used to set the report data on a LastReportsAdapter if we've already
      * created one. This is handy when we get new data from the web but don't want to create a
@@ -84,12 +99,17 @@ public class BiblicalsAdapter extends RecyclerView.Adapter<BiblicalsAdapter.Bibl
         TextView monthTB;
         TextView yearTB;
         TextView direccionTB;
+        public RelativeLayout viewBackground, viewForeground;
+
         public BiblicalViewHolder(View itemView){
             super(itemView);
             nombreTB = itemView.findViewById(R.id.nombreTextView);
             monthTB = itemView.findViewById(R.id.monthTextView);
             yearTB = itemView.findViewById(R.id.yearTextView);
             direccionTB = itemView.findViewById(R.id.direccionTextView);
+
+            viewBackground = itemView.findViewById(R.id.view_background);
+            viewForeground = itemView.findViewById(R.id.view_foreground);
 
             itemView.setOnClickListener(this);
         }
