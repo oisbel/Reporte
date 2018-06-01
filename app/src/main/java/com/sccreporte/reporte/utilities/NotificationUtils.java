@@ -14,6 +14,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.sccreporte.reporte.CreateReportActivity;
+import com.sccreporte.reporte.MainActivity;
 import com.sccreporte.reporte.R;
 
 /**
@@ -88,7 +89,7 @@ public class NotificationUtils {
      */
     private static PendingIntent contentIntent(Context context){
         // Create an intent that opens up the MainActivity
-        Intent startActivityIntent = new Intent(context, CreateReportActivity.class);
+        Intent startActivityIntent = new Intent(context, MainActivity.class);
         // Create a PendingIntent using getActivity
         return PendingIntent.getActivity(
                 context,
