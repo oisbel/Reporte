@@ -208,7 +208,7 @@ public class BiblicalActivity extends AppCompatActivity
 
             // showing snack bar with Undo option
             Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, name + " - eliminado de los Estudios Bíblicos!", Snackbar.LENGTH_LONG);
+                    .make(coordinatorLayout, "Eliminando a - " + name + " - de los Estudios Bíblicos!", Snackbar.LENGTH_LONG);
             snackbar.setAction("CANCELAR", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
