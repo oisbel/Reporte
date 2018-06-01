@@ -107,4 +107,6 @@
     </string>
     <string name="delete">Eliminar</string>
 
+    <string name="delete_biblical_error_message">No se ha podido eliminar el reporte bíblico</string>
+
 </resources>

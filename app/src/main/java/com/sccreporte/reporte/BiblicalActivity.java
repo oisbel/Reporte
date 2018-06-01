@@ -28,6 +28,9 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.CoordinatorLayout;
 import android.graphics.Color;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class BiblicalActivity extends AppCompatActivity
     implements BiblicalsAdapter.ListItemClickListener,
         RecyclerItemTouchHelper.RecyclerItemTouchHelperListener{
@@ -205,13 +208,55 @@ public class BiblicalActivity extends AppCompatActivity
 
             // showing snack bar with Undo option
             Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, name + " eliminado de los Estudios Bíblicos!", Snackbar.LENGTH_LONG);
+                    .make(coordinatorLayout, name + " - eliminado de los Estudios Bíblicos!", Snackbar.LENGTH_LONG);
             snackbar.setAction("CANCELAR", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
                     // undo is selected, restore the deleted item
                     mBiblicalAdapter.restoreItem(deletedItem, deletedIndex);
+                }
+            });
+            snackbar.addCallback(new Snackbar.Callback(){
+                @Override
+                public void onDismissed(Snackbar transientBottomBar, int event) {
+                    //super.onDismissed(transientBottomBar, event);
+                    if (event == Snackbar.Callback.DISMISS_EVENT_TIMEOUT) {
+                        // Snackbar closed on its own
+                        AsyncTask deleteBiblicalBackgroundTask = new AsyncTask<String, Void, JSONObject>() {
+                            @Override
+                            protected JSONObject doInBackground(String... strings) {
+                                if(strings.length == 0) return null;
+                                int biblical_id = Integer.parseInt(strings[0]);
+                                URL deleteBiblicalUrl = NetworkUtils.buildDeleteBiblicalUrl(biblical_id);
+                                String deleteBiblicalJSONResult;
+                                JSONObject result = null;
+                                try{
+                                    deleteBiblicalJSONResult = NetworkUtils.geDeleteBiblicalFromHttpUrl(
+                                            deleteBiblicalUrl, mUser.email, mUser.password);
+                                }catch (IOException e){
+                                    e.printStackTrace();
+                                    return result;
+                                }
+                                try {
+                                    result = new JSONObject(deleteBiblicalJSONResult);
+                                }catch (JSONException e){
+                                    e.printStackTrace();
+                                }
+                                return result;
+                            }
+
+                            @Override
+                            protected void onPostExecute(JSONObject jsonObject) {
+                                if(jsonObject == null || !jsonObject.has("biblical")){
+                                    // no se realizo correctamente
+                                    Toast.makeText(BiblicalActivity.this,
+                                            R.string.delete_biblical_error_message, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }.execute(Integer.toString(deletedItem.id));
+                    }
+
                 }
             });
             snackbar.setActionTextColor(Color.YELLOW);

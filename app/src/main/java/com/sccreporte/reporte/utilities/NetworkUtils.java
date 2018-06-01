@@ -436,24 +436,18 @@ public class NetworkUtils {
      * Returns the entire result from the HTTP response after delete biblical.
      *
      * @param url The URL to fetch the HTTP response from.
-     * @param jsonParam The json object to sent it with the request.
      * @return The contents of the HTTP response.
      * @throws IOException Related to network and stream reading
      */
-    public static String geDeleteBiblicalFromHttpUrl(URL url, JSONObject jsonParam,
+    public static String geDeleteBiblicalFromHttpUrl(URL url,
                                                  String username, String password) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
         String basicAuth = buildBasicAuthorizationString(username, password);
         urlConnection.setRequestProperty("Authorization", basicAuth);
         urlConnection.setRequestProperty("Accept","application/json");
-        urlConnection.setDoOutput(true);
-        urlConnection.setDoInput(true);
 
-        DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
-        out.writeBytes(jsonParam.toString());
         try {
             InputStream in = urlConnection.getInputStream();
 
