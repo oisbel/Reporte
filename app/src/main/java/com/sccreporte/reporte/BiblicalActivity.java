@@ -23,8 +23,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.CoordinatorLayout;
+import android.graphics.Color;
+
 public class BiblicalActivity extends AppCompatActivity
-    implements BiblicalsAdapter.ListItemClickListener{
+    implements BiblicalsAdapter.ListItemClickListener,
+        RecyclerItemTouchHelper.RecyclerItemTouchHelperListener{
 
     private TextView nameUserTV;
     private TextView lugarUserTV;
@@ -33,6 +39,9 @@ public class BiblicalActivity extends AppCompatActivity
     private static final int NUM_LIST_ITEMS = 20;
     private BiblicalsAdapter mBiblicalAdapter;
     private RecyclerView mBiblicalList;
+
+    private CoordinatorLayout coordinatorLayout;
+
     private TextView mErrorMessageDisplay;
     private TextView mEmptyMessageDisplay;
     // Create a ProgressBar variable to store a reference to the ProgressBar
@@ -90,6 +99,8 @@ public class BiblicalActivity extends AppCompatActivity
         // Wiring up RecycerView
         mBiblicalList = findViewById(R.id.biblicalRecyclerView);
 
+        coordinatorLayout = findViewById(R.id.coordinator_layout);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mBiblicalList.setLayoutManager(layoutManager);
         mBiblicalList.setHasFixedSize(true);
@@ -102,6 +113,15 @@ public class BiblicalActivity extends AppCompatActivity
             finish();
         nameUserTV.setText(mUser.nombre);
         lugarUserTV.setText(mUser.lugar);
+
+        // adding item touch helper
+        // only ItemTouchHelper.LEFT added to detect Right to Left swipe
+        // if you want both Right -> Left and Left -> Right
+        // add pass ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT as param
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(
+                0, ItemTouchHelper.LEFT, this);
+        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(mBiblicalList);
+
 
          /* Once all of our views are setup, we can load the reports data. */
          loadBiblicalData();
@@ -163,6 +183,40 @@ public class BiblicalActivity extends AppCompatActivity
 
     @Override
     public void onListItemClick(int clickedItemIndex) {
+    }
+
+    /**
+     * callback when recycler view is swiped
+     * item will be removed on swiped
+     * undo option will be provided in snackbar to restore the item
+     */
+    @Override
+    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
+        if (viewHolder instanceof BiblicalsAdapter.BiblicalViewHolder) {
+            // get the removed item name to display it in snack bar
+            String name = mBiblicalsData.get(viewHolder.getAdapterPosition()).nombre;
+
+            // backup of removed item for undo purpose
+            final Biblical deletedItem = mBiblicalsData.get(viewHolder.getAdapterPosition());
+            final int deletedIndex = viewHolder.getAdapterPosition();
+
+            // remove the item from recycler view
+            mBiblicalAdapter.removeItem(viewHolder.getAdapterPosition());
+
+            // showing snack bar with Undo option
+            Snackbar snackbar = Snackbar
+                    .make(coordinatorLayout, name + " eliminado de los Estudios Bíblicos!", Snackbar.LENGTH_LONG);
+            snackbar.setAction("CANCELAR", new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    // undo is selected, restore the deleted item
+                    mBiblicalAdapter.restoreItem(deletedItem, deletedIndex);
+                }
+            });
+            snackbar.setActionTextColor(Color.YELLOW);
+            snackbar.show();
+        }
     }
 
     public class BiblicalsQueryTask extends AsyncTask<String, Void, List<Biblical>>{
