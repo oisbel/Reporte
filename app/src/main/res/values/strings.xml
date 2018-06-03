@@ -101,8 +101,21 @@
     <string name="help_main_label">Tutorial</string>
     <string name="topic_create_report">Como crear un Informe Evangelístico Mensual</string>
     <string name="details_create_report_help">
-        1-En la vista principal seleccione Crear Reporte.
-        \n2-Cuando termine de llenar los datos correspondientes a su informe,
+        <b>1</b> - En la vista principal seleccione <i><u>Crear Reporte</u></i>.
+        \n<b>2</b> - Cuando termine de llenar los datos correspondientes a su informe,
+        seleccione guardar en la parte superior derecha.
+    </string>
+    <string name="explain_create_report_help">
+        \u2022 Tenga en cuenta que solo podrá crear un reporte nuevo pasado el dia 7 de cada mes,
+        y cuando seleccione <b>Crear Reporte</b> se abrirá la vista para editar su último reporte.
+    </string>
+    <string name="topic_edit_report">Como cambiar un Informe Evangelístico Mensual</string>
+    <string name="details_edit_report_help">
+        Con motivo de agregarle datos al reporte, o arreglar algun informe:
+        \n<b>1</b> - En la vista principal seleccione <i><u>Historial de Reportes</u></i>.
+        \n<b>2</b> - Seleccione el reporte correspondiente.
+        \n<b>3</b> - En la parte superior derecha seleccione <i><u>Editar</u></i>.
+        \n<b>4</b> - Cuando termine de llenar los datos correspondientes a su informe,
         seleccione guardar en la parte superior derecha.
     </string>
     <string name="delete">Eliminar</string>

@@ -44,7 +44,16 @@
             app:srcCompat="@drawable/ic_action_video" />
     </RelativeLayout>
 
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
         style="@style/mainTopicsHelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +61,7 @@
         android:drawableRight="@drawable/ic_action_addreporthelp"
         android:text="@string/topic_create_report"
         android:textColor="@android:color/secondary_text_light"/>
-    <TextView
+            <TextView
         style="@style/detailsHelp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,4 +70,36 @@
         android:inputType="textMultiLine"
         android:background="@drawable/help_detail_border"
         android:text="@string/details_create_report_help"/>
+            <TextView
+        style="@style/detailsHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:inputType="textMultiLine"
+        android:text="@string/explain_create_report_help"/>
+            <View
+        android:id="@+id/divView"
+        style="@style/userDataDivStyle"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"/>
+            <TextView
+        style="@style/mainTopicsHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:drawableRight="@drawable/ic_report"
+        android:text="@string/topic_edit_report"
+        android:textColor="@android:color/secondary_text_light"/>
+            <TextView
+        style="@style/detailsHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:inputType="textMultiLine"
+        android:background="@drawable/help_detail_border"
+        android:text="@string/details_edit_report_help"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
