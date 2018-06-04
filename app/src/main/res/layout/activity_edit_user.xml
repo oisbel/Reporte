@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/topRectangleUserData"
+        tools:context="com.sccreporte.reporte.LastReportsActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackgroundLastReportsMain">
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
+                android:layout_alignParentLeft="true"
+                android:background="?android:selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_action_close" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/closeButton"
+                style="@style/lastReportLabelStyle"
+                android:text="@string/edit_user_label"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="24dp"/>
+
+            <ImageButton
+                android:id="@+id/doneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_action_done" />
+
+        </RelativeLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/topRectangle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/topRectangleUserData"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/sccTextView"
+                style="@style/sccSplashStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/scc_splash"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/reportSplashStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reports_splash"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/sccTextView"
+                app:layout_constraintStart_toStartOf="@+id/sccTextView"
+                app:layout_constraintTop_toBottomOf="@+id/sccTextView" />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                style="@style/nameUserDataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="24dp"
+                android:text="@string/nombre_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/lugarTextView"
+                style="@style/lugarUserDataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/lugar_label"
+                app:layout_constraintEnd_toEndOf="@+id/nameTextView"
+                app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+
+            <View
+                android:id="@+id/divView"
+                style="@style/userDataDivStyle"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lugarTextView"/>
+
+            <ProgressBar
+                android:id="@+id/loadingIndicatorProgressBar"
+                android:layout_height="42dp"
+                android:layout_width="42dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+                android:visibility="invisible"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        // Tabla de contenido del reporte
+        <ScrollView
+            android:id="@+id/reportScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/gradoSpinner"
+                    style="@style/reportDataStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_gravity="right"
+                    android:gravity="right">
+                </Spinner>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle">
+                    <EditText
+                        android:id="@+id/ministerioEditText"
+                        style="@style/reportDataStyle"
+                        android:textColor="@android:color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="textPersonName"
+                        android:hint="@string/ministerio_label" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle">
+                    <EditText
+                        android:id="@+id/responsabilidadEditText"
+                        style="@style/reportDataStyle"
+                        android:textColor="@android:color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="textPersonName"
+                        android:hint="@string/responsabilidad_label" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle">
+                    <EditText
+                        android:id="@+id/pastorEditText"
+                        style="@style/reportDataStyle"
+                        android:textColor="@android:color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="textPersonName"
+                        android:hint="@string/pastor_label" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/reportDataStyle">
+                    <EditText
+                        android:id="@+id/numeroEditText"
+                        style="@style/reportDataStyle"
+                        android:textColor="@android:color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:hint="@string/numero_label" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

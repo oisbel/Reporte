@@ -21,6 +21,7 @@
     <string name="edit_report_label">Editar Reporte</string>
     <string name="edit_label">Editar</string>
     <string name="update_label">Actualizar</string>
+    <string name="edit_user_label">Editar Mis Datos</string>
 
     <string name="avivamientos_label">Avivamientos</string>
     <string name="ayunos_label">Ayunos</string>

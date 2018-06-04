@@ -1,9 +1,12 @@
 package com.sccreporte.reporte;
 
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.sccreporte.reporte.data.User;
@@ -13,6 +16,7 @@ import com.sccreporte.reporte.utilities.DataUtils;
 public class UserDataActivity extends AppCompatActivity {
 
     ImageButton backBT;
+    Button editBT;
     User mUser;
     ActivityUserDataBinding mBinding;
     @Override
@@ -25,10 +29,22 @@ public class UserDataActivity extends AppCompatActivity {
 
         // Back button click
         backBT = findViewById(R.id.backButton);
+        editBT = findViewById(R.id.editButton);
+
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        editBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = UserDataActivity.this;
+                Class destinationActivity = EditUserActivity.class;
+                Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startActivity(startChildActivityIntent);
             }
         });
 

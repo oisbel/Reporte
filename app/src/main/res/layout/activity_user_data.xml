@@ -37,7 +37,7 @@
             android:text="@string/my_data_label" />
 
         <Button
-            android:id="@+id/updateButton"
+            android:id="@+id/editButton"
             style="@style/editButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
