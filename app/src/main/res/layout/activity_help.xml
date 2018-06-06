@@ -92,14 +92,15 @@
         android:text="@string/topic_edit_report"
         android:textColor="@android:color/secondary_text_light"/>
             <TextView
-        style="@style/detailsHelp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:inputType="textMultiLine"
-        android:background="@drawable/help_detail_border"
-        android:text="@string/details_edit_report_help"/>
+                style="@style/detailsHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:inputType="textMultiLine"
+                android:background="@drawable/help_detail_border"
+                android:text="@string/details_edit_report_help"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
