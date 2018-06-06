@@ -31,6 +31,8 @@ public class NetworkUtils {
 
     final static String BASE_CREATE_USER_URL = Base_URL + "/adduser";
 
+    final static String BASE_EDIT_USER_URL = Base_URL + "/edituser";
+
     final static String PARAM_QUERY_USER_ID = "user_id";
 
     final static String BASE_BIBLICALS_URL = Base_URL + "/biblicals";
@@ -290,6 +292,62 @@ public class NetworkUtils {
         urlConnection.setRequestProperty("Authorization", basicAuth);
         urlConnection.setRequestProperty("Accept","application/json");
 
+        try {
+            InputStream in = urlConnection.getInputStream();
+
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
+
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+            urlConnection.disconnect();
+        }
+    }
+
+    /**
+     * Builds the URL used to query sccreporte.
+     * @return The URL to use to query the sccreporte edit user.
+     */
+    public static URL buildEditUserUrl(int user_id) {
+        Uri builtUri = Uri.parse(BASE_EDIT_USER_URL + "/" + user_id).buildUpon()
+                .build();
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
+    /**
+     * Returns the entire result from the HTTP response after edit user.
+     *
+     * @param url The URL to fetch the HTTP response from.
+     * @param jsonParam The json object to sent it with the request.
+     * @return The contents of the HTTP response.
+     * @throws IOException Related to network and stream reading
+     */
+    public static String geEditUserFromHttpUrl(URL url, JSONObject jsonParam,
+                                                 String username, String password) throws IOException {
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+        urlConnection.setRequestMethod("POST");
+        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+        String basicAuth = buildBasicAuthorizationString(username, password);
+        urlConnection.setRequestProperty("Authorization", basicAuth);
+        urlConnection.setRequestProperty("Accept","application/json");
+        urlConnection.setDoOutput(true);
+        urlConnection.setDoInput(true);
+
+        DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
+        out.writeBytes(jsonParam.toString());
         try {
             InputStream in = urlConnection.getInputStream();
 

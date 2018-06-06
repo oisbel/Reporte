@@ -136,9 +136,9 @@
                 <Spinner
                     android:id="@+id/gradoSpinner"
                     style="@style/reportDataStyle"
+                    android:textColor="@android:color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:layout_gravity="right"

@@ -53,8 +53,6 @@ public class EditUserActivity extends AppCompatActivity {
 
         int spinnerPosition = adapter.getPosition(mUser.grado);
         gradoSpinner.setSelection(spinnerPosition);
-
-
         ministerioET.setText(mUser.ministerio);
         responsabilidadET.setText(mUser.responsabilidad);
         pastorET.setText(mUser.pastor);
