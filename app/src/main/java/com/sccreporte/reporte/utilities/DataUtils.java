@@ -93,5 +93,26 @@ public class DataUtils {
         editor.putString("password","");
         editor.apply();
     }
+
+    /**
+     * Guarda los datos de usuarios que se acaban de cambiar en el servidor
+     * @param context
+     * @param jsonData
+     */
+    public static void SaveUserData(Context context, JSONObject jsonData){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        try {
+            editor.putString("grado", jsonData.getString("grado"));
+            editor.putString("ministerio", jsonData.getString("ministerio"));
+            editor.putString("responsabilidad", jsonData.getString("responsabilidad"));
+            editor.putString("lugar", jsonData.getString("lugar"));
+            editor.putString("pastor", jsonData.getString("pastor"));
+            editor.putString("numero", jsonData.getString("numero"));
+            editor.apply();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

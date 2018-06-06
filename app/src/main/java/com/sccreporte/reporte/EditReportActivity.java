@@ -317,7 +317,7 @@ public class EditReportActivity extends AppCompatActivity {
             String editReportJSONResult;
             JSONObject result = null;
             try {
-                editReportJSONResult = NetworkUtils.geEditReportFromHttpUrl(
+                editReportJSONResult = NetworkUtils.getEditReportFromHttpUrl(
                         editReportUrl, jsonData, mUser.email, mUser.password);
             }catch (IOException e){
                 e.printStackTrace();

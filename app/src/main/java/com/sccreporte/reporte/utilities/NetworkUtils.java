@@ -176,7 +176,7 @@ public class NetworkUtils {
      * @return The contents of the HTTP response.
      * @throws IOException Related to network and stream reading
      */
-    public static String geEditReportFromHttpUrl(URL url, JSONObject jsonParam,
+    public static String getEditReportFromHttpUrl(URL url, JSONObject jsonParam,
                                                    String username, String password) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
@@ -334,7 +334,7 @@ public class NetworkUtils {
      * @return The contents of the HTTP response.
      * @throws IOException Related to network and stream reading
      */
-    public static String geEditUserFromHttpUrl(URL url, JSONObject jsonParam,
+    public static String getEditUserFromHttpUrl(URL url, JSONObject jsonParam,
                                                  String username, String password) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 

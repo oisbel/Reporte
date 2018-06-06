@@ -68,6 +68,8 @@
     <string name="user_no_exist_message">El usuario indicado no existe</string>
     <string name="user_created">Su cuenta se ha creado</string>
     <string name="must_register">Debe introducir sus datos personales antes de registarse, o seleccionar entrar</string>
+    <string name="edit_user_error_message">No se ha podido editar los datos de usuario</string>
+    <string name="edit_user_success_message">Se han cambiando los datos de usuario correctamente</string>
 
     <string name="mandatory_error">Obligatorio</string>
     <string name="invalid_email">Correo Inválido</string>

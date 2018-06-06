@@ -45,6 +45,7 @@ public class UserDataActivity extends AppCompatActivity {
                 Class destinationActivity = EditUserActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
+                finish();
             }
         });
 

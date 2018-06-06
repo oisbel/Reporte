@@ -125,7 +125,7 @@
 
         // Tabla de contenido del reporte
         <ScrollView
-            android:id="@+id/reportScrollView"
+            android:id="@+id/userScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
