@@ -125,19 +125,20 @@ public class NetworkUtils {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+        urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         String basicAuth = buildBasicAuthorizationString(username, password);
         urlConnection.setRequestProperty("Authorization", basicAuth);
         urlConnection.setRequestProperty("Accept","application/json");
+        urlConnection.setRequestProperty("accept-charset", "UTF-8");
         urlConnection.setDoOutput(true);
         urlConnection.setDoInput(true);
 
         DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
-        out.writeBytes(jsonParam.toString());
+        out.write(jsonParam.toString().getBytes("UTF-8"));
         try {
             InputStream in = urlConnection.getInputStream();
 
-            Scanner scanner = new Scanner(in);
+            Scanner scanner = new Scanner(in, "UTF-8");
             scanner.useDelimiter("\\A");
 
             boolean hasInput = scanner.hasNext();
@@ -181,19 +182,20 @@ public class NetworkUtils {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+        urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         String basicAuth = buildBasicAuthorizationString(username, password);
         urlConnection.setRequestProperty("Authorization", basicAuth);
         urlConnection.setRequestProperty("Accept","application/json");
+        urlConnection.setRequestProperty("accept-charset", "UTF-8");
         urlConnection.setDoOutput(true);
         urlConnection.setDoInput(true);
 
         DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
-        out.writeBytes(jsonParam.toString());
+        out.write(jsonParam.toString().getBytes("UTF-8"));
         try {
             InputStream in = urlConnection.getInputStream();
 
-            Scanner scanner = new Scanner(in);
+            Scanner scanner = new Scanner(in, "UTF-8");
             scanner.useDelimiter("\\A");
 
             boolean hasInput = scanner.hasNext();
@@ -236,17 +238,18 @@ public class NetworkUtils {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+        urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         urlConnection.setRequestProperty("Accept","application/json");
+        urlConnection.setRequestProperty("accept-charset", "UTF-8");
         urlConnection.setDoOutput(true);
         urlConnection.setDoInput(true);
 
         DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
-        out.writeBytes(jsonParam.toString());
+        out.write(jsonParam.toString().getBytes("UTF-8"));
         try {
             InputStream in = urlConnection.getInputStream();
 
-            Scanner scanner = new Scanner(in);
+            Scanner scanner = new Scanner(in, "UTF-8");
             scanner.useDelimiter("\\A");
 
             boolean hasInput = scanner.hasNext();
@@ -339,19 +342,20 @@ public class NetworkUtils {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+        urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         String basicAuth = buildBasicAuthorizationString(username, password);
         urlConnection.setRequestProperty("Authorization", basicAuth);
         urlConnection.setRequestProperty("Accept","application/json");
+        urlConnection.setRequestProperty("accept-charset", "UTF-8");
         urlConnection.setDoOutput(true);
         urlConnection.setDoInput(true);
 
         DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
-        out.writeBytes(jsonParam.toString());
+        out.write(jsonParam.toString().getBytes("UTF-8"));
         try {
             InputStream in = urlConnection.getInputStream();
 
-            Scanner scanner = new Scanner(in);
+            Scanner scanner = new Scanner(in,"UTF_8");
             scanner.useDelimiter("\\A");
 
             boolean hasInput = scanner.hasNext();
@@ -447,19 +451,20 @@ public class NetworkUtils {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+        urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         String basicAuth = buildBasicAuthorizationString(username, password);
         urlConnection.setRequestProperty("Authorization", basicAuth);
         urlConnection.setRequestProperty("Accept","application/json");
+        urlConnection.setRequestProperty("accept-charset", "UTF-8");
         urlConnection.setDoOutput(true);
         urlConnection.setDoInput(true);
 
         DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
-        out.writeBytes(jsonParam.toString());
+        out.write(jsonParam.toString().getBytes("UTF-8"));
         try {
             InputStream in = urlConnection.getInputStream();
 
-            Scanner scanner = new Scanner(in);
+            Scanner scanner = new Scanner(in, "UTF-8");
             scanner.useDelimiter("\\A");
 
             boolean hasInput = scanner.hasNext();
