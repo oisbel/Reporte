@@ -31,7 +31,7 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton menuBT;
+    private ImageButton helpBT;
     private ImageButton imageUserBT;
     private ImageButton addReportBT;
     private ImageButton biblicalBT;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        menuBT = (ImageButton) findViewById(R.id.menuButton);
+        helpBT = (ImageButton) findViewById(R.id.helpButton);
         imageUserBT = findViewById(R.id.imageUserButton);
         addReportBT = findViewById(R.id.imageButtonAddReport);
         biblicalBT = findViewById(R.id.imageButtonBiblical);
@@ -61,41 +61,13 @@ public class MainActivity extends AppCompatActivity {
         radioBT = findViewById(R.id.radioImageButton);
         facebookBT = findViewById(R.id.faceBookImageButton);
 
-        // pop up the menu for logout
-        menuBT.setOnClickListener(new OnClickListener() {
+        // pop up the menu for help
+        helpBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),HelpActivity.class);
+                startActivity(intent);
 
-                // Agregarle estilo al contenido del popup menu
-                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(
-                        MainActivity.this, R.style.wraperPopupMenuStyle);
-
-                PopupMenu popup = new PopupMenu(contextThemeWrapper, view);
-                MenuInflater inflater = popup.getMenuInflater();
-                inflater.inflate(R.menu.main, popup.getMenu());
-                popup.show();
-
-                // set the click for the items on the popout menu
-                // logout
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        if(menuItem.getItemId() == R.id.action_logout){
-                            // Clear user data from sharepreferences
-                            DataUtils.clearUserData(MainActivity.this);
-
-                            // open splash activity
-                            Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                        if(menuItem.getItemId() == R.id.action_help){
-                            Intent intent = new Intent(getApplicationContext(),HelpActivity.class);
-                            startActivity(intent);
-                        }
-                        return true;
-                    }
-                });
             }
         });
 

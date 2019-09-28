@@ -13,24 +13,24 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/menuButton"
+            android:id="@+id/imageUserButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:background="?android:selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_action_menu" />
+            app:srcCompat="@drawable/ic_action_account" />
 
         <ImageButton
-            android:id="@+id/imageUserButton"
+            android:id="@+id/helpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="8dp"
             android:layout_marginTop="16dp"
             android:background="?android:selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_action_account" />
+            app:srcCompat="@drawable/ic_action_help" />
 
     </RelativeLayout>
 
