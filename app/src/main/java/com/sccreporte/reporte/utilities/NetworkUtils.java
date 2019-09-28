@@ -19,7 +19,7 @@ import org.json.JSONObject;
  */
 
 public class NetworkUtils {
-    final static String Base_URL = "http://18.216.203.184";
+    final static String Base_URL = "http://www.sccristo.org";
 
     final static String BASE_REPORTS_URL = Base_URL + "/reports";
 

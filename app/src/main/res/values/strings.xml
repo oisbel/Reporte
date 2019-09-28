@@ -4,6 +4,10 @@
     <string name="reports_splash">REPORTES</string>
     <string name="last_reports_label">Historial de Reportes</string>
     <string name="my_data_label">Mis Datos</string>
+    <string name="logout">CERRAR SESIÓN</string>
+    <string name="logout_explain">¿Seguro que desea cerrar sesión y volver a introducir el correo y la contraseña?</string>
+    <string name="discard_logout">NO, ¿para qué?</string>
+    <string name="confirm_logout">Si</string>
     <string name="create_report_label">Crear Reporte</string>
     <string name="biblical_studies_label">Estudios Bíblicos</string>
     <string name="create_biblical_studies_label">Crear Estudio Bíblico</string>

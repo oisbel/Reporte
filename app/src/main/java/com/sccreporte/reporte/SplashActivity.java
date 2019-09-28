@@ -43,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(user_email.equals("")){
-                    // No hay nadie registrado
+                    // No hay nadie registrado o no se ha logeado en este dispositivo
                     showLoginRegister();
                 } else {
                     // if there is data from existing user: log in

@@ -12,11 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LogoutActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".LastReportsActivity"
             android:screenOrientation="portrait" />
@@ -28,6 +28,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -40,9 +41,8 @@
         <activity
             android:name=".CreateReportActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".UserDataActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".UserDataActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".BiblicalActivity"
             android:screenOrientation="portrait" />
@@ -65,7 +65,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".EditUserActivity"></activity>
+        <activity android:name=".EditUserActivity" />
     </application>
 
 </manifest>

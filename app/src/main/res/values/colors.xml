@@ -19,4 +19,9 @@
     <color name="topRectangleUserData">#F1F1F1</color>
     <color name="colorNameLabel">#f2f7f3</color>
     <color name="colorBackgroundDelete">#fa315b</color>
+    <color name="colorSpinnerBackground">#B2C1C8</color>
+    <color name="backgroundLogoutButton">#BE3E23</color>
+    <color name="backgroundLogoutWindow">#BE3E23</color>
+    <color name="discard_logout">#943521</color>
+    <color name="confirm_logout">#7D220F</color>
 </resources>

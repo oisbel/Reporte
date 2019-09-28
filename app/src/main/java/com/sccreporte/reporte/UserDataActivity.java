@@ -18,6 +18,7 @@ public class UserDataActivity extends AppCompatActivity {
     ImageButton backBT;
     Button editBT;
     User mUser;
+    Button logoutBT;
     ActivityUserDataBinding mBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +31,20 @@ public class UserDataActivity extends AppCompatActivity {
         // Back button click
         backBT = findViewById(R.id.backButton);
         editBT = findViewById(R.id.editButton);
+        logoutBT = findViewById(R.id.logoutBT);
 
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        logoutBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),LogoutActivity.class);
+                startActivity(intent);
             }
         });
 

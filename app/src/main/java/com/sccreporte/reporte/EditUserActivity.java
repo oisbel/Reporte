@@ -1,10 +1,14 @@
 package com.sccreporte.reporte;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -64,11 +68,16 @@ public class EditUserActivity extends AppCompatActivity {
 
         // Agregar un spinner para el grado
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.grado, android.R.layout.simple_spinner_item);
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        //        R.array.grado, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
+        //gradoSpinner.setAdapter(adapter);
+
+        SpinnerAdapter adapter = new SpinnerAdapter(this, R.layout.custom_spinner,
+                getResources().getStringArray(R.array.grado));
+
         gradoSpinner.setAdapter(adapter);
 
         int spinnerPosition = adapter.getPosition(mUser.grado);
@@ -198,6 +207,33 @@ public class EditUserActivity extends AppCompatActivity {
             }else{
                 ShowErrorMessage();
             }
+        }
+    }
+
+    public class SpinnerAdapter extends ArrayAdapter<String> {
+        private String[] objects;
+
+        public SpinnerAdapter(Context context, int textViewResourceId, String[] objects) {
+            super(context, textViewResourceId, objects);
+            this.objects = objects;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
+            return getCustomView(position, convertView, parent);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+            return getCustomView(position, convertView, parent);
+        }
+
+        private View getCustomView(final int position, View convertView, ViewGroup parent) {
+            View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_spinner, parent, false);
+            final TextView label = (TextView) row.findViewById(R.id.tv_spinnervalue);
+            label.setText(objects[position]);
+            return row;
         }
     }
 }
