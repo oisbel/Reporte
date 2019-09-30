@@ -46,30 +46,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/loginBT"
+        android:text="@string/loginLabel"
+        style="@style/loginLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLoginButton"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/registerTV"
+        android:visibility="invisible"/>
+
     <TextView
-        android:id="@+id/loginTextView"
-        style="@style/loginTBStyle"
+        android:id="@+id/registerTV"
+        android:text="@string/registerLabel"
+        style="@style/registerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:clickable="true"
-        android:text="@string/login_tb_label"
-        android:layout_marginBottom="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        android:visibility="invisible"/>
-
-    <Button
-        android:id="@+id/registerButton"
-        style="@style/registerLabelStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackgroundRegister"
-        android:padding="16dp"
-        android:text="@string/register_bt_label"
-        android:textColor="@color/colorForegroundRegister"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
         android:visibility="invisible"/>
 
 </android.support.constraint.ConstraintLayout>

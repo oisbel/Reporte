@@ -15,16 +15,16 @@ import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    TextView loginTB;
-    Button registerBT;
+    Button loginBT;
+    TextView registerTV;
     ProgressBar loadingIndicator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        loginTB = (TextView)findViewById(R.id.loginTextView);
-        registerBT = (Button)findViewById(R.id.registerButton);
+        loginBT = (Button)findViewById(R.id.loginBT);
+        registerTV = (TextView)findViewById(R.id.registerTV);
         loadingIndicator = (ProgressBar) findViewById(R.id.loading_indicator);
 
         // Check if there is a user registered, load the user email
@@ -54,7 +54,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, 1000);
 
-        loginTB.setOnClickListener(new OnClickListener() {
+        loginBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = SplashActivity.this;
@@ -65,7 +65,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
-        registerBT.setOnClickListener(new OnClickListener() {
+        registerTV.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
@@ -80,8 +80,8 @@ public class SplashActivity extends AppCompatActivity {
      * y hide el progress loading bar
      */
     private void showLoginRegister(){
-        loginTB.setVisibility(View.VISIBLE);
-        registerBT.setVisibility(View.VISIBLE);
+        loginBT.setVisibility(View.VISIBLE);
+        registerTV.setVisibility(View.VISIBLE);
         loadingIndicator.setVisibility(View.INVISIBLE);
     }
 }
