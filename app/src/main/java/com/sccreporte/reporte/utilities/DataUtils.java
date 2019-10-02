@@ -29,8 +29,16 @@ public class DataUtils {
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
+    private static final Pattern VALID_NAME_REGEX =
+            Pattern.compile("^[\\p{L} .'-]+$", Pattern.CASE_INSENSITIVE);
+
     public static boolean validateEmail(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
+        return matcher.find();
+    }
+
+    public static boolean validateName(String name) {
+        Matcher matcher = VALID_NAME_REGEX .matcher(name);
         return matcher.find();
     }
 
@@ -92,6 +100,45 @@ public class DataUtils {
         editor.putString("numero","");
         editor.putString("password","");
         editor.apply();
+    }
+
+    /**
+     * Guarda los datos de usuario que se acaba de crear en el servidor
+     * @param context
+     * @param jsonData
+     * @param user_id
+     */
+    public static void SaveUserData(Context context, JSONObject jsonData, int user_id){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        try {
+            editor.putInt("id", user_id);
+            editor.putString("nombre", jsonData.getString("nombre"));
+            editor.putString("email", jsonData.getString("email"));
+
+            String temp = jsonData.getString("grado").toString();
+            editor.putString("grado", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("ministerio").toString();
+            editor.putString("ministerio", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("responsabilidad").toString();
+            editor.putString("responsabilidad", temp.isEmpty() ? "No" : temp);
+
+            editor.putString("lugar", jsonData.getString("lugar"));
+
+            temp = jsonData.getString("pastor").toString();
+            editor.putString("pastor", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("numero").toString();
+            editor.putString("numero", temp.isEmpty() ? "No" : temp);
+
+            editor.putString("password", jsonData.getString("password"));
+            editor.apply();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -58,7 +58,7 @@
     <string name="establecidosE_label">Establecidos</string>
     <string name="realizadosE_label">Realizados</string>
 
-    <string name="register_label">CREA UNA CUENTA</string>
+    <string name="full_name">Nombre y Apellidos</string>
     <string name="nombre_label">Nombre</string>
     <string name="email_label">Correo</string>
     <string name="grado_label">Grado</string>
