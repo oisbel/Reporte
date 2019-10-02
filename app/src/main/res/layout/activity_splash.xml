@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_gradient"
     tools:context="com.sccreporte.reporte.SplashActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/splash_background"
+        android:scaleType="centerCrop"
+        android:alpha="0.4"/>
 
     <ProgressBar
         android:id="@+id/loading_indicator"
