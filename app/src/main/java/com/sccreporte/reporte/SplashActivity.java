@@ -57,10 +57,8 @@ public class SplashActivity extends AppCompatActivity {
         loginBT.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = SplashActivity.this;
-                Class destinationActivity = CreatePasswordActivity.class;
-                Intent startChildActivityIntent = new Intent(context, destinationActivity);
-                startActivity(startChildActivityIntent);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
                 finish();
             }
         });

@@ -20,6 +20,7 @@
         <item name="android:width">20dp</item>
         <item name="android:layout_width">20dp</item>
     </style>
+
     <style name="MainLabelStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/white</item>
@@ -62,6 +63,26 @@
         <item name="android:layout_marginLeft">26dp</item>
         <item name="android:layout_marginEnd">26dp</item>
         <item name="android:layout_marginStart">26dp</item>
+    </style>
+
+    <style name="divLogin">
+        <item name="android:background">@drawable/div_login_gradient</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginRight">26dp</item>
+        <item name="android:layout_marginLeft">26dp</item>
+        <item name="android:layout_marginEnd">26dp</item>
+        <item name="android:layout_marginStart">26dp</item>
+    </style>
+
+    <style name="loginFieldsLogin">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColorHint">@color/hintColorLogin</item>
     </style>
 
     <style name="userDataDivStyle">
@@ -143,6 +164,7 @@
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
     <style name="pointsStyle">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/colorOrange</item>
@@ -270,7 +292,7 @@
         <item name="android:textColor">@color/colorForegroundAyuno</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
-    
+
     <style name="mainTopicsHelp">
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@android:color/white</item>
@@ -315,5 +337,14 @@
         <item name="android:fontFamily">sans-serif-smallcaps</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

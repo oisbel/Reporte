@@ -95,6 +95,32 @@ public class DataUtils {
     }
 
     /**
+     * uarda los datos de usuario que se acaba de logear en el servidor
+     * @param context
+     * @param jsonData
+     * @param passNoHash
+     */
+    public static void SaveUserData(Context context, JSONObject jsonData, String passNoHash){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        try {
+            editor.putInt("id", jsonData.getInt("id"));
+            editor.putString("nombre", jsonData.getString("nombre"));
+            editor.putString("email", jsonData.getString("email"));
+            editor.putString("grado", jsonData.getString("grado"));
+            editor.putString("ministerio", jsonData.getString("ministerio"));
+            editor.putString("responsabilidad", jsonData.getString("responsabilidad"));
+            editor.putString("lugar", jsonData.getString("lugar"));
+            editor.putString("pastor", jsonData.getString("pastor"));
+            editor.putString("numero", jsonData.getString("numero"));
+            editor.putString("password", passNoHash);
+            editor.apply();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Guarda los datos de usuarios que se acaban de cambiar en el servidor
      * @param context
      * @param jsonData

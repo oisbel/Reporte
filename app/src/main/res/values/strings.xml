@@ -4,6 +4,8 @@
     <string name="reports_splash">REPORTES</string>
     <string name="registerLabel">CREAR CUENTA</string>
     <string name="loginLabel">INICIAR SESIÓN</string>
+    <string name="login_user_error_message">No se ha podido iniciar sesión</string>
+    <string name="invalid_user_credential">Correo o contraseña incorrecta</string>
     <string name="last_reports_label">Historial de Reportes</string>
     <string name="my_data_label">Mis Datos</string>
     <string name="logout">CERRAR SESIÓN</string>
@@ -17,6 +19,9 @@
     <string name="scc_label">SCC</string>
     <string name="radio_label">RADIO</string>
     <string name="facebook_label">FACEBOOK</string>
+
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
 
     <string name="welcome_message">Bienvenido</string>
 
@@ -80,6 +85,7 @@
     <string name="mandatory_error">Obligatorio</string>
     <string name="invalid_email">Correo Inválido</string>
     <string name="mandatory_grado">Debe especificar su grado</string>
+    <string name="invalid_name">Nombre Inválido</string>
 
     <string name="logout_menu_label">Cerrar Sesión</string>
     <string name="help_menu_label">Ayuda</string>
@@ -130,5 +136,6 @@
     <string name="delete">Eliminar</string>
 
     <string name="delete_biblical_error_message">No se ha podido eliminar el reporte bíblico</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

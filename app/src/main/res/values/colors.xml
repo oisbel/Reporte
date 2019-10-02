@@ -26,4 +26,5 @@
     <color name="discard_logout">#943521</color>
     <color name="confirm_logout">#7D220F</color>
     <color name="backgroundSettings">#EFEEF3</color>
+    <color name="hintColorLogin">#C8C7CD</color>
 </resources>

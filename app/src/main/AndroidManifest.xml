@@ -12,11 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LogoutActivity"></activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".LogoutActivity" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LastReportsActivity"
             android:screenOrientation="portrait" />
@@ -41,8 +45,9 @@
         <activity
             android:name=".CreateReportActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".UserDataActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".UserDataActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BiblicalActivity"
             android:screenOrientation="portrait" />
