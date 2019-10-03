@@ -5,6 +5,7 @@
     <color name="colorAccent">#8C9EFF</color>
     <color name="colorPrimaryLight">#7FAFD1</color>
     <color name="colorLoginButton">#e54304</color>
+    <color name="titleBackground">#E65100</color>
     <color name="colorBackground">#005FA4</color>
     <color name="colorDifferBackground">#007990</color>
     <color name="colorMoreBackground">#B2C1C8</color>
@@ -27,4 +28,5 @@
     <color name="confirm_logout">#7D220F</color>
     <color name="backgroundSettings">#EFEEF3</color>
     <color name="hintColorLogin">#C8C7CD</color>
+    <color name="rectangleStroke">#045A72</color>
 </resources>
