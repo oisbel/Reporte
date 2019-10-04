@@ -20,6 +20,10 @@
     <string name="radio_label">RADIO</string>
     <string name="facebook_label">FACEBOOK</string>
 
+    <string name="menu_home">Principal</string>
+    <string name="menu_reports">Reportes</string>
+    <string name="menu_biblicals">Estudios</string>
+
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
 
@@ -137,5 +141,8 @@
 
     <string name="delete_biblical_error_message">No se ha podido eliminar el reporte bíblico</string>
     <string name="title_activity_login">LoginActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

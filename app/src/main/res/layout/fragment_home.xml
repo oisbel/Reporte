@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="com.sccreporte.reporte.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/menuRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/imageUserButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:selectableItemBackgroundBorderless"
+            app:srcCompat="@drawable/ic_action_user" />
+
+        <ImageButton
+            android:id="@+id/helpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:selectableItemBackgroundBorderless"
+            app:srcCompat="@drawable/ic_action_help" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/menuRelativeLayout"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/topRectangle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBackgroundLastReportsMain"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/sccTextView"
+                style="@style/sccSplashStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scc_splash"
+                android:textColor="@color/colorNameLabel"
+                android:textSize="38dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/reportTextView"
+                style="@style/reportSplashStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reports_splash"
+                android:textColor="@color/colorNameLabel"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/sccTextView"
+                app:layout_constraintStart_toStartOf="@+id/sccTextView"
+                app:layout_constraintTop_toBottomOf="@+id/sccTextView" />
+
+            <TextView
+                android:id="@+id/emailTextView"
+                style="@style/emailLabelStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/welcome_message"
+                app:layout_constraintEnd_toEndOf="@+id/reportTextView"
+                app:layout_constraintStart_toStartOf="@+id/reportTextView"
+                app:layout_constraintTop_toBottomOf="@+id/reportTextView" />
+
+            <View
+                android:id="@+id/divView1"
+                style="@style/DivStyle"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+
+            <TextView
+                android:id="@+id/lastReportsTextView"
+                style="@style/MainLabelStyle"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="8dp"
+                android:text="@string/last_reports_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divView1" />
+
+            <View
+                android:id="@+id/divView2"
+                style="@style/DivStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lastReportsTextView" />
+
+            <TextView
+                android:id="@+id/myDataTextView"
+                style="@style/MainLabelStyle"
+                android:paddingBottom="8dp"
+                android:text="@string/my_data_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divView2" />
+
+            <View
+                android:id="@+id/rectangleForButton"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/create_report_gradient"
+                app:layout_constraintBottom_toTopOf="@+id/textViewMore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/myDataTextView" />
+
+            <ImageView
+                android:id="@+id/leftRectangle"
+                android:layout_width="70dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/shape_rectangle_stroke"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myDataTextView" />
+
+            <ImageView
+                android:id="@+id/rightRectangle"
+                android:layout_width="70dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/shape_rectangle_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myDataTextView" />
+
+            <ImageButton
+                android:id="@+id/imageButtonAddReport"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="@+id/leftRectangle"
+                app:layout_constraintEnd_toEndOf="@+id/leftRectangle"
+                app:layout_constraintStart_toStartOf="@+id/leftRectangle"
+                app:layout_constraintTop_toTopOf="@+id/leftRectangle"
+                app:srcCompat="@drawable/ic_action_addreport" />
+
+            <ImageButton
+                android:id="@+id/imageButtonBiblical"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="@+id/rightRectangle"
+                app:layout_constraintEnd_toEndOf="@+id/rightRectangle"
+                app:layout_constraintStart_toStartOf="@+id/rightRectangle"
+                app:layout_constraintTop_toTopOf="@+id/rightRectangle"
+                app:srcCompat="@drawable/ic_action_bible" />
+
+            <TextView
+                android:id="@+id/textViewCreateReport"
+                style="@style/buttonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="18dp"
+                android:text="@string/create_report_label"
+                app:layout_constraintEnd_toEndOf="@+id/imageButtonAddReport"
+                app:layout_constraintStart_toStartOf="@+id/leftRectangle"
+                app:layout_constraintTop_toBottomOf="@+id/imageButtonAddReport" />
+
+            <TextView
+                android:id="@+id/textViewBiblical"
+                style="@style/buttonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="18dp"
+                android:text="@string/biblical_studies_label"
+                app:layout_constraintEnd_toEndOf="@+id/imageButtonBiblical"
+                app:layout_constraintStart_toStartOf="@+id/imageButtonBiblical"
+                app:layout_constraintTop_toBottomOf="@+id/imageButtonBiblical" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorMoreBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rectangleForButton" />
+
+            <TextView
+                android:id="@+id/textViewMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="72dp"
+                android:text="@string/more_label"
+                app:layout_constraintEnd_toStartOf="@+id/imageButtonBiblical"
+                app:layout_constraintStart_toEndOf="@+id/imageButtonAddReport"
+                app:layout_constraintTop_toBottomOf="@+id/imageButtonAddReport" />
+
+            <ImageButton
+                android:id="@+id/sccImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="64dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="24dp"
+                android:padding="8dp"
+                android:background="?android:selectableItemBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMore"
+                app:srcCompat="@drawable/ic_action_scc" />
+
+            <ImageButton
+                android:id="@+id/faceBookImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="64dp"
+                android:layout_marginRight="64dp"
+                android:layout_marginTop="24dp"
+                android:padding="8dp"
+                android:background="?android:selectableItemBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMore"
+                app:srcCompat="@drawable/ic_action_facebook" />
+
+            <ImageButton
+                android:id="@+id/radioImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="8dp"
+                android:background="?android:selectableItemBackground"
+                app:layout_constraintEnd_toStartOf="@+id/faceBookImageButton"
+                app:layout_constraintStart_toEndOf="@+id/sccImageButton"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMore"
+                app:srcCompat="@drawable/ic_action_radio" />
+
+            <TextView
+                android:id="@+id/textViewScc"
+                style="@style/moreStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/scc_label"
+                app:layout_constraintEnd_toEndOf="@+id/sccImageButton"
+                app:layout_constraintStart_toStartOf="@+id/sccImageButton"
+                app:layout_constraintTop_toBottomOf="@+id/sccImageButton" />
+
+            <TextView
+                android:id="@+id/textViewRadio"
+                style="@style/moreStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/radio_label"
+                app:layout_constraintEnd_toEndOf="@+id/radioImageButton"
+                app:layout_constraintStart_toStartOf="@+id/radioImageButton"
+                app:layout_constraintTop_toBottomOf="@+id/radioImageButton" />
+
+            <TextView
+                android:id="@+id/textViewFacebook"
+                style="@style/moreStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/facebook_label"
+                app:layout_constraintEnd_toEndOf="@+id/faceBookImageButton"
+                app:layout_constraintStart_toStartOf="@+id/faceBookImageButton"
+                app:layout_constraintTop_toBottomOf="@+id/faceBookImageButton" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>
