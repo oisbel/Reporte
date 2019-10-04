@@ -34,7 +34,6 @@ public class HomeFragment extends Fragment {
     private ImageButton imageUserBT;
     private ImageButton addReportBT;
     private ImageButton biblicalBT;
-    private TextView lastReportsTV;
     private TextView userDataTV;
     private TextView emailTV; // El email del usuario
     private ImageButton sccBT;
@@ -60,7 +59,6 @@ public class HomeFragment extends Fragment {
         imageUserBT = view.findViewById(R.id.imageUserButton);
         addReportBT = view.findViewById(R.id.imageButtonAddReport);
         biblicalBT = view.findViewById(R.id.imageButtonBiblical);
-        lastReportsTV = view.findViewById(R.id.lastReportsTextView);
         userDataTV = view.findViewById(R.id.myDataTextView);
         emailTV = view.findViewById(R.id.emailTextView);
         sccBT = view.findViewById(R.id.sccImageButton);
@@ -73,21 +71,21 @@ public class HomeFragment extends Fragment {
         helpBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),HelpActivity.class);
+                Intent intent = new Intent(context, HelpActivity.class);
                 startActivity(intent);
 
             }
         });
 
         // establecer el click listener para ultimos reportes
-        lastReportsTV.setOnClickListener(new View.OnClickListener() {
+        /*lastReportsTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Class destinationActivity = LastReportsActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
-        });
+        });*/
 
         // establecer el click listener para mis datos
         userDataTV.setOnClickListener(new View.OnClickListener() {

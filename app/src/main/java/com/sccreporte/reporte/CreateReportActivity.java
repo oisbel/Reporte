@@ -462,9 +462,9 @@ public class CreateReportActivity extends AppCompatActivity {
                     // Remove report data from sharepreferences
                     DataUtils.clearReportData(CreateReportActivity.this);
 
-                    Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
-                    startActivity(intent);
-                    finish();
+                    //Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
+                    //startActivity(intent);
+                    //finish();
                 }
             }else{
                 ShowErrorMessage();

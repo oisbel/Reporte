@@ -69,10 +69,6 @@ public class EditReportActivity extends AppCompatActivity {
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = EditReportActivity.this;
-                Class destinationActivity = LastReportsActivity.class;
-                Intent startChildActivityIntent = new Intent(context, destinationActivity);
-                startActivity(startChildActivityIntent);
                 finish();
             }
         });
@@ -338,8 +334,8 @@ public class EditReportActivity extends AppCompatActivity {
                 if(jsonObject.has("report")){
                     //success
                     ShowSuccessMessage();
-                    Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
+                    //startActivity(intent);
                     finish();
                 }
             }else{
