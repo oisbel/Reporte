@@ -179,8 +179,8 @@ public class CreateBiblicalActivity extends AppCompatActivity {
                 if(jsonObject.has("biblical")){
                     //success
                     ShowSuccessMessage();
-                    Intent intent = new Intent(getApplicationContext(), BiblicalActivity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(getApplicationContext(), BiblicalsFragment.class);
+                    //startActivity(intent);
                     finish();
                 }
             }else{
