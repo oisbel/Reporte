@@ -446,7 +446,7 @@ public class NetworkUtils {
      * @return The contents of the HTTP response.
      * @throws IOException Related to network and stream reading
      */
-    public static String geCreateBiblicalFromHttpUrl(URL url, JSONObject jsonParam,
+    public static String getCreateBiblicalFromHttpUrl(URL url, JSONObject jsonParam,
                                                    String username, String password) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 

@@ -158,7 +158,7 @@ public class CreateBiblicalActivity extends AppCompatActivity {
             String createBiblicalJSONResult = null;
             JSONObject result = null;
             try {
-                createBiblicalJSONResult = NetworkUtils.geCreateBiblicalFromHttpUrl(
+                createBiblicalJSONResult = NetworkUtils.getCreateBiblicalFromHttpUrl(
                         createBiblicalUrl, jsonData, mUser.email, mUser.password);
             }catch (IOException e){
                 e.printStackTrace();
