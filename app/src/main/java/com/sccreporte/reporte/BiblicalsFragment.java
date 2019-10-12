@@ -136,14 +136,13 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
 
     /**
      * Para cuando agregue un estudio bíblico en otra activity se refresque el fragment
-     * @param hidden
      */
     @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if(!hidden)
-        {
-
+    public void onStart() {
+        super.onStart();
+        Biblical addedBiblical = DataUtils.loadCreatedBiblical(view.getContext());
+        if(addedBiblical!=null && mBiblicalAdapter != null){
+            mBiblicalAdapter.restoreItem(addedBiblical,0);
         }
     }
 

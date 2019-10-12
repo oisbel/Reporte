@@ -44,6 +44,8 @@ public class CreateBiblicalActivity extends AppCompatActivity {
     private int month;
     private int day;
 
+    private JSONObject biblical; // To save temp info for the biblical to add
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +91,8 @@ public class CreateBiblicalActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(allFieldEmpty())
                     return;
-                new CreateBiblicalQueryTask().execute(makeBiblicalData());
+                biblical = makeBiblicalData();
+                new CreateBiblicalQueryTask().execute(biblical);
             }
         });
     }
@@ -178,6 +181,8 @@ public class CreateBiblicalActivity extends AppCompatActivity {
             if(jsonObject != null){
                 if(jsonObject.has("biblical")){
                     //success
+                    // Guardar el estudio biblico en sharepreferences para cargarlo en el biblical fragment
+                    DataUtils.saveCreatedBiblical(getApplicationContext(),biblical);
                     ShowSuccessMessage();
                     //Intent intent = new Intent(getApplicationContext(), BiblicalsFragment.class);
                     //startActivity(intent);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.sccreporte.reporte.data.Biblical;
 import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
 
@@ -68,6 +69,43 @@ public class DataUtils {
         editor.putString("reportInfo","{}");
         editor.apply();
     }
+
+    /**
+     * Para guardar temporalmente es estudio biblico creado
+     * de manera que lo pueda agregar al recycler view adapter de la vista del  biblical fragment
+     * @param context
+     * @param biblical
+     */
+    public static void saveCreatedBiblical(Context context, JSONObject biblical){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("biblicalFragmentInfo", biblical.toString());
+        editor.apply();
+    }
+
+    /**
+     * Get the recent created biblical to show it in the biblical fragment, and then erase it.
+     * @param context
+     * @return
+     */
+    public static Biblical loadCreatedBiblical(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        try{
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("biblicalFragmentInfo",""));
+            if(jsonObject.toString() != ""){
+                // Limpiar los datos para que no los vuelva  recuperar
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("biblicalFragmentInfo", "");
+                editor.apply();
+
+                return new Biblical(jsonObject);
+            } else return null;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     /**
      * Get the user data form SharePreferences
