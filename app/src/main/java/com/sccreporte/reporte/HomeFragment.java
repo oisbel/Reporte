@@ -88,14 +88,14 @@ public class HomeFragment extends Fragment {
         });*/
 
         // establecer el click listener para mis datos
-        userDataTV.setOnClickListener(new View.OnClickListener() {
+        /*userDataTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Class destinationActivity = UserDataActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
-        });
+        });*/
         imageUserBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,11 +105,11 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        // establecer el click para ir a los estudios biblicos
+        // establecer el click para crear estudios biblicos
         biblicalBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Class destinationActivity = BiblicalActivity.class;
+                Class destinationActivity = CreateBiblicalActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
