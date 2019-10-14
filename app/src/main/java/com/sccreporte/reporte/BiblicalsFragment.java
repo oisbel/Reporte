@@ -2,7 +2,6 @@ package com.sccreporte.reporte;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,10 +53,6 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
     // Create a ProgressBar variable to store a reference to the ProgressBar
     private ProgressBar mLoadingIndicator;
 
-    private Toast mToast;
-
-    private ImageButton addBT;
-
     // Lista de los estudios biblicos
     List<Biblical> mBiblicalsData;
 
@@ -83,7 +77,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
         final Context context = view.getContext();
 
         // Add button click
-        addBT = view.findViewById(R.id.addButton);
+       /* addBT = view.findViewById(R.id.addButton);
         addBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,7 +85,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
-        });
+        });*/
 
         // Get a reference to the error TextView using findViewById
         mErrorMessageDisplay = view.findViewById(R.id.tv_error_message_display);
