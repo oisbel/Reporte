@@ -88,14 +88,15 @@ public class HomeFragment extends Fragment {
         });*/
 
         // establecer el click listener para mis datos
-        /*userDataTV.setOnClickListener(new View.OnClickListener() {
+        userDataTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Class destinationActivity = UserDataActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
             }
-        });*/
+        });
+
         imageUserBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

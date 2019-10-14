@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     tools:context="com.sccreporte.reporte.MainActivity">
 
     <RelativeLayout
@@ -50,17 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <View
-                android:id="@+id/topRectangle"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@color/colorBackgroundLastReportsMain"
-                android:visibility="invisible"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/splash_background"
+                android:scaleType="centerCrop"
+                android:alpha="0.1"/>
             <TextView
                 android:id="@+id/sccTextView"
                 style="@style/sccSplashStyle"
@@ -98,30 +92,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/reportTextView" />
 
             <View
-                android:id="@+id/divView1"
+                android:id="@+id/divView2"
                 style="@style/DivStyle"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
-
-            <TextView
-                android:id="@+id/lastReportsTextView"
-                style="@style/MainLabelStyle"
-                android:clickable="true"
-                android:focusable="true"
-                android:paddingBottom="8dp"
-                android:text="@string/last_reports_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divView1" />
-
-            <View
-                android:id="@+id/divView2"
-                style="@style/DivStyle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lastReportsTextView" />
 
             <TextView
                 android:id="@+id/myDataTextView"
@@ -136,7 +112,7 @@
                 android:id="@+id/rectangleForButton"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="@drawable/create_report_gradient"
+                android:background="@drawable/container_create_gradient"
                 app:layout_constraintBottom_toTopOf="@+id/textViewMore"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="64dp"
                 android:layout_marginStart="64dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="12dp"
                 android:padding="8dp"
                 android:background="?android:selectableItemBackground"
                 app:layout_constraintStart_toStartOf="parent"
@@ -260,7 +236,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="64dp"
                 android:layout_marginRight="64dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="12dp"
                 android:padding="8dp"
                 android:background="?android:selectableItemBackground"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -271,7 +247,7 @@
                 android:id="@+id/radioImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="12dp"
                 android:padding="8dp"
                 android:background="?android:selectableItemBackground"
                 app:layout_constraintEnd_toStartOf="@+id/faceBookImageButton"
@@ -318,7 +294,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="12dp"
                 android:text="@string/more_label"
                 app:layout_constraintEnd_toStartOf="@+id/textViewMore"
                 app:layout_constraintStart_toEndOf="@+id/textViewMore"
