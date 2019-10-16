@@ -116,11 +116,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        // Save to sharepreference if its time to create a new report get it from the server
+        createOrEditReport();
+
         // establecer el click para crear reporte
         addReportBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createOrEditReport();
+                if(DataUtils.loadItIsTimeToNewReport(context))
+                    openCreateReport();
+                else openEditReport(DataUtils.loadReportDataForeEdit(context));
             }
         });
 
@@ -212,11 +217,14 @@ public class HomeFragment extends Fragment {
                 if(jsonObject != null){
                     if(jsonObject.has("id")){
                         // solo editar
-                        openEditReport(jsonObject);
+                        DataUtils.saveItIsTimeToNewReport(view.getContext(),false);
+                        DataUtils.saveReportDataForeEdit(view.getContext(), jsonObject);
+                        //openEditReport(jsonObject);
                     }
                     else{
                         //crear nuevo
-                        openCreateReport();
+                        DataUtils.saveItIsTimeToNewReport(view.getContext(),true);
+                        //openCreateReport();
                     }
                 }
             }

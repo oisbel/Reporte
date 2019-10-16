@@ -44,6 +44,19 @@ public class DataUtils {
     }
 
     /**
+     * Guarda en shared preferences los datos del reporte que no se ha terminado de llenar
+     * por lo que no se ha salvado al servidor y necesita una salva local temporal
+     * @param context
+     * @param jsonObject
+     */
+    public static void saveReportData(Context context, JSONObject jsonObject){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("reportInfo",jsonObject.toString());
+        editor.apply();
+    }
+
+    /**
      * Get the not save report data form SharePreferences
      */
     public static Report loadReportData(Context context){
@@ -68,6 +81,58 @@ public class DataUtils {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("reportInfo","{}");
         editor.apply();
+    }
+
+    /**
+     * Guarda en shared preferences los datos del ultimo reporte que no se quiere editar porque se
+     * quiso create report pero no es no es tiempo de crear reporte
+     * @param context
+     * @param jsonObject
+     */
+    public static void saveReportDataForeEdit(Context context, JSONObject jsonObject){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("reportInfoForEdit",jsonObject.toString());
+        editor.apply();
+    }
+
+    /**
+     * Get the last report data that is need it for edit since it's no time for create a new one.
+     */
+    public static JSONObject loadReportDataForeEdit(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        try{
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("reportInfoForEdit",""));
+            if(jsonObject.toString() != ""){
+                return jsonObject;
+            } else return null;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Para guardar temporalmente si es tiempo de crear un nuevo reporte
+     * @param context
+     * @param itIs
+     */
+    public static void saveItIsTimeToNewReport(Context context, boolean itIs){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("itIsTimeToNewReport", itIs);
+        editor.apply();
+    }
+
+    /**
+     * Get the itIsTimeToNewReport value save it when the app started to see if it is time
+     *  to create a new report or to edit the last one
+     * @param context
+     * @return
+     */
+    public static boolean loadItIsTimeToNewReport(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.getBoolean("itIsTimeToNewReport", true);
     }
 
     /**

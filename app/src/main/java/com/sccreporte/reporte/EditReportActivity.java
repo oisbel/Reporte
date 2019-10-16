@@ -58,10 +58,10 @@ public class EditReportActivity extends AppCompatActivity {
         if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
             mReportJSONString = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
             report = createReport(mReportJSONString);
-            report_id = report.id;
         }
         // Bind the data with the layout
         if (report != null){
+            report_id = report.id;
             displayReportInfo(report);
         }
 

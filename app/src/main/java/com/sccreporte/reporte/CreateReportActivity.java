@@ -203,10 +203,6 @@ public class CreateReportActivity extends AppCompatActivity {
      * Guarda en shared preferences los datos del reporte que no se ha terminado
      */
     private void SaveTempReportInfo(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(
-                CreateReportActivity.this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
         JSONObject jsonObject = new JSONObject();
         try{
             jsonObject.put("year", year);
@@ -250,8 +246,7 @@ public class CreateReportActivity extends AppCompatActivity {
             jsonObject.put("visitas",mBinding.visitasEditTExt.getText().length() != 0 ?
                     mBinding.visitasEditTExt.getText() : 0);
 
-            editor.putString("reportInfo",jsonObject.toString());
-            editor.apply();
+            DataUtils.saveReportData(CreateReportActivity.this, jsonObject);
 
         }catch (JSONException e){
             e.printStackTrace();
@@ -464,7 +459,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
                     //Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
                     //startActivity(intent);
-                    //finish();
+                    finish();
                 }
             }else{
                 ShowErrorMessage();

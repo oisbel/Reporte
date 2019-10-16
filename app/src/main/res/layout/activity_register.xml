@@ -222,11 +222,10 @@
             style="@style/registerLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBackgroundRegister"
+            android:background="@color/colorLoginButton"
             android:padding="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/registerLabel"
-            android:textColor="@color/colorForegroundRegister" />
+            android:text="@string/registerLabel" />
     </LinearLayout>
 
 </RelativeLayout>
