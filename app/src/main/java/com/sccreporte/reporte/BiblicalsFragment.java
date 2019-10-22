@@ -323,11 +323,11 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
             // Guardo la referecia de la lista
             mBiblicalsData = biblicals;
             // Mando los datos al adaptador para que los muestre en el recyclerView
-            mBiblicalAdapter.setBiblicalData(biblicals);
+            mBiblicalAdapter.setBiblicalData(mBiblicalsData);
 
-            if(biblicals != null && biblicals.size() > 0){
+            if(mBiblicalsData != null && mBiblicalsData.size() > 0){
                 showBiblicalRecyclerView();
-            }else if (biblicals != null && biblicals.size() == 0){
+            }else if (mBiblicalsData != null && mBiblicalsData.size() == 0){
                 showEmptyMessage();
             }
             else{
