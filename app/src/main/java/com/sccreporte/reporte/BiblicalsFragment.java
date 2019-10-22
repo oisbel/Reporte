@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -136,7 +137,8 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
         super.onStart();
         Biblical addedBiblical = DataUtils.loadCreatedBiblical(view.getContext());
         if(addedBiblical!=null && mBiblicalAdapter != null){
-            mBiblicalAdapter.restoreItem(addedBiblical,0);
+           mBiblicalAdapter.restoreItem(addedBiblical,0);
+            showBiblicalRecyclerView();
         }
     }
 
@@ -164,6 +166,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
     private void showBiblicalRecyclerView() {
         // First, make sure the error is invisible
         mErrorMessageDisplay.setVisibility(View.INVISIBLE);
+        mEmptyMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, make sure the RecyclerView data is visible
         mBiblicalList.setVisibility(View.VISIBLE);
     }
@@ -177,6 +180,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
     private void showErrorMessage() {
         // First, hide the currently visible data
         mBiblicalList.setVisibility(View.INVISIBLE);
+        mEmptyMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, show the error
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
@@ -190,6 +194,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
     private void showEmptyMessage() {
         // First, hide the currently visible data
         mBiblicalList.setVisibility(View.INVISIBLE);
+        mErrorMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, show the error
         mEmptyMessageDisplay.setVisibility(View.VISIBLE);
     }
@@ -315,12 +320,13 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
             // As soon as the loading is complete, hide the loading indicator
             mLoadingIndicator.setVisibility(View.INVISIBLE);
 
+            // Guardo la referecia de la lista
+            mBiblicalsData = biblicals;
+            // Mando los datos al adaptador para que los muestre en el recyclerView
+            mBiblicalAdapter.setBiblicalData(biblicals);
+
             if(biblicals != null && biblicals.size() > 0){
                 showBiblicalRecyclerView();
-                // Guardo la referecia de la lista de reportes
-                mBiblicalsData = biblicals;
-                // Mando los datos al adaptador para que los muestre en el recyclerView
-                mBiblicalAdapter.setBiblicalData(biblicals);
             }else if (biblicals != null && biblicals.size() == 0){
                 showEmptyMessage();
             }

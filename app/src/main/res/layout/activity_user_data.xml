@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:background="?android:selectableItemBackgroundBorderless"
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="12dp"
             android:layout_toRightOf="@+id/backButton"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="14dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:text="@string/edit_label" />
 

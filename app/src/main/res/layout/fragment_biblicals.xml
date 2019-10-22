@@ -12,7 +12,7 @@
         android:id="@+id/topRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/create_report_gradient"
+        android:background="@color/colorBackgroundLastReportsMain"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
