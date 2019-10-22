@@ -181,6 +181,11 @@ public class CreateBiblicalActivity extends AppCompatActivity {
             if(jsonObject != null){
                 if(jsonObject.has("biblical")){
                     //success
+                    try {
+                        biblical.put("id", jsonObject.getInt("biblical"));
+                    }catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     // Guardar el estudio biblico en sharepreferences para cargarlo en el biblical fragment
                     DataUtils.saveCreatedBiblical(getApplicationContext(),biblical);
                     ShowSuccessMessage();
