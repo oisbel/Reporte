@@ -74,11 +74,20 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="scalingPercent" value="57" />
                                               </map>
                                             </option>
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="ee6002" />
+                                      <entry key="backgroundImage" value="C:\Users\oisbe\Downloads\abstract-319750.jpg" />
+                                      <entry key="foregroundImage" value="C:\Users\oisbe\Pictures\fondoWhiteSCC.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -126,11 +135,6 @@
                                 </PersistentState>
                               </value>
                             </entry>
-                          </map>
-                        </option>
-                        <option name="values">
-                          <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
