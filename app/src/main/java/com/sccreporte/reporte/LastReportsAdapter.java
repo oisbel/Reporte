@@ -63,6 +63,17 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
         return mReportData.size();
     }
 
+    public void removeItem(int position) {
+        mReportData.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void restoreItem(Report item, int position) {
+        mReportData.add(position, item);
+        // notify item added by position
+        notifyItemInserted(position);
+    }
+
     /**
      * This method is used to set the report data on a LastReportsAdapter if we've already
      * created one. This is handy when we get new data from the web but don't want to create a

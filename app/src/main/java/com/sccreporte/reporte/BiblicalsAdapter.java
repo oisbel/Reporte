@@ -17,7 +17,6 @@ import java.util.List;
 /**
  * Created by simpson on 3/29/2018.
  */
-
 public class BiblicalsAdapter extends RecyclerView.Adapter<BiblicalsAdapter.BiblicalViewHolder> {
 
     private static final String TAG = BiblicalsAdapter.class.getSimpleName();

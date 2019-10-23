@@ -171,6 +171,40 @@ public class DataUtils {
         }
     }
 
+    /**
+     * Guarda en shared preferences los datos del reporte que se ha guardado al servidor(sea nuevo o editado)
+     * para mostrarlo en el recycler view del reports fragment
+     * @param context
+     * @param jsonObject
+     */
+    public static void saveCreatedReport(Context context, JSONObject jsonObject){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("reportFragmentInfo",jsonObject.toString());
+        editor.apply();
+    }
+
+    /**
+     * Get the saved report data form SharePreferences to show it in reports fragment view
+     * then erased
+     */
+    public static Report loadCreatedReport(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        try{
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("reportFragmentInfo",""));
+            if(jsonObject.toString() != ""){
+                // Limpiar los datos para que no los vuelva  recuperar
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("reportFragmentInfo", "");
+                editor.apply();
+                return new Report(jsonObject);
+            } else return null;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     /**
      * Get the user data form SharePreferences

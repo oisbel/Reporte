@@ -302,7 +302,6 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
                 return null;
             }
             BiblicalsData biblicalsData = null;
-
             try {
                 biblicalsData =  new BiblicalsData(biblicalsJSONResult);
             }catch (Exception e){
@@ -311,7 +310,6 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
             if (biblicalsData != null){
                 return biblicalsData.getData();
             }
-
             return null;
         }
 
@@ -329,8 +327,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
                 showBiblicalRecyclerView();
             }else if (mBiblicalsData != null && mBiblicalsData.size() == 0){
                 showEmptyMessage();
-            }
-            else{
+            }else{
                 showErrorMessage();
             }
         }

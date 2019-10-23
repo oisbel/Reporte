@@ -52,6 +52,8 @@ public class CreateReportActivity extends AppCompatActivity {
     // Indica si el reporte se ha salvado al servidor y no se necesita una salva local temporal
     private boolean reportSaved;
 
+    private JSONObject reportAdded; // To save it in sharepreferences and then add it to ReportsFragment
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,9 +108,84 @@ public class CreateReportActivity extends AppCompatActivity {
                     return;
                 if(toLongInt(3))
                     return;
-                new CreateReportQueryTask().execute(makeReportData());
+                reportAdded = makeReportData();
+                new CreateReportQueryTask().execute(reportAdded);
             }
         });
+    }
+
+    /**
+     * Crea un objeto object con los valores del reporte que se quiere mandar
+     * @return
+     */
+    private JSONObject makeReportData(){
+        JSONObject result = new JSONObject();
+        String temp = "";
+        try {
+
+            result.put("year", year);
+            result.put("month", month);
+            result.put("day", day);
+
+            temp = mBinding.avivamientosEditText.getText().toString();
+            result.put("avivamientos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.bibliasEditText.getText().toString();
+            result.put("biblias", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.ayunosEditText.getText().toString();
+            result.put("ayunos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.horasAyunosEditText.getText().toString();
+            result.put("horas_ayunos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.cultosEditText.getText().toString();
+            result.put("cultos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.devocionalesEditText.getText().toString();
+            result.put("devocionales", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.enfermosEditText.getText().toString();
+            result.put("enfermos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.hogaresEditText.getText().toString();
+            result.put("hogares", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.asistidsosEEditText.getText().toString();
+            result.put("estudios_asistidos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.establecidosEEditText.getText().toString();
+            result.put("estudios_establecidos", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.realizadosEEditText.getText().toString();
+            result.put("estudios_realizados", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.mensajerosEditText.getText().toString();
+            result.put("mensajeros", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.mensajesEditText.getText().toString();
+            result.put("mensajes", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.porcionesEditText.getText().toString();
+            result.put("porciones", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.sanidadesEditText.getText().toString();
+            result.put("sanidades", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.visitasEditTExt.getText().toString();
+            result.put("visitas", temp.isEmpty() ? "0" : temp);
+
+            temp = mBinding.horasTrabajoEditText.getText().toString();
+            result.put("horas_trabajo", temp.isEmpty() ? "0" : temp);
+
+            result.put("otros", mBinding.otrosEditText.getText());
+
+
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+        return result;
     }
 
     private void showLoading(){
@@ -254,80 +331,6 @@ public class CreateReportActivity extends AppCompatActivity {
     }
 
     /**
-     * Crea un objeto object con los valores del reporte que se quiere mandar
-     * @return
-     */
-    private JSONObject makeReportData(){
-        JSONObject result = new JSONObject();
-        String temp = "";
-        try {
-
-            result.put("year", year);
-            result.put("month", month);
-            result.put("day", day);
-
-            temp = mBinding.avivamientosEditText.getText().toString();
-            result.put("avivamientos", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.bibliasEditText.getText().toString();
-            result.put("biblias", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.ayunosEditText.getText().toString();
-            result.put("ayunos", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.horasAyunosEditText.getText().toString();
-            result.put("horas_ayunos", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.cultosEditText.getText().toString();
-            result.put("cultos", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.devocionalesEditText.getText().toString();
-            result.put("devocionales", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.enfermosEditText.getText().toString();
-            result.put("enfermos", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.hogaresEditText.getText().toString();
-            result.put("hogares", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.asistidsosEEditText.getText().toString();
-            result.put("estudios_asistidos", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.establecidosEEditText.getText().toString();
-            result.put("estudios_establecidos", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.realizadosEEditText.getText().toString();
-            result.put("estudios_realizados", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.mensajerosEditText.getText().toString();
-            result.put("mensajeros", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.mensajesEditText.getText().toString();
-            result.put("mensajes", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.porcionesEditText.getText().toString();
-            result.put("porciones", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.sanidadesEditText.getText().toString();
-            result.put("sanidades", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.visitasEditTExt.getText().toString();
-            result.put("visitas", temp.isEmpty() ? "0" : temp);
-
-            temp = mBinding.horasTrabajoEditText.getText().toString();
-            result.put("horas_trabajo", temp.isEmpty() ? "0" : temp);
-
-            result.put("otros", mBinding.otrosEditText.getText());
-
-
-        }catch (JSONException e){
-            e.printStackTrace();
-            return null;
-        }
-        return result;
-    }
-
-    /**
      * Check for all the field of report to see if they are empty
      * @return true if not data enter
      */
@@ -450,11 +453,18 @@ public class CreateReportActivity extends AppCompatActivity {
             if(jsonObject != null){
                 if(jsonObject.has("report")){
                     //success
+                    try {
+                        reportAdded.put("id", jsonObject.getInt("report"));
+                    }catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    // Guardar el reporte en sharepreferences para cargarlo en el reports fragment
+                    DataUtils.saveCreatedReport(getApplicationContext(),reportAdded);
                     ShowSuccessMessage();
 
                     reportSaved = true;
 
-                    // Remove report data from sharepreferences
+                    // Remove report data from sharepreferences(el que se usa para guardar un temporal que no se ha subido al server)
                     DataUtils.clearReportData(CreateReportActivity.this);
 
                     //Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);

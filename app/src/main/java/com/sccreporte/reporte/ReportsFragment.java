@@ -100,6 +100,19 @@ public class ReportsFragment extends Fragment
         return view;
     }
 
+    /**
+     * Para cuando agregue un estudio bíblico en otra activity se refresque el fragment
+     */
+    @Override
+    public void onStart() {
+        super.onStart();
+        Report addedReport = DataUtils.loadCreatedReport(view.getContext());
+        if(addedReport != null && mReportAdapter != null){
+            mReportAdapter.restoreItem(addedReport,0);
+            showReportRecyclerView();
+        }
+    }
+
     private void loadReportData(){
         showReportRecyclerView();
         makeReportsQuery();
@@ -123,6 +136,7 @@ public class ReportsFragment extends Fragment
     private void showReportRecyclerView() {
         // First, make sure the error is invisible
         mErrorMessageDisplay.setVisibility(View.INVISIBLE);
+        mEmptyMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, make sure the RecyclerView data is visible
         mReportList.setVisibility(View.VISIBLE);
     }
@@ -136,6 +150,7 @@ public class ReportsFragment extends Fragment
     private void showErrorMessage() {
         // First, hide the currently visible data
         mReportList.setVisibility(View.INVISIBLE);
+        mEmptyMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, show the error
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
@@ -149,6 +164,7 @@ public class ReportsFragment extends Fragment
     private void showEmptyMessage() {
         // First, hide the currently visible data
         mReportList.setVisibility(View.INVISIBLE);
+        mErrorMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, show the error
         mEmptyMessageDisplay.setVisibility(View.VISIBLE);
     }
@@ -227,12 +243,13 @@ public class ReportsFragment extends Fragment
             // As soon as the loading is complete, hide the loading indicator
             mLoadingIndicator.setVisibility(View.INVISIBLE);
 
+            // Guardo la referecia de la lista de reportes
+            mReportsData = reportsDataResult;
+            // Mando los datos al adaptador para que los muestre en el recyclerView
+            mReportAdapter.setReportData(reportsDataResult);
+
             if(reportsDataResult != null && reportsDataResult.size() > 0){
                 showReportRecyclerView();
-                // Guardo la referecia de la lista de reportes
-                mReportsData = reportsDataResult;
-                // Mando los datos al adaptador para que los muestre en el recyclerView
-                mReportAdapter.setReportData(reportsDataResult);
             }else if(reportsDataResult != null && reportsDataResult.size() == 0){
                 showEmptyMessage();
             }else{
