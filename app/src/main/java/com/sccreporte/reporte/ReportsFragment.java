@@ -110,6 +110,8 @@ public class ReportsFragment extends Fragment
         if(addedReport != null && mReportAdapter != null){
             mReportAdapter.restoreItem(addedReport,0);
             showReportRecyclerView();
+        }else if(DataUtils.statusEditedReport(view.getContext(),false)){
+            makeReportsQuery();
         }
     }
 

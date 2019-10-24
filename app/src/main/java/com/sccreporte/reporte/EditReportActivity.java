@@ -333,6 +333,7 @@ public class EditReportActivity extends AppCompatActivity {
             if(jsonObject != null){
                 if(jsonObject.has("report")){
                     //success
+                    DataUtils.statusEditedReport(getApplicationContext(),true);
                     ShowSuccessMessage();
                     //Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
                     //startActivity(intent);

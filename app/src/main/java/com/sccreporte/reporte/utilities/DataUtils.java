@@ -172,7 +172,7 @@ public class DataUtils {
     }
 
     /**
-     * Guarda en shared preferences los datos del reporte que se ha guardado al servidor(sea nuevo o editado)
+     * Guarda en shared preferences los datos del nuevo reporte que se ha guardado al servidor
      * para mostrarlo en el recycler view del reports fragment
      * @param context
      * @param jsonObject
@@ -203,6 +203,21 @@ public class DataUtils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * Devuelve y guarda si recientemente se ha editado un reporte para cargarlo en el reports fragment
+     * @param context
+     * @param edited
+     * @return
+     */
+    public static boolean statusEditedReport(Context context, boolean edited){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean result = sharedPreferences.getBoolean("editedReport", false);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("editedReport", edited);
+        editor.apply();
+        return result;
     }
 
 
