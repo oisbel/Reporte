@@ -31,12 +31,17 @@ public class EditReportActivity extends AppCompatActivity {
     String mReportJSONString;
     private User mUser;
     Report report;
-    int report_id;
+    int report_id; // para guardar el id del reporte y luego poder enviarlo en la solicitud de edit
+    int year, month, day; // para guardar la fecha en share preferences dado que la fecha del reporte editado no cambia
+
 
     ImageButton backBT;
     ImageButton doneBT;
     private ProgressBar mLoadingIndicator;
     private ScrollView reportSV;
+
+    private JSONObject reportEdited; // To save it in sharepreferences and then load it from home fragment
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +67,9 @@ public class EditReportActivity extends AppCompatActivity {
         // Bind the data with the layout
         if (report != null){
             report_id = report.id;
+            year = report.year;
+            month = report.month;
+            day = report.day;
             displayReportInfo(report);
         }
 
@@ -78,7 +86,8 @@ public class EditReportActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(toLongInt(3))
                     return;
-                new EditReportQueryTask().execute(makeReportData());
+                reportEdited = makeReportData();
+                new EditReportQueryTask().execute(reportEdited);
             }
         });
     }
@@ -333,7 +342,18 @@ public class EditReportActivity extends AppCompatActivity {
             if(jsonObject != null){
                 if(jsonObject.has("report")){
                     //success
+                    try {
+                        reportEdited.put("id", jsonObject.getInt("report"));
+                        reportEdited.put("year", year);
+                        reportEdited.put("month", month);
+                        reportEdited.put("day", day);
+                    }catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     DataUtils.statusEditedReport(getApplicationContext(),true);
+                    // Guardar el reporte en sharepreferences para cargarlo en edit report desde el home fragment
+                    DataUtils.saveReportDataForeEdit(getApplicationContext(), reportEdited);
+
                     ShowSuccessMessage();
                     //Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
                     //startActivity(intent);

@@ -119,7 +119,7 @@ public class HomeFragment extends Fragment {
         // Save to sharepreference if its time to create a new report get it from the server
         createOrEditReport();
 
-        // establecer el click para crear reporte
+        // establecer el click para crear reporte or edit report
         addReportBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

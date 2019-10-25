@@ -460,6 +460,8 @@ public class CreateReportActivity extends AppCompatActivity {
                     }
                     // Guardar el reporte en sharepreferences para cargarlo en el reports fragment
                     DataUtils.saveCreatedReport(getApplicationContext(),reportAdded);
+                    // Guardar el reporte en sharepreferences para cargarlo en edit report desde el home fragment
+                    DataUtils.saveReportDataForeEdit(getApplicationContext(), reportAdded);
                     ShowSuccessMessage();
 
                     reportSaved = true;
