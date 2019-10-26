@@ -347,19 +347,21 @@ public class EditReportActivity extends AppCompatActivity {
             if(jsonObject != null){
                 if(jsonObject.has("report")){
                     //success
-                    if(clickedItemIndex == 0) {
-                        try {
-                            reportEdited.put("id", jsonObject.getInt("report"));
-                            reportEdited.put("year", year);
-                            reportEdited.put("month", month);
-                            reportEdited.put("day", day);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        // Guardar el reporte en sharepreferences para cargarlo en edit report desde el home fragment
-                        DataUtils.saveReportDataForeEdit(getApplicationContext(), reportEdited);
+                    Context context = getApplicationContext();
+                    try {
+                        reportEdited.put("id", jsonObject.getInt("report"));
+                        reportEdited.put("year", year);
+                        reportEdited.put("month", month);
+                        reportEdited.put("day", day);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    DataUtils.statusEditedReport(getApplicationContext(), true);
+                    if(clickedItemIndex == 0) {
+                        // Guardar el reporte en sharepreferences para cargarlo en edit report desde el home fragment
+                        DataUtils.saveReportDataForeEdit(context, reportEdited);
+                    }
+                    DataUtils.saveReportDataJustEdited(context,reportEdited);
+                    DataUtils.statusEditedReport(context, true);
                     ShowSuccessMessage();
                     //Intent intent = new Intent(getApplicationContext(), LastReportsActivity.class);
                     //startActivity(intent);

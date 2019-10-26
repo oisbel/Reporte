@@ -84,6 +84,37 @@ public class DataUtils {
     }
 
     /**
+     * Guarda en shared preferences los datos del reporte editado para mostrarlo en report activitiy
+     * @param context
+     * @param jsonObject
+     */
+    public static void saveReportDataJustEdited(Context context, JSONObject jsonObject){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("reportDataJustEdited",jsonObject.toString());
+        editor.apply();
+    }
+
+    /**
+     * Get the report data jst edited to show it in report activity, then erase it
+     */
+    public static JSONObject loadReportDataJustEdited(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        try{
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("reportDataJustEdited",""));
+            if(jsonObject.toString() != ""){
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("reportDataJustEdited","");
+                editor.apply();
+                return jsonObject;
+            } else return null;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
      * Guarda en shared preferences los datos del ultimo reporte que no se quiere editar porque se
      * quiso create report pero no es no es tiempo de crear reporte
      * @param context

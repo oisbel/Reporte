@@ -72,12 +72,25 @@ public class ReportActivity extends AppCompatActivity {
                 Context context = ReportActivity.this;
                 Class destinationActivity = EditReportActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
-                startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, mReportJSONString);
+                startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, report.reportJSON.toString());
                 startChildActivityIntent.putExtra(Intent.EXTRA_INDEX, clickedItemIndex);
                 startActivity(startChildActivityIntent);
                 //finish();
             }
         });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        JSONObject jsonObject = DataUtils.loadReportDataJustEdited(getApplicationContext());
+        if (jsonObject == null)
+                return;
+        report = new Report(jsonObject);
+        // Bind the data with the layout
+        if (report != null){
+            displayReportInfo(report);
+        }
     }
 
     /**
