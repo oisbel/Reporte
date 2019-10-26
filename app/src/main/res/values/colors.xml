@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#e54304</color>
     <color name="colorAccent">#8C9EFF</color>
     <color name="colorPrimaryLight">#7FAFD1</color>
+    <color name="colorBaseDark">#2C2A2B</color>
+    <color name="colorBaseLight">#F3F3F3</color>
     <color name="colorLoginButton">#e54304</color>
     <color name="titleBackground">#E65100</color>
     <color name="colorBackground">#014876</color>
