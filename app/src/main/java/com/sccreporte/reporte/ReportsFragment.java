@@ -189,6 +189,7 @@ public class ReportsFragment extends Fragment
         if(selectedReport != null) {
             // Pasar a la otra activity el String Json del reporte
             startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, selectedReport.reportJSON.toString());
+            startChildActivityIntent.putExtra(Intent.EXTRA_INDEX, clickedItemIndex);
         }
 
         /*if(mToast!=null){

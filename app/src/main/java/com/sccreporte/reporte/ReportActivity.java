@@ -24,6 +24,7 @@ public class ReportActivity extends AppCompatActivity {
     String mReportJSONString;
     private User mUser;
     Report report;
+    int clickedItemIndex; // Representa el indice del reporte en el recycler view de reportsFragment
 
     ImageButton backBT;
     Button editBT;
@@ -44,6 +45,10 @@ public class ReportActivity extends AppCompatActivity {
         if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
             mReportJSONString = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
             report = createReport(mReportJSONString);
+        }
+
+        if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_INDEX)){
+            clickedItemIndex = intentThatStartedThisActivity.getIntExtra(Intent.EXTRA_INDEX,0);
         }
         // Bind the data with the layout
         if (report != null){
@@ -68,6 +73,7 @@ public class ReportActivity extends AppCompatActivity {
                 Class destinationActivity = EditReportActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, mReportJSONString);
+                startChildActivityIntent.putExtra(Intent.EXTRA_INDEX, clickedItemIndex);
                 startActivity(startChildActivityIntent);
                 //finish();
             }
