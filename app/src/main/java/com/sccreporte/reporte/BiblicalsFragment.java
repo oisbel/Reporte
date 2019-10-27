@@ -110,7 +110,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
 
         // agregar el nombre y el lugar del usuario
         mUser = DataUtils.loadUserData(context);
-        if(mUser.id != -1) {
+        if(mUser != null && mUser.id != -1) {
             nameUserTV.setText(mUser.nombre);
             lugarUserTV.setText(mUser.lugar);
         }
@@ -244,11 +244,13 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
                                 if(strings.length == 0) return null;
                                 int biblical_id = Integer.parseInt(strings[0]);
                                 URL deleteBiblicalUrl = NetworkUtils.buildDeleteBiblicalUrl(biblical_id);
-                                String deleteBiblicalJSONResult;
+                                String deleteBiblicalJSONResult = "";
                                 JSONObject result = null;
                                 try{
-                                    deleteBiblicalJSONResult = NetworkUtils.geDeleteBiblicalFromHttpUrl(
-                                            deleteBiblicalUrl, mUser.email, mUser.password);
+                                    if(mUser != null) {
+                                        deleteBiblicalJSONResult = NetworkUtils.geDeleteBiblicalFromHttpUrl(
+                                                deleteBiblicalUrl, mUser.email, mUser.password);
+                                    }
                                 }catch (IOException e){
                                     e.printStackTrace();
                                     return result;

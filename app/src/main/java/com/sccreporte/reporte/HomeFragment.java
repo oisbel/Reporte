@@ -116,9 +116,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        // Save to sharepreference if its time to create a new report get it from the server
-        createOrEditReport();
-
         // establecer el click para crear reporte or edit report
         addReportBT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,13 +152,15 @@ public class HomeFragment extends Fragment {
 
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(context);
-        if(mUser.email!=""){
+        if(mUser!= null && mUser.email!=""){
             emailTV.setText(mUser.email);
         }
 
         // Schedule the create report reminder
         ReminderUtilities.scheduleCreateReportReminder(context);
 
+        // Save to sharepreference if its time to create a new report get it from the server
+        createOrEditReport();
 
         return view;
     }
@@ -195,11 +194,13 @@ public class HomeFragment extends Fragment {
             @Override
             protected JSONObject doInBackground(Void... voids) {
                 URL itIsTimeUrl = NetworkUtils.buildItIsTimeUrl();
-                String lastReportJSONResult;
+                String lastReportJSONResult = "";
                 JSONObject result = null;
                 try{
-                    lastReportJSONResult = NetworkUtils.getItIsTimeFromHttpUrl(
-                            itIsTimeUrl, mUser.email, mUser.password);
+                    if(mUser != null) {
+                        lastReportJSONResult = NetworkUtils.getItIsTimeFromHttpUrl(
+                                itIsTimeUrl, mUser.email, mUser.password);
+                    }
                 }catch (IOException e){
                     e.printStackTrace();
                     return result;

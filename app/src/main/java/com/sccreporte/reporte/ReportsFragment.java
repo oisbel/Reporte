@@ -88,7 +88,7 @@ public class ReportsFragment extends Fragment
         mReportList.setAdapter(mReportAdapter);
 
         mUser = DataUtils.loadUserData(context);
-        if(mUser.id != -1) {
+        if(mUser != null && mUser.id != -1) {
             // if(mUser.id == -1) finish();
             // agregar el nombre y el lugar del usuario
             nameUserTV.setText(mUser.nombre);
@@ -222,7 +222,7 @@ public class ReportsFragment extends Fragment
             String user_id = params[0];
             URL reportsUrl = NetworkUtils.buildReportsUrl(user_id);
             // Para guardar la respuesta string en formato JSON
-            String reportsJSONResult = null;
+            String reportsJSONResult = "";
             try {
                 reportsJSONResult = NetworkUtils.getReportsFromHttpUrl(reportsUrl, mUser.email, mUser.password);
             }catch (IOException e){
