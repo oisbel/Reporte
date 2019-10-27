@@ -127,14 +127,15 @@
     </string>
     <string name="explain_create_report_help">
         \u2022 Tenga en cuenta que solo podrá crear un reporte a partir del dia 7 de cada mes,
-        y cuando seleccione <b>Crear Reporte</b> se abrirá la vista para editar su último reporte.
+        y cuando seleccione <b>Crear Reporte</b> se abrirá la vista para editar su último reporte,
+        en caso que ya lo haya llenado.
     </string>
     <string name="topic_edit_report">Como cambiar un Informe Evangelístico Mensual</string>
     <string name="details_edit_report_help">
-        Con motivo de agregar o cambiar datos al último reporte:
-        \n<b>1</b> - En la vista principal seleccione <i><u>Historial de Reportes</u></i>.
-        \n<b>2</b> - Seleccione el reporte correspondiente.
-        \n<b>3</b> - En la parte superior derecha seleccione <i><u>Editar</u></i>.
+        Si necesita agregar o cambiar datos de algún reporte:
+        \n<b>1</b> - En la vista de navegación inferior seleccione <i><u>Reportes</u></i>.
+        \n<b>2</b> - Vaya al reporte correspondiente.
+        \n<b>3</b> - Seleccione <i><u>Editar</u></i>.
         \n<b>4</b> - Cuando termine de llenar los datos del informe,
         seleccione guardar en la parte superior derecha.
     </string>
