@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
     private ImageButton addReportBT;
     private ImageButton biblicalBT;
     private TextView userDataTV;
-    private TextView emailTV; // El email del usuario
+    private TextView welcomeTV; // El email del usuario
     private ImageButton sccBT;
     private ImageButton radioBT;
     private ImageButton facebookBT;
@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
         addReportBT = view.findViewById(R.id.imageButtonAddReport);
         biblicalBT = view.findViewById(R.id.imageButtonBiblical);
         userDataTV = view.findViewById(R.id.myDataTextView);
-        emailTV = view.findViewById(R.id.emailTextView);
+        welcomeTV = view.findViewById(R.id.welcomeTextView);
         sccBT = view.findViewById(R.id.sccImageButton);
         radioBT = view.findViewById(R.id.radioImageButton);
         facebookBT = view.findViewById(R.id.faceBookImageButton);
@@ -153,7 +153,7 @@ public class HomeFragment extends Fragment {
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(context);
         if(mUser!= null && mUser.email!=""){
-            emailTV.setText(mUser.email);
+            welcomeTV.setText(mUser.nombre);
         }
 
         // Schedule the create report reminder

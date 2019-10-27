@@ -72,6 +72,7 @@ public class UserDataActivity extends AppCompatActivity {
     private void displayUserData(){
         mBinding.nameUserTextView.setText(String.valueOf(mUser.nombre));
         mBinding.lugarUserTextView.setText(String.valueOf(mUser.lugar));
+        mBinding.emailTextView.setText(String.valueOf(mUser.email));
 
         String temp = String.valueOf(mUser.grado);
         if(!temp.isEmpty())
