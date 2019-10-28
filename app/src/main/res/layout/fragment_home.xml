@@ -54,7 +54,15 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/splash_background"
                 android:scaleType="centerCrop"
-                android:alpha="0.1"/>
+                android:alpha="0.2"/>
+            <ImageView
+                android:src="@drawable/scclogo"
+                android:scaleType="fitXY"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/sccTextView"
                 style="@style/sccSplashStyle"
