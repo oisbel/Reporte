@@ -22,9 +22,6 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LastReportsActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ReportActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -40,16 +37,10 @@
             android:name=".RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CreatePasswordActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".CreateReportActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".UserDataActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BiblicalActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CreateBiblicalActivity"

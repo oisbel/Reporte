@@ -29,9 +29,9 @@ public class CreateReportReminderFirebaseJobService extends JobService {
     @Override
     public boolean onStartJob(final JobParameters job) {
         // Llamar a reminder task en otro hilo
-        mBackgroundTask = new AsyncTask() {
+        mBackgroundTask = new AsyncTask<Void, Void,Void>() {
             @Override
-            protected Object doInBackground(Object[] objects) {
+            protected Void doInBackground(Void... voids) {
                 Context context = CreateReportReminderFirebaseJobService.this;
                 ReminderTasks.executeTask(context, ReminderTasks.ACTION_CREATE_REPORT_REMINDER);
                 return null;
@@ -39,10 +39,10 @@ public class CreateReportReminderFirebaseJobService extends JobService {
 
             /**
              * JobService need to says the system when the job is done
-             * @param o
              */
             @Override
-            protected void onPostExecute(Object o) {
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
                 // This will inform the JobManager that your job is done
                 // and that you do not want to reschedule the job.
                 /*
@@ -54,8 +54,7 @@ public class CreateReportReminderFirebaseJobService extends JobService {
 
                 jobFinished(job, false);
             }
-        };
-        mBackgroundTask.execute();
+        }.execute();
         return true; // because our job is still doing some work in other thread
     }
 

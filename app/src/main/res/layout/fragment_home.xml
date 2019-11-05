@@ -61,7 +61,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:alpha="0.8"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/sccTextView"
