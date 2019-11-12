@@ -79,6 +79,7 @@
     <string name="already_label">¿No tiene una cuenta?</string>
     <string name="login_tb_label">Entrar</string>
 
+    <string name="null_response_error_message">No se recibió datos de la conexión con el servidor</string>
     <string name="create_user_error_message">No se ha podido autorizar al usuario</string>
     <string name="user_exist_message">Un usuario con ese correo ya existe</string>
     <string name="user_no_exist_message">El usuario indicado no existe</string>
