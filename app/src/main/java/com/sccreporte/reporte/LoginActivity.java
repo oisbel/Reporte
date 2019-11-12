@@ -198,7 +198,7 @@ public class LoginActivity extends AppCompatActivity {
                     ShowErrorMessage();
                 }
             } else {
-                ShowNullMessage();
+                ShowErrorMessage();
             }
         }
     }
