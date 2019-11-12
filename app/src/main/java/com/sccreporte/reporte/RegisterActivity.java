@@ -158,8 +158,8 @@ public class RegisterActivity extends AppCompatActivity {
         return true;
     }
 
-    private void ShowErrorMessage(){
-        Toast toast = Toast.makeText(this, R.string.create_user_error_message, Toast.LENGTH_LONG);
+    private void ShowNullMessage(){
+        Toast toast = Toast.makeText(this, R.string.null_response_error_message, Toast.LENGTH_LONG);
         toast.show();
     }
 
@@ -237,7 +237,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }
             } else {
-                ShowErrorMessage();
+                ShowNullMessage();
             }
         }
     }
