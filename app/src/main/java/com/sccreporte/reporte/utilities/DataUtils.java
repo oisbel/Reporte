@@ -263,9 +263,6 @@ public class DataUtils {
                 sharedPreferences.getString("grado",""),
                 sharedPreferences.getString("ministerio",""),
                 sharedPreferences.getString("responsabilidad",""),
-                sharedPreferences.getString("lugar",""),
-                sharedPreferences.getString("pastor",""),
-                sharedPreferences.getString("numero",""),
                 sharedPreferences.getString("password",""));
     }
 
@@ -278,9 +275,6 @@ public class DataUtils {
         editor.putString("grado","");
         editor.putString("ministerio","");
         editor.putString("responsabilidad","");
-        editor.putString("lugar","");
-        editor.putString("pastor","");
-        editor.putString("numero","");
         editor.putString("password","");
         editor.apply();
     }
@@ -308,14 +302,6 @@ public class DataUtils {
             temp = jsonData.getString("responsabilidad").toString();
             editor.putString("responsabilidad", temp.isEmpty() ? "No" : temp);
 
-            editor.putString("lugar", jsonData.getString("lugar"));
-
-            temp = jsonData.getString("pastor").toString();
-            editor.putString("pastor", temp.isEmpty() ? "No" : temp);
-
-            temp = jsonData.getString("numero").toString();
-            editor.putString("numero", temp.isEmpty() ? "No" : temp);
-
             editor.putString("password", jsonData.getString("password"));
             editor.apply();
 
@@ -340,9 +326,6 @@ public class DataUtils {
             editor.putString("grado", jsonData.getString("grado"));
             editor.putString("ministerio", jsonData.getString("ministerio"));
             editor.putString("responsabilidad", jsonData.getString("responsabilidad"));
-            editor.putString("lugar", jsonData.getString("lugar"));
-            editor.putString("pastor", jsonData.getString("pastor"));
-            editor.putString("numero", jsonData.getString("numero"));
             editor.putString("password", passNoHash);
             editor.apply();
         } catch (JSONException e) {
@@ -362,9 +345,6 @@ public class DataUtils {
             editor.putString("grado", jsonData.getString("grado"));
             editor.putString("ministerio", jsonData.getString("ministerio"));
             editor.putString("responsabilidad", jsonData.getString("responsabilidad"));
-            editor.putString("lugar", jsonData.getString("lugar"));
-            editor.putString("pastor", jsonData.getString("pastor"));
-            editor.putString("numero", jsonData.getString("numero"));
             editor.apply();
         } catch (JSONException e) {
             e.printStackTrace();

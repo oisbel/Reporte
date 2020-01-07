@@ -92,7 +92,6 @@ public class ReportsFragment extends Fragment
             // if(mUser.id == -1) finish();
             // agregar el nombre y el lugar del usuario
             nameUserTV.setText(mUser.nombre);
-            lugarUserTV.setText(mUser.lugar);
         }
         /* Once all of our views are setup, we can load the reports data. */
         loadReportData();

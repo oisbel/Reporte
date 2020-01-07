@@ -137,7 +137,6 @@ public class EditReportActivity extends AppCompatActivity {
      * @param report
      */
     private void displayReportInfo(Report report){
-        mBinding.lugarTextView.setText(String.valueOf(mUser.lugar));
         mBinding.nameTextView.setText(String.valueOf(mUser.nombre));
 
         mBinding.fechaTextView.setText(String.valueOf(report.day) + "/" +

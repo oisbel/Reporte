@@ -64,7 +64,6 @@ public class EditUserActivity extends AppCompatActivity {
         if(mUser.id == -1)
             finish();
         nameTV.setText(mUser.nombre);
-        lugarTV.setText(mUser.lugar);
 
         // Agregar un spinner para el grado
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -84,8 +83,6 @@ public class EditUserActivity extends AppCompatActivity {
         gradoSpinner.setSelection(spinnerPosition);
         ministerioET.setText(mUser.ministerio);
         responsabilidadET.setText(mUser.responsabilidad);
-        pastorET.setText(mUser.pastor);
-        numeroET.setText(mUser.numero);
 
         closeBT.setOnClickListener(new View.OnClickListener() {
             @Override
