@@ -17,14 +17,18 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.sccreporte.reporte.data.Church;
 import com.sccreporte.reporte.utilities.DataUtils;
 import com.sccreporte.reporte.utilities.NetworkUtils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -37,6 +41,8 @@ public class RegisterActivity extends AppCompatActivity {
     private Button registerButton;
     private Spinner gradoSpinner;
     private Spinner churchSpinner;
+
+    private List<Church> churchs;
 
     // Objeto JSON con los datos del nuevo usuario a crear
     JSONObject userDataJSON;
@@ -56,6 +62,24 @@ public class RegisterActivity extends AppCompatActivity {
         responsabilidadET = (EditText) findViewById(R.id.responsabilidadEditText);
         registerButton = (Button) findViewById(R.id.registerButton);
 
+        // Obtener el string pasado de la activity anterior
+        Intent intentThatStartedThisActivity = getIntent();
+        if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
+            String churchsJSONString = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
+            churchs = CreateChurchsList(churchsJSONString);
+            List<String> listChurchs = new ArrayList<>();
+            for (int i =0; i<churchs.size();i++){
+                listChurchs.add(churchs.get(i).nombre);
+            }
+
+            // Agregar un spinner para las iglesias
+            ArrayAdapter<String> adapterChurchs = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item,listChurchs);
+            // Specify the layout to use when the list of choices appears
+            adapterChurchs.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            // Apply the adapter to the spinner
+            churchSpinner.setAdapter(adapterChurchs);
+        }
 
         // Agregar un spinner para el grado
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -74,6 +98,25 @@ public class RegisterActivity extends AppCompatActivity {
                 makeCreateUserQuery();
             }
         });
+    }
+
+    /**
+     * Crea una lista de objects church a partir del string pasado de la activity anterior
+     * @param churchsJSONString
+     * @return
+     */
+    private List<Church> CreateChurchsList(String churchsJSONString){
+        List<Church> result= new ArrayList<>();
+        try{
+            JSONObject data = new JSONObject(churchsJSONString);
+            JSONArray churchsList = data.getJSONArray("list");
+            for (int i = 0; i<churchsList.length();i++){
+                result.add(new Church(churchsList.getJSONObject(i)));
+            }
+        }catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
