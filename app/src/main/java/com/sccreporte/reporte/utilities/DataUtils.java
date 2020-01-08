@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 import com.sccreporte.reporte.data.Biblical;
 import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
-//import com.sccreporte.reporte.data.Church;
+import com.sccreporte.reporte.data.Church;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -352,5 +352,33 @@ public class DataUtils {
         }
     }
 
+
+    /**
+     * Get the church data form SharePreferences
+     */
+    public static Church loadChurchData(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        try{
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("churchInfo",""));
+            if(jsonObject.toString() != ""){
+                return new Church(jsonObject);
+            } else return null;
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Guarda los datos de la iglesia que se autoasigno el usuario que se acaba de crear
+     * @param context
+     * @param church
+     */
+    public static void SaveChurchData(Context context, JSONObject church){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("churchInfo", church.toString());
+        editor.apply();
+    }
 }
 
