@@ -78,11 +78,22 @@
         android:layout_above="@+id/registerLinearLayout"
         android:layout_alignTop="@+id/passwordET"
         android:fillViewport="true"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="32dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/churchSpinner"
+                style="@style/reportDataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="right"
+                android:gravity="right">
+            </Spinner>
 
             <Spinner
                 android:id="@+id/gradoSpinner"
@@ -144,57 +155,6 @@
                 android:gravity="center"
                 android:inputType="textPersonName"
                 android:hint="@string/responsabilidad_label" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/reportDataStyle">
-            <EditText
-                android:id="@+id/pastorEditText"
-                style="@style/reportDataStyle"
-                android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:hint="@string/pastor_label" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/reportDataStyle">
-                <EditText
-                    android:id="@+id/numeroEditText"
-                    style="@style/reportDataStyle"
-                    android:textColor="@android:color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:hint="@string/numero_label" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/reportDataStyle">
-            <EditText
-                android:id="@+id/lugardEditText"
-                style="@style/reportDataStyle"
-                android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:hint="@string/lugar_label" />
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>

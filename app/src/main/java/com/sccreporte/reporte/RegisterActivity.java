@@ -34,11 +34,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText nombreET;
     private EditText ministerioET;
     private EditText responsabilidadET;
-    private EditText pastorET;
-    private EditText numeroET;
-    private EditText lugarET;
     private Button registerButton;
     private Spinner gradoSpinner;
+    private Spinner churchSpinner;
 
     // Objeto JSON con los datos del nuevo usuario a crear
     JSONObject userDataJSON;
@@ -52,12 +50,10 @@ public class RegisterActivity extends AppCompatActivity {
         passwordET = findViewById(R.id.passwordET);
         loadingProgressBar = findViewById(R.id.loadingProgressBar);
         nombreET = (EditText) findViewById(R.id.nombreEditText);
+        churchSpinner = findViewById(R.id.churchSpinner);
         gradoSpinner = findViewById(R.id.gradoSpinner);
         ministerioET = (EditText) findViewById(R.id.ministerioEditText);
         responsabilidadET = (EditText) findViewById(R.id.responsabilidadEditText);
-        pastorET = (EditText) findViewById(R.id.pastorEditText);
-        lugarET = (EditText) findViewById(R.id.lugardEditText);
-        numeroET = (EditText) findViewById(R.id.numeroEditText);
         registerButton = (Button) findViewById(R.id.registerButton);
 
 
@@ -101,9 +97,6 @@ public class RegisterActivity extends AppCompatActivity {
             userDataJSON.put("grado",gradoSpinner.getSelectedItem().toString());
             userDataJSON.put("ministerio",ministerioET.getText());
             userDataJSON.put("responsabilidad",responsabilidadET.getText());
-            userDataJSON.put("pastor",pastorET.getText());
-            userDataJSON.put("numero",numeroET.getText().toString().isEmpty() ? "0" : numeroET.getText());
-            userDataJSON.put("lugar",lugarET.getText());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -141,14 +134,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
         if(passwordET.getText().toString().equalsIgnoreCase("")){
             passwordET.setError(getResources().getString(R.string.mandatory_error));
-            return false;
-        }
-        if(pastorET.getText().toString().equalsIgnoreCase("")){
-            pastorET.setError(getResources().getString(R.string.mandatory_error));
-            return false;
-        }
-        if(lugarET.getText().toString().equalsIgnoreCase("")){
-            lugarET.setError(getResources().getString(R.string.mandatory_error));
             return false;
         }
         if(gradoSpinner.getSelectedItem().toString().equals(getResources().getString(R.string.grado_label))){

@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import com.sccreporte.reporte.data.Biblical;
 import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
+//import com.sccreporte.reporte.data.Church;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -350,5 +351,6 @@ public class DataUtils {
             e.printStackTrace();
         }
     }
+
 }
 

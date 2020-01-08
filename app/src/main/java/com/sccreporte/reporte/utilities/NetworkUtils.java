@@ -43,6 +43,8 @@ public class NetworkUtils {
 
     final static String BASE_ITISTIME_URL = Base_URL + "/ask";
 
+    final static String BASE_CHURCHS_URL = Base_URL + "/getchurchs";
+
     /**
      * Builds the URL used to query sccreporte.
      *
