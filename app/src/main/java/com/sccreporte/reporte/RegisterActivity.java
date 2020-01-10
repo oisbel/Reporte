@@ -191,8 +191,8 @@ public class RegisterActivity extends AppCompatActivity {
         toast.show();
     }
 
-    private void ShowUserExistMessage(){
-        Toast toast = Toast.makeText(this, R.string.user_exist_message, Toast.LENGTH_LONG);
+    private void ShowServerMessage(String message){
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
         toast.show();
     }
 
@@ -247,8 +247,12 @@ public class RegisterActivity extends AppCompatActivity {
         protected void onPostExecute(JSONObject jsonObject) {
             showLogin();
             if(jsonObject != null){
-                if(jsonObject.has("message")){
-                    ShowUserExistMessage();
+                if(jsonObject.has("message")) {
+                    try {
+                        ShowServerMessage(jsonObject.getString("message"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
                 if(jsonObject.has("email")){
                     // sucess
