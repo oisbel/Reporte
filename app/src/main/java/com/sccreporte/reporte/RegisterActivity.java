@@ -67,14 +67,10 @@ public class RegisterActivity extends AppCompatActivity {
         if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
             String churchsJSONString = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
             churchs = CreateChurchsList(churchsJSONString);
-            List<String> listChurchs = new ArrayList<>();
-            for (int i =0; i<churchs.size();i++){
-                listChurchs.add(churchs.get(i).nombre);
-            }
 
-            // Agregar un spinner para las iglesias
-            ArrayAdapter<String> adapterChurchs = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item,listChurchs);
+            // Agregar el spinner para las iglesias
+            ArrayAdapter<Church> adapterChurchs = new ArrayAdapter<Church>(this,
+                    android.R.layout.simple_spinner_item,churchs);
             // Specify the layout to use when the list of choices appears
             adapterChurchs.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             // Apply the adapter to the spinner
@@ -137,6 +133,8 @@ public class RegisterActivity extends AppCompatActivity {
             userDataJSON.put("email", emailET.getText());
             userDataJSON.put("password", passwordET.getText());
             userDataJSON.put("nombre",nombreET.getText());
+            Church churchSelected = (Church)churchSpinner.getSelectedItem();
+            userDataJSON.put("church_id",Integer.toString(churchSelected.id));
             userDataJSON.put("grado",gradoSpinner.getSelectedItem().toString());
             userDataJSON.put("ministerio",ministerioET.getText());
             userDataJSON.put("responsabilidad",responsabilidadET.getText());
