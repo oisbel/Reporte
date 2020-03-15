@@ -7,7 +7,6 @@ import android.preference.PreferenceManager;
 import com.sccreporte.reporte.data.Biblical;
 import com.sccreporte.reporte.data.Report;
 import com.sccreporte.reporte.data.User;
-import com.sccreporte.reporte.data.Church;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,11 +35,6 @@ public class DataUtils {
 
     public static boolean validateEmail(String email) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
-        return matcher.find();
-    }
-
-    public static boolean validateName(String name) {
-        Matcher matcher = VALID_NAME_REGEX .matcher(name);
         return matcher.find();
     }
 
@@ -290,11 +284,33 @@ public class DataUtils {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         try {
+
+            editor.putString("lugar", jsonData.getString("lugar"));
+
+            String temp = jsonData.getString("pastor");
+            editor.putString("pastor", temp.isEmpty() ? "" : temp);
+
             editor.putInt("id", user_id);
             editor.putString("nombre", jsonData.getString("nombre"));
             editor.putString("email", jsonData.getString("email"));
 
-            String temp = jsonData.getString("grado").toString();
+            temp = jsonData.getString("phone");
+            editor.putString("phone", temp.isEmpty() ? "No" : temp);
+
+            editor.putInt("year", jsonData.getInt("year"));
+            editor.putInt("month", jsonData.getInt("month"));
+            editor.putInt("day", jsonData.getInt("day"));
+
+            temp = jsonData.getString("direccion");
+            editor.putString("direccion", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("nombre_conyuge");
+            editor.putString("nombre_conyuge", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("fecha_casamiento");
+            editor.putString("fecha_casamiento", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("grado");
             editor.putString("grado", temp.isEmpty() ? "No" : temp);
 
             temp = jsonData.getString("ministerio").toString();
@@ -352,33 +368,5 @@ public class DataUtils {
         }
     }
 
-
-    /**
-     * Get the church data form SharePreferences
-     */
-    public static Church loadChurchData(Context context){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        try{
-            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("churchInfo",""));
-            if(jsonObject.toString() != ""){
-                return new Church(jsonObject);
-            } else return null;
-        }catch (JSONException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /**
-     * Guarda los datos de la iglesia que se autoasigno el usuario que se acaba de crear
-     * @param context
-     * @param church
-     */
-    public static void SaveChurchData(Context context, JSONObject church){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("churchInfo", church.toString());
-        editor.apply();
-    }
 }
 

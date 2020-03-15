@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/registerBackground"
+    tools:context="com.sccreporte.reporte.Register_4">
+
+    <ImageButton
+        android:id="@+id/backIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        app:srcCompat="@drawable/ic_action_back" />
+    <TextView
+        android:id="@+id/mainTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/backIB"
+        android:text="@string/datos_personales_label"
+        style="@style/registerMainLabel" />
+    <View
+        android:id="@+id/divView"
+        android:layout_width="match_parent"
+        style="@style/divRegister"
+        android:layout_below="@+id/mainTextView"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divView"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="50dp"
+        style="@style/reportDataStyle">
+        <EditText
+            android:id="@+id/addressEditText"
+            style="@style/reportDataStyle"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPostalAddress"
+            android:hint="@string/address" />
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@style/registerLabelStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorLoginButton"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/nextLabel" />
+    </LinearLayout>
+
+</RelativeLayout>
+

@@ -3,7 +3,12 @@
     <string name="scc_splash">SCC</string>
     <string name="reports_splash">REPORTES</string>
     <string name="registerLabel">CREAR CUENTA</string>
+    <string name="initLabel">INICIAR CUENTA</string>
     <string name="loginLabel">INICIAR SESIÓN</string>
+    <string name="nextLabel">Continuar</string>
+    <string name="yesLabel">Si -> Continuar</string>
+    <string name="canceltLabel">No -> Cancelar</string>
+    <string name="endLabel">Finalizar</string>
     <string name="login_user_error_message">No se ha podido iniciar sesión</string>
     <string name="invalid_user_credential">Correo o contraseña incorrecta</string>
     <string name="last_reports_label">Historial de Reportes</string>
@@ -26,7 +31,7 @@
     <string name="menu_biblicals">Estudios</string>
 
     <string name="email">Correo</string>
-    <string name="password">Nueva Contraseña</string>
+    <string name="password">Contraseña</string>
 
     <string name="welcome_message">Dios te bendiga</string>
 
@@ -64,22 +69,47 @@
     <string name="realizadosE_label">Realizados</string>
 
     <string name="full_name">Nombre y Apellidos</string>
+    <string name="full_name_explain_label">Si su nombre está escrito incorrectamente puede cambiarlo</string>
     <string name="nombre_label">Nombre</string>
     <string name="email_label">Correo</string>
     <string name="grado_label">Grado</string>
+    <string name="phone">Número de Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="birth_day_label">Fecha de Nacimiento</string>
+    <string name="wedding_day_label">Fecha de Casamiento</string>
+    <string name="married_label">¿ Es casado?</string>
+    <string name="conyuge_label">Nombre del cónyuge</string>
+    <string name="detail_married_label">Si es casado debe proveer al menos el nombre de su cónyuge,
+    de lo contrario responda No.</string>
+    <string name="grado_explain_label">Seleccione el grado eclesiástico que le ha sido otorgado por la Iglesia</string>
     <string name="ministerio_label">Ministerio</string>
+    <string name="ministerio_explain_label">¿De que manera sirve en la iglesia de Dios?
+    Apostolado, profesía, evangelismo, pastorado, maestro, audio visual, sanidad.</string>
+    <string name="ministerio">Sirvo a Dios en el ministerio de..</string>
     <string name="responsabilidad_label">Responsabilidad</string>
+    <string name="responsabilidad_explain_label">¿Que cargo tiene en la iglesia local?
+    Ujier, finanzas, lider (juvenil, caballero, damas, de oración) u algún otro servicio.</string>
+    <string name="responsabilidad">Soy responsable de..</string>
+    <string name="datos_usuario">Datos de usuario</string>
+    <string name="datos_usuario_explain">Credenciales que le fueron otorgadas por el secretario de su iglesia local
+    para acceder al sistema de reportes</string>
     <string name="pastor_label">Pastor</string>
     <string name="lugar_label">Lugar</string>
     <string name="numero_label">Numero de Feligresía</string>
     <string name="password_label">Contraseña</string>
     <string name="ninguno_label">No</string>
+    <string name="datos_personales_label">Datos personales</string>
+    <string name="verification_label">Verifique que es usted</string>
+    <string name="nombre_completo_label">Incluya su nombre, segundo nombre y apellidos</string>
+    <string name="iglesia_label">Iglesia</string>
+    <string name="iglesia_explain_label">Selecccione la iglesia a la que pertenece</string>
 
     <string name="register_bt_label">Registrarme</string>
     <string name="already_label">¿No tiene una cuenta?</string>
     <string name="login_tb_label">Entrar</string>
 
     <string name="null_response_error_message">No se recibió datos de la conexión con el servidor</string>
+    <string name="init_user_error_message">No se ha podido crear una cuenta con los datos proporcionados</string>
     <string name="create_user_error_message">No se ha podido autorizar al usuario</string>
     <string name="user_exist_message">Un usuario con ese correo ya existe</string>
     <string name="user_no_exist_message">El usuario indicado no existe</string>
