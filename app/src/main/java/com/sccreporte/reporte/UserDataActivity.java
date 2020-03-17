@@ -72,6 +72,7 @@ public class UserDataActivity extends AppCompatActivity {
     private void displayUserData(){
         mBinding.nameUserTextView.setText(String.valueOf(mUser.nombre));
         mBinding.emailTextView.setText(String.valueOf(mUser.email));
+        mBinding.lugarUserTextView.setText(String.valueOf(mUser.lugar));
 
         String temp = String.valueOf(mUser.grado);
         if(!temp.isEmpty())
@@ -90,5 +91,14 @@ public class UserDataActivity extends AppCompatActivity {
             mBinding.responsabilidadTextView.setText(temp);
         else
             mBinding.responsabilidadTextView.setText("No");
+
+        temp = String.valueOf(mUser.pastor);
+        if(!temp.isEmpty())
+            mBinding.pastorTextView.setText(temp);
+        else
+            mBinding.pastorTextView.setText("No");
+
+        mBinding.numeroTextView.setText(Integer.toString(mUser.id));
+
     }
 }

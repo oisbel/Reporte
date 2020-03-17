@@ -123,7 +123,6 @@
 
         </android.support.constraint.ConstraintLayout>
 
-        // Tabla de contenido del reporte
         <ScrollView
             android:id="@+id/userScrollView"
             android:layout_width="match_parent"
@@ -176,40 +175,6 @@
                         android:gravity="center"
                         android:inputType="textPersonName"
                         android:hint="@string/responsabilidad_label" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/reportDataStyle">
-                    <EditText
-                        android:id="@+id/pastorEditText"
-                        style="@style/reportDataStyle"
-                        android:textColor="@android:color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="textPersonName"
-                        android:hint="@string/pastor_label" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/reportDataStyle">
-                    <EditText
-                        android:id="@+id/numeroEditText"
-                        style="@style/reportDataStyle"
-                        android:textColor="@android:color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:hint="@string/numero_label" />
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>

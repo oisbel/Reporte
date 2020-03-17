@@ -58,12 +58,11 @@ public class EditUserActivity extends AppCompatActivity {
         gradoSpinner = findViewById(R.id.gradoSpinner);
         ministerioET = findViewById(R.id.ministerioEditText);
         responsabilidadET = findViewById(R.id.responsabilidadEditText);
-        pastorET = findViewById(R.id.pastorEditText);
-        numeroET = findViewById(R.id.numeroEditText);
         mUser = DataUtils.loadUserData(this);
         if(mUser.id == -1)
             finish();
         nameTV.setText(mUser.nombre);
+        lugarTV.setText(mUser.lugar);
 
         // Agregar un spinner para el grado
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -140,15 +139,6 @@ public class EditUserActivity extends AppCompatActivity {
 
             temp = responsabilidadET.getText().toString();
             result.put("responsabilidad", temp.isEmpty() ? "No" : temp);
-
-            temp = lugarTV.getText().toString();
-            result.put("lugar", temp.isEmpty() ? "No" : temp);
-
-            temp = numeroET.getText().toString();
-            result.put("numero", temp.isEmpty() ? "No" : temp);
-
-            temp = pastorET.getText().toString();
-            result.put("pastor", temp.isEmpty() ? "No" : temp);
 
         }catch (JSONException e){
             e.printStackTrace();

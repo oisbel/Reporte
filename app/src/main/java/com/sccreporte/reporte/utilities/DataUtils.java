@@ -252,9 +252,18 @@ public class DataUtils {
      */
     public static User loadUserData(Context context){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return new User(sharedPreferences.getInt("id",-1),
+        return new User(sharedPreferences.getString("lugar",""),
+                sharedPreferences.getString("pastor",""),
+                sharedPreferences.getInt("id",-1),
                 sharedPreferences.getString("nombre",""),
                 sharedPreferences.getString("email",""),
+                sharedPreferences.getString("phone",""),
+                sharedPreferences.getInt("year",-1),
+                sharedPreferences.getInt("month",-1),
+                sharedPreferences.getInt("day",-1),
+                sharedPreferences.getString("direccion",""),
+                sharedPreferences.getString("nombre_conyuge",""),
+                sharedPreferences.getString("fecha_casamiento",""),
                 sharedPreferences.getString("grado",""),
                 sharedPreferences.getString("ministerio",""),
                 sharedPreferences.getString("responsabilidad",""),
@@ -264,9 +273,19 @@ public class DataUtils {
     public static void clearUserData(Context context){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("id","-1");
+
+        editor.putString("lugar","");
+        editor.putString("pastor","");
+        editor.putInt("id",-1);
         editor.putString("nombre","");
         editor.putString("email","");
+        editor.putString("phone","");
+        editor.putInt("year",-1);
+        editor.putInt("month",-1);
+        editor.putInt("day",-1);
+        editor.putString("direccion","");
+        editor.putString("nombre_conyuge","");
+        editor.putString("fecha_casamiento","");
         editor.putString("grado","");
         editor.putString("ministerio","");
         editor.putString("responsabilidad","");
@@ -313,10 +332,10 @@ public class DataUtils {
             temp = jsonData.getString("grado");
             editor.putString("grado", temp.isEmpty() ? "No" : temp);
 
-            temp = jsonData.getString("ministerio").toString();
+            temp = jsonData.getString("ministerio");
             editor.putString("ministerio", temp.isEmpty() ? "No" : temp);
 
-            temp = jsonData.getString("responsabilidad").toString();
+            temp = jsonData.getString("responsabilidad");
             editor.putString("responsabilidad", temp.isEmpty() ? "No" : temp);
 
             editor.putString("password", jsonData.getString("password"));
@@ -328,7 +347,7 @@ public class DataUtils {
     }
 
     /**
-     * uarda los datos de usuario que se acaba de logear en el servidor
+     * guarda los datos de usuario que se acaba de logear en el servidor
      * @param context
      * @param jsonData
      * @param passNoHash
@@ -337,12 +356,40 @@ public class DataUtils {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         try {
+            editor.putString("lugar", jsonData.getString("lugar"));
+
+            String temp = jsonData.getString("pastor");
+            editor.putString("pastor", temp.isEmpty() ? "" : temp);
+
             editor.putInt("id", jsonData.getInt("id"));
             editor.putString("nombre", jsonData.getString("nombre"));
             editor.putString("email", jsonData.getString("email"));
-            editor.putString("grado", jsonData.getString("grado"));
-            editor.putString("ministerio", jsonData.getString("ministerio"));
-            editor.putString("responsabilidad", jsonData.getString("responsabilidad"));
+
+            temp = jsonData.getString("phone");
+            editor.putString("phone", temp.isEmpty() ? "No" : temp);
+
+            editor.putInt("year", jsonData.getInt("year"));
+            editor.putInt("month", jsonData.getInt("month"));
+            editor.putInt("day", jsonData.getInt("day"));
+
+            temp = jsonData.getString("direccion");
+            editor.putString("direccion", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("nombre_conyuge");
+            editor.putString("nombre_conyuge", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("fecha_casamiento");
+            editor.putString("fecha_casamiento", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("grado");
+            editor.putString("grado", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("ministerio");
+            editor.putString("ministerio", temp.isEmpty() ? "No" : temp);
+
+            temp = jsonData.getString("responsabilidad");
+            editor.putString("responsabilidad", temp.isEmpty() ? "No" : temp);
+
             editor.putString("password", passNoHash);
             editor.apply();
         } catch (JSONException e) {
