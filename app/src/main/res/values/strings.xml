@@ -158,8 +158,8 @@
     </string>
     <string name="explain_create_report_help">
         \u2022 Tenga en cuenta que solo podrá crear un reporte a partir del dia 7 de cada mes,
-        y cuando seleccione <b>Crear Reporte</b> se abrirá la vista para editar su último reporte,
-        en caso que ya lo haya llenado.
+        Si selecciona <b>Crear Reporte</b> luego de haber llenado su último reporte,
+        se abrirá la vista para editarlo.
     </string>
     <string name="topic_edit_report">Como cambiar un Informe Evangelístico Mensual</string>
     <string name="details_edit_report_help">
