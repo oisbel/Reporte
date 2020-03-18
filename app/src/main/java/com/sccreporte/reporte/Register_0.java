@@ -58,6 +58,8 @@ public class Register_0 extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SplashActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
