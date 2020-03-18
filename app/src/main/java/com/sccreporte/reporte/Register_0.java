@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sccreporte.reporte.utilities.DataUtils;
@@ -23,6 +24,7 @@ import java.net.URL;
 
 public class Register_0 extends AppCompatActivity {
 
+    TextView messageTV; // Para mostrar errores
     EditText emailET;
     EditText passwordET;
     ProgressBar loadingProgressBar;
@@ -37,6 +39,7 @@ public class Register_0 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_0);
 
+        messageTV = findViewById(R.id.messageTV);
         emailET = findViewById(R.id.emailET);
         passwordET = findViewById(R.id.passwordET);
         loadingProgressBar = findViewById(R.id.loadingProgressBar);
@@ -115,17 +118,13 @@ public class Register_0 extends AppCompatActivity {
         initButton.setVisibility(View.VISIBLE);
     }
 
-    /**
-     * Los datos de usuario proporcionados no son validos
-     */
-    private void ShowInitErrorMessage(){
-        Toast toast = Toast.makeText(this, R.string.init_user_error_message, Toast.LENGTH_LONG);
-        toast.show();
+    private void ShowErrorMessage(String message){
+        messageTV.setText(message);
+        messageTV.setVisibility(View.VISIBLE);
     }
 
-    private void ShowServerMessage(String message){
-        Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
-        toast.show();
+    private void HideErrorMessage(){
+        messageTV.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -136,6 +135,7 @@ public class Register_0 extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            HideErrorMessage();
             showLoading();
         }
 
@@ -175,7 +175,7 @@ public class Register_0 extends AppCompatActivity {
             if(jsonObject != null){
                 if(jsonObject.has("message")) {
                     try {
-                        ShowServerMessage(jsonObject.getString("message"));
+                        ShowErrorMessage(jsonObject.getString("message"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -184,13 +184,13 @@ public class Register_0 extends AppCompatActivity {
                     try{
                         if(jsonObject.getString("status").equals("fail"))
                         {
-                            ShowServerMessage("El usuario especificado no existe");
+                            ShowErrorMessage("El usuario especificado no existe");
                             hideLoading();
                             return;
                         }
                     }catch (JSONException e){
                         e.printStackTrace();
-                        ShowServerMessage("Error recibiendo respuesta del servidor");
+                        ShowErrorMessage("Error recibiendo respuesta del servidor");
                         hideLoading();
                         return;
                     }
@@ -204,7 +204,7 @@ public class Register_0 extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     if(profile_complete || admin){
-                        ShowServerMessage("Los datos de usuario especificados no pueden iniciar una cuenta");
+                        ShowErrorMessage("Los datos de usuario especificados no pueden iniciar una cuenta");
                         hideLoading();
                         return;
                     }else {
@@ -213,7 +213,7 @@ public class Register_0 extends AppCompatActivity {
                     }
                 }
             } else {
-                ShowInitErrorMessage();
+                ShowErrorMessage(getString(R.string.init_user_error_message));
                 hideLoading();
             }
         }

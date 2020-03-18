@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sccreporte.reporte.utilities.DataUtils;
@@ -27,6 +28,7 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
 
+    TextView messageTV; // Para mostrar errores
     ImageButton backIB;
     ProgressBar loadingPB;
     EditText emailET;
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        messageTV = findViewById(R.id.messageTV);
         backIB = findViewById(R.id.backIB);
         loadingPB = findViewById(R.id.loadingProgressBar);
         emailET = findViewById(R.id.emailET);
@@ -81,19 +84,13 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void ShowNullMessage(){
-        Toast toast = Toast.makeText(this, R.string.null_response_error_message, Toast.LENGTH_LONG);
-        toast.show();
+    private void ShowErrorMessage(String message){
+        messageTV.setText(message);
+        messageTV.setVisibility(View.VISIBLE);
     }
 
-    private void ShowErrorMessage(){
-        Toast toast = Toast.makeText(this, R.string.create_user_error_message, Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    private void ShowInvalidCredentialsMessage(){
-        Toast toast = Toast.makeText(this, R.string.invalid_user_credential, Toast.LENGTH_LONG);
-        toast.show();
+    private void HideErrorMessage(){
+        messageTV.setVisibility(View.INVISIBLE);
     }
 
     private void showLoading(){
@@ -143,6 +140,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            HideErrorMessage();
             showLoading();
         }
 
@@ -187,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                 try{
                     status = jsonObject.getString("status");
                     if(status == "fail"){
-                        ShowInvalidCredentialsMessage();
+                        ShowErrorMessage(getString(R.string.invalid_user_credential));
                     }else{
                         // sucess
                         SaveUser(jsonObject);
@@ -195,10 +193,10 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
-                    ShowErrorMessage();
+                    ShowErrorMessage(getString(R.string.create_user_error_message));
                 }
             } else {
-                ShowErrorMessage();
+                ShowErrorMessage(getString(R.string.create_user_error_message));
             }
         }
     }

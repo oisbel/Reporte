@@ -42,6 +42,15 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/messageTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topMenu"
+        android:gravity="center"
+        android:visibility="invisible"
+        style="@style/errorLabel"/>
+
     <ProgressBar
         android:id="@+id/loadingProgressBar"
         android:layout_height="42dp"

@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/splash_background"
         android:scaleType="centerCrop"
-        android:alpha="0.05"/>
+        android:alpha="0.1"/>
 
     <ImageButton
         android:id="@+id/backIB"
@@ -25,11 +25,19 @@
         android:background="?android:selectableItemBackgroundBorderless"
         app:srcCompat="@drawable/ic_action_back" />
     <TextView
+        android:id="@+id/messageTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backIB"
+        android:gravity="center"
+        android:visibility="invisible"
+        style="@style/errorLabel"/>
+    <TextView
         android:id="@+id/datosUsuarioTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/backIB"
+        android:layout_below="@+id/messageTV"
         android:text="@string/datos_usuario"
         style="@style/registerMainLabel" />
     <View

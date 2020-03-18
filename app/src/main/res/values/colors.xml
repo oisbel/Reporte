@@ -32,4 +32,5 @@
     <color name="hintColorLogin">#C8C7CD</color>
     <color name="rectangleStroke">#045A72</color>
     <color name="registerBackground">#060d13</color>
+    <color name="errorMessage">#800000</color>
 </resources>
