@@ -182,10 +182,14 @@ public class LoginActivity extends AppCompatActivity {
             showLogin();
             if(jsonObject != null){
                 String status = "fail";
+                boolean profile_complete = false;
                 try{
                     status = jsonObject.getString("status");
+                    profile_complete = jsonObject.getBoolean("profile_complete");
                     if(status == "fail"){
                         ShowErrorMessage(getString(R.string.invalid_user_credential));
+                    }else if(!profile_complete){
+                        ShowErrorMessage(getString(R.string.user_must_register));
                     }else{
                         // sucess
                         SaveUser(jsonObject);

@@ -11,6 +11,7 @@
     <string name="endLabel">Finalizar</string>
     <string name="login_user_error_message">No se ha podido iniciar sesión</string>
     <string name="invalid_user_credential">Correo o contraseña incorrecta</string>
+    <string name="user_must_register">El usuario indicado debe crearse una cuenta</string>
     <string name="last_reports_label">Historial de Reportes</string>
     <string name="my_data_label">Mis Datos</string>
     <string name="logout">CERRAR SESIÓN</string>
