@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Register_9"></activity>
+        <activity
+            android:name=".Register1_1"
+            android:label="@string/title_activity_register1_1"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Register_9" />
         <activity android:name=".Register_8" />
         <activity android:name=".Register_7" />
         <activity android:name=".Register_6" />
@@ -44,9 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".RegisterActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".CreateReportActivity"
             android:screenOrientation="portrait" />

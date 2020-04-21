@@ -73,6 +73,9 @@
     <string name="full_name_explain_label">Si su nombre está escrito incorrectamente puede cambiarlo</string>
     <string name="nombre_label">Nombre</string>
     <string name="email_label">Correo</string>
+    <string name="new_password_label">Nueva contraseña</string>
+    <string name="details_new_password">Establezca una nueva contraseña.
+        Necesitará estas credenciales en caso de que cierre sesión en este dispositivo o quiera iniciar cuenta en otro.</string>
     <string name="grado_label">Grado</string>
     <string name="phone">Número de Teléfono</string>
     <string name="address">Dirección</string>
@@ -178,5 +181,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_register1_1">Register1_1</string>
 
 </resources>

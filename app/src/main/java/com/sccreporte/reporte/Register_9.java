@@ -136,7 +136,7 @@ public class Register_9 extends AppCompatActivity {
             try{
                 id = userDataJSON.getInt("id");
                 email = userDataJSON.getString("email");
-                password = userDataJSON.getString("password");
+                password = userDataJSON.getString("old_password");
             } catch (JSONException e) {
                 e.printStackTrace();
                 return result;

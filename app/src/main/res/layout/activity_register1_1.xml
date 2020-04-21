@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Register1_1"
+    android:background="@color/registerBackground">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/splash_background"
+        android:scaleType="centerCrop"
+        android:alpha="0.1"/>
+
+    <ImageButton
+        android:id="@+id/backIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        app:srcCompat="@drawable/ic_action_back" />
+    <TextView
+        android:id="@+id/mainTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/backIB"
+        android:text="@string/new_password_label"
+        style="@style/registerMainLabel" />
+    <View
+        android:id="@+id/divView"
+        android:layout_width="match_parent"
+        style="@style/divRegister"
+        android:layout_below="@+id/mainTextView"/>
+
+    <TextView
+        android:id="@+id/explainTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/divView"
+        android:text="@string/details_new_password"
+        style="@style/explainLabel"
+        android:gravity="center"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/explainTextView"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="50dp"
+        style="@style/reportDataStyle">
+        <EditText
+            android:id="@+id/passwordEditText"
+            style="@style/newPassword"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:hint="@string/password_label" />
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@style/registerLabelStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorLoginButton"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/nextLabel" />
+    </LinearLayout>
+
+</RelativeLayout>

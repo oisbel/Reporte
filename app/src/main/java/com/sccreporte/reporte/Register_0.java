@@ -68,7 +68,7 @@ public class Register_0 extends AppCompatActivity {
     public void GoToNextActivity(JSONObject userDataJSON){
         // Guardar el password
         try {
-            userDataJSON.put("password", passwordET.getText());
+            userDataJSON.put("old_password", passwordET.getText());
         }catch (JSONException e){
             e.printStackTrace();
         }

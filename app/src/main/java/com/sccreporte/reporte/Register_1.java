@@ -65,7 +65,7 @@ public class Register_1 extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Context context = Register_1.this;
-                Class destinationActivity = Register_2.class;
+                Class destinationActivity = Register1_1.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, userDataJSON.toString());
                 startActivity(startChildActivityIntent);

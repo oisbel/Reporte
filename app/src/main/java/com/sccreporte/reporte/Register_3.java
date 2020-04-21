@@ -31,6 +31,8 @@ public class Register_3 extends AppCompatActivity {
         userDataJSON = new JSONObject();
         backButton = findViewById(R.id.backIB);
 
+        datePicker.updateDate(1988,3,4);
+
         // Obtener el string pasado de la activity anterior
         Intent intentThatStartedThisActivity = getIntent();
         if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
