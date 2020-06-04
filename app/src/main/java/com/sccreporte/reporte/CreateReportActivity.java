@@ -73,7 +73,8 @@ public class CreateReportActivity extends AppCompatActivity {
 
         // Set the user data
         mUser = DataUtils.loadUserData(this);
-        nameTV.setText(mUser.nombre);
+        nameTV.setText(DataUtils.shortTheString(mUser.nombre, 20 ));
+        lugarTV.setText(mUser.lugar);
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         dateToday = new Date();

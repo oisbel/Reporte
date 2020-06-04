@@ -111,7 +111,8 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
         // agregar el nombre y el lugar del usuario
         mUser = DataUtils.loadUserData(context);
         if(mUser != null && mUser.id != -1) {
-            nameUserTV.setText(mUser.nombre);
+            nameUserTV.setText(DataUtils.shortTheString(mUser.nombre, 20));
+            lugarUserTV.setText(mUser.lugar);
         }
         // adding item touch helper
         // only ItemTouchHelper.LEFT added to detect Right to Left swipe

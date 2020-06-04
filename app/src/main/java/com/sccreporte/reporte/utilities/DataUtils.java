@@ -39,6 +39,37 @@ public class DataUtils {
     }
 
     /**
+     * Acorta el str para que sea menor que limitLenght
+     * @param str
+     * @param limitLenght
+     * @return
+     */
+    public static String shortTheString(String str, int limitLenght)
+    {
+        String result = str;
+        if(result.length()>limitLenght){
+            String[] fullName = str.split("\\s+");
+
+            if(fullName.length>0) {
+                result = fullName[0];
+            }else
+                return str.substring(0,limitLenght);
+            if(result.length()>limitLenght)
+                return str.substring(0,limitLenght);
+
+            for(int i=1; i<fullName.length; i++)
+            {
+               String temp = result + " " + fullName[i];
+
+               if(temp.length()>limitLenght)
+                   break;
+               result = temp;
+            }
+        }
+        return  result;
+    }
+
+    /**
      * Guarda en shared preferences los datos del reporte que no se ha terminado de llenar
      * por lo que no se ha salvado al servidor y necesita una salva local temporal
      * @param context

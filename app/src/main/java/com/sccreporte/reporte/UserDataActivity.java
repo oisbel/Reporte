@@ -70,7 +70,7 @@ public class UserDataActivity extends AppCompatActivity {
      * Bind each attribute in the views to the corresponding data
      */
     private void displayUserData(){
-        mBinding.nameUserTextView.setText(String.valueOf(mUser.nombre));
+        mBinding.nameUserTextView.setText(String.valueOf(DataUtils.shortTheString(mUser.nombre, 20)));
         mBinding.emailTextView.setText(String.valueOf(mUser.email));
         mBinding.lugarUserTextView.setText(String.valueOf(mUser.lugar));
 
