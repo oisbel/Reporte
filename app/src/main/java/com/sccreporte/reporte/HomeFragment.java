@@ -157,7 +157,7 @@ public class HomeFragment extends Fragment {
         }
 
         // Schedule the create report reminder
-        ReminderUtilities.scheduleCreateReportReminder(context);
+        //ReminderUtilities.scheduleCreateReportReminder(context);
 
         // Save to sharepreference if its time to create a new report get it from the server
         createOrEditReport();
