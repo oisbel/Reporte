@@ -39,7 +39,7 @@
     style="@style/divRegister"
     android:layout_below="@+id/mainTextView"/>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divView"
@@ -57,7 +57,7 @@
             android:gravity="center"
             android:inputType="phone"
             android:hint="@string/phone" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 

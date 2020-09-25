@@ -2,8 +2,8 @@ package com.sccreporte.reporte;
 
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -116,10 +116,10 @@ public class ReportActivity extends AppCompatActivity {
     private void displayReportInfo(Report report){
         mBinding.nameTextView.setText(String.valueOf(mUser.nombre));
 
-        mBinding.fechaTextView.setText(String.valueOf(report.day) + "/" +
-                DataUtils.Months[report.month - 1] + "/" +
-                String.valueOf(report.year));
-
+        if(report.month > 0 && report.month <= 12) {
+            mBinding.fechaTextView.setText(report.day + "/" +
+                    DataUtils.Months[report.month - 1] + "/" + report.year);
+        }else mBinding.fechaTextView.setText("-");
         mBinding.avivamientosTextView.setText(String.valueOf(report.avivamientos));
         mBinding.ayunosTextView.setText(String.valueOf(report.ayunos));
         mBinding.bibliasTextView.setText(String.valueOf(report.biblias));

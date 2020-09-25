@@ -1,7 +1,7 @@
 package com.sccreporte.reporte;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 import android.view.LayoutInflater;
@@ -118,8 +118,10 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
             ayunosTB.setText("Ayunos: " + String.valueOf(report.ayunos));
             avivamientosTB.setText("Avivamientos: " + String.valueOf(report.avivamientos));
 
-            fechaTB.setText(DataUtils.Months[report.month - 1] + "-" +
-                    String.valueOf(report.year));
+            if(report.month > 0 && report.month <= 12) {
+                String fecha = DataUtils.Months[report.month - 1] + "-" + report.year;
+                fechaTB.setText(fecha);
+            }else fechaTB.setText("-");
             //lugarTB.setText(String.valueOf(report.lugar));
             //visitasTB.setText("Visitas: " + String.valueOf(report.visitas));
         }

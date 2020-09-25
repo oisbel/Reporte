@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.sccreporte.reporte.data.User;
-import com.sccreporte.reporte.sync.ReminderUtilities;
 import com.sccreporte.reporte.utilities.DataUtils;
 import com.sccreporte.reporte.utilities.NetworkUtils;
 
