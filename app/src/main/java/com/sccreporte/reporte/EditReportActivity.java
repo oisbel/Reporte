@@ -142,6 +142,8 @@ public class EditReportActivity extends AppCompatActivity {
         mBinding.fechaTextView.setText(String.valueOf(report.day) + "/" +
                 DataUtils.Months[report.month - 1] + "/" +
                 String.valueOf(report.year));
+        mBinding.lugarTextView.setText(String.valueOf(mUser.lugar));
+
         if(report.avivamientos != 0){
             mBinding.avivamientosEditText.setText(String.valueOf(report.avivamientos));
         }

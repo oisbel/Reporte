@@ -64,6 +64,18 @@ public class UserDataActivity extends AppCompatActivity {
             finish();
 
         displayUserData();
+
+        // Obtener el string pasado de la activity anterior
+        Intent intentThatStartedThisActivity = getIntent();
+        if(intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
+            String logoutOredit = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
+            if(logoutOredit.equals("logout"))
+                editBT.setVisibility(View.INVISIBLE);
+            else
+            {
+                logoutBT.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 
     /**

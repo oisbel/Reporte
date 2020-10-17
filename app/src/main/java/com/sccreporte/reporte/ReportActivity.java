@@ -120,6 +120,8 @@ public class ReportActivity extends AppCompatActivity {
             mBinding.fechaTextView.setText(report.day + "/" +
                     DataUtils.Months[report.month - 1] + "/" + report.year);
         }else mBinding.fechaTextView.setText("-");
+        mBinding.lugarTextView.setText(String.valueOf(mUser.lugar));
+
         mBinding.avivamientosTextView.setText(String.valueOf(report.avivamientos));
         mBinding.ayunosTextView.setText(String.valueOf(report.ayunos));
         mBinding.bibliasTextView.setText(String.valueOf(report.biblias));

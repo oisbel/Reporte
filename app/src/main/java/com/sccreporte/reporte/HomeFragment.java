@@ -1,6 +1,8 @@
 package com.sccreporte.reporte;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -92,6 +94,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Class destinationActivity = UserDataActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, "edit");
                 startActivity(startChildActivityIntent);
             }
         });
@@ -101,6 +104,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Class destinationActivity = UserDataActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
+                startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, "logout");
                 startActivity(startChildActivityIntent);
             }
         });
@@ -119,9 +123,10 @@ public class HomeFragment extends Fragment {
         addReportBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(DataUtils.loadItIsTimeToNewReport(context))
-                    openCreateReport();
-                else openEditReport(DataUtils.loadReportDataForeEdit(context));
+                //if(DataUtils.loadItIsTimeToNewReport(context))
+                //    openCreateReport();
+                //else openEditReport(DataUtils.loadReportDataForeEdit(context));
+                createOrEditReport();
             }
         });
 
@@ -159,7 +164,7 @@ public class HomeFragment extends Fragment {
         //ReminderUtilities.scheduleCreateReportReminder(context);
 
         // Save to sharepreference if its time to create a new report get it from the server
-        createOrEditReport();
+        //createOrEditReport();
 
         return view;
     }
@@ -220,11 +225,42 @@ public class HomeFragment extends Fragment {
                         DataUtils.saveItIsTimeToNewReport(view.getContext(),false);
                         DataUtils.saveReportDataForeEdit(view.getContext(), jsonObject);
                         //openEditReport(jsonObject);
+
+                        //Mostrar cartel indicando que no es tiempo de crear un reporte
+                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(
+                                view.getContext());
+                        // Setting Dialog Title
+                        alertDialog.setTitle("No es tiempo de crear un reporte");
+                        // Setting Dialog Message
+                        alertDialog.setMessage("Desea editar su último reporte?");
+                        // Setting Icon to Dialog
+                        alertDialog.setIcon(R.drawable.ic_action_addreport);
+                        final JSONObject jsonObjectToEdit = jsonObject;
+                        // Setting Positive "Yes" Btn
+                        alertDialog.setPositiveButton("SI",
+                                new DialogInterface.OnClickListener(){
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //dialog.dismiss();
+                                        openEditReport(jsonObjectToEdit);
+                                    }
+                                });
+                        // Setting Negative "NO" Btn
+                        alertDialog.setNegativeButton("NO",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Write your code here to execute after dialog
+                                        dialog.cancel();
+                                    }
+                                });
+                        // Showing Alert Dialog
+                        alertDialog.show();
                     }
                     else{
                         //crear nuevo
                         DataUtils.saveItIsTimeToNewReport(view.getContext(),true);
-                        //openCreateReport();
+                        openCreateReport();
                     }
                 }
             }
