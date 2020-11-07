@@ -139,9 +139,19 @@ public class EditReportActivity extends AppCompatActivity {
     private void displayReportInfo(Report report){
         mBinding.nameTextView.setText(String.valueOf(mUser.nombre));
 
-        mBinding.fechaTextView.setText(String.valueOf(report.day) + "/" +
-                DataUtils.Months[report.month - 1] + "/" +
-                String.valueOf(report.year));
+        if(report.month > 0 && report.month <= 12) {
+
+            int month = 11;// Correspondiente a Diciembre
+            if (report.month > 1)
+                month = report.month - 2;
+            mBinding.monthTextView.setText(DataUtils.Months[month]);
+            mBinding.fechaTextView.setText("Llenado " + report.day + "/" +
+                    DataUtils.Months[report.month - 1] + "/" +
+                    report.year);
+        }else{
+            mBinding.fechaTextView.setText("-");
+            mBinding.monthTextView.setText("-");
+        }
         mBinding.lugarTextView.setText(String.valueOf(mUser.lugar));
 
         if(report.avivamientos != 0){

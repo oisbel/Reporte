@@ -16,7 +16,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
-            app:srcCompat="@drawable/ic_action_delete"/>
+            android:src="@drawable/ic_action_delete"/>
         <TextView
             style="@style/labelUserDataStyle"
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="4dp"
-                    app:srcCompat="@drawable/ic_action_teacher"
+                    android:src="@drawable/ic_action_teacher"
                     android:layout_alignParentLeft="true"/>
 
                 <TextView

@@ -22,7 +22,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:background="?android:selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_action_close" />
+            android:src="@drawable/ic_action_close" />
         <TextView
             style="@style/lastReportLabelStyle"
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
             android:layout_marginRight="14dp"
             android:layout_marginTop="16dp"
             android:background="?android:selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_action_video" />
+            android:src="@drawable/ic_action_video" />
     </RelativeLayout>
 
     <ScrollView

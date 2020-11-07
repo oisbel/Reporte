@@ -23,7 +23,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="?android:selectableItemBackgroundBorderless"
-        app:srcCompat="@drawable/ic_action_back" />
+        android:src="@drawable/ic_action_back" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/conyugeNameTextInput"

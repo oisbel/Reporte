@@ -119,7 +119,14 @@ public class LastReportsAdapter extends RecyclerView.Adapter<LastReportsAdapter.
             avivamientosTB.setText("Avivamientos: " + String.valueOf(report.avivamientos));
 
             if(report.month > 0 && report.month <= 12) {
-                String fecha = DataUtils.Months[report.month - 1] + "-" + report.year;
+                // Mes al que corresponde el reporte
+                int month = 11;// Correspondiente a Diciembre
+                int year = report.year - 1;
+                if(report.month > 1){
+                    month = report.month - 2;
+                    year = report.year;
+                }
+                String fecha = DataUtils.Months[month] + "-" + year;
                 fechaTB.setText(fecha);
             }else fechaTB.setText("-");
             //lugarTB.setText(String.valueOf(report.lugar));

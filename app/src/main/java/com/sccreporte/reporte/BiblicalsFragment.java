@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +53,8 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
     private TextView mEmptyMessageDisplay;
     // Create a ProgressBar variable to store a reference to the ProgressBar
     private ProgressBar mLoadingIndicator;
+
+    private ImageButton updateButton;
 
     // Lista de los estudios biblicos
     List<Biblical> mBiblicalsData;
@@ -95,6 +98,15 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
 
         // Get a reference to the ProgressBar using findViewById
         mLoadingIndicator =  view.findViewById(R.id.pb_loading_indicator);
+
+        // Get a reference to the updateImageButton using findViewById
+        updateButton = view.findViewById(R.id.updateButton);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadBiblicalData();
+            }
+        });
 
         // Wiring up RecycerView
         mBiblicalList = view.findViewById(R.id.biblicalRecyclerView);

@@ -21,7 +21,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="?android:selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_action_user" />
+            android:src="@drawable/ic_action_user" />
 
         <ImageButton
             android:id="@+id/helpButton"
@@ -33,7 +33,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="16dp"
             android:background="?android:selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_action_help" />
+            android:src="@drawable/ic_action_help" />
 
     </RelativeLayout>
 
@@ -164,7 +164,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/leftRectangle"
                 app:layout_constraintStart_toStartOf="@+id/leftRectangle"
                 app:layout_constraintTop_toTopOf="@+id/leftRectangle"
-                app:srcCompat="@drawable/ic_action_addreport" />
+                android:src="@drawable/ic_action_addreport" />
 
             <ImageButton
                 android:id="@+id/imageButtonBiblical"
@@ -179,7 +179,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/rightRectangle"
                 app:layout_constraintStart_toStartOf="@+id/rightRectangle"
                 app:layout_constraintTop_toTopOf="@+id/rightRectangle"
-                app:srcCompat="@drawable/ic_action_bible" />
+                android:src="@drawable/ic_action_bible" />
 
             <TextView
                 android:id="@+id/textViewCreateReport"
@@ -238,7 +238,7 @@
                 android:background="?android:selectableItemBackground"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMore"
-                app:srcCompat="@drawable/ic_action_scc" />
+                android:src="@drawable/ic_action_scc" />
 
             <ImageButton
                 android:id="@+id/faceBookImageButton"
@@ -251,7 +251,7 @@
                 android:background="?android:selectableItemBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMore"
-                app:srcCompat="@drawable/ic_action_facebook" />
+                android:src="@drawable/ic_action_facebook" />
 
             <ImageButton
                 android:id="@+id/radioImageButton"
@@ -263,7 +263,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/faceBookImageButton"
                 app:layout_constraintStart_toEndOf="@+id/sccImageButton"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMore"
-                app:srcCompat="@drawable/ic_action_radio" />
+                android:src="@drawable/ic_action_radio" />
 
             <TextView
                 android:id="@+id/textViewScc"

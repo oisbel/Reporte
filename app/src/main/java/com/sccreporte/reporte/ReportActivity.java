@@ -117,9 +117,18 @@ public class ReportActivity extends AppCompatActivity {
         mBinding.nameTextView.setText(String.valueOf(mUser.nombre));
 
         if(report.month > 0 && report.month <= 12) {
-            mBinding.fechaTextView.setText(report.day + "/" +
+            // Mes al que corresponde el reporte
+            int month = 11;// Correspondiente a Diciembre
+            if(report.month > 1)
+                month = report.month - 2;
+            mBinding.fechaTextView.setText("LLenado " + report.day + "/" +
                     DataUtils.Months[report.month - 1] + "/" + report.year);
-        }else mBinding.fechaTextView.setText("-");
+
+            mBinding.monthTextView.setText(DataUtils.Months[month]);
+        }else{
+            mBinding.fechaTextView.setText("-");
+            mBinding.monthTextView.setText("-");
+        }
         mBinding.lugarTextView.setText(String.valueOf(mUser.lugar));
 
         mBinding.avivamientosTextView.setText(String.valueOf(report.avivamientos));
