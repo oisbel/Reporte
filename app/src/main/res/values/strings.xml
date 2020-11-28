@@ -31,7 +31,7 @@
     <string name="menu_reports">Reportes</string>
     <string name="menu_biblicals">Estudios</string>
 
-    <string name="email">Correo</string>
+    <string name="email">Correo eléctronico</string>
     <string name="password">Contraseña</string>
 
     <string name="welcome_message">Dios te bendiga</string>
@@ -59,7 +59,7 @@
     <string name="mensajeros_label">Mensajeros</string>
     <string name="mensajes_label">Mensajes</string>
     <string name="otros_label">Otros</string>
-    <string name="horas_trabajo_label">Horas de Trabajo</string>
+    <string name="horas_trabajo_label">Trabajo Misionero"</string>
     <string name="porciones_label">Porciones</string>
     <string name="sanidades_label">Sanidades</string>
     <string name="visitas_label">Visitas</string>
@@ -124,6 +124,7 @@
 
     <string name="mandatory_error">Obligatorio</string>
     <string name="invalid_email">Correo Inválido</string>
+    <string name="mandatory_address">Debe introducir su dirección</string>
     <string name="mandatory_grado">Debe especificar su grado</string>
     <string name="invalid_name">Nombre Inválido</string>
 
@@ -175,11 +176,14 @@
     </string>
     <string name="delete">Eliminar</string>
 
+    <string name="explicados">Campos del reporte explicados</string>
+
     <string name="delete_biblical_error_message">No se ha podido eliminar el reporte bíblico</string>
     <string name="title_activity_login">LoginActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_register1_1">Register1_1</string>
+    <string name="title_activity_explicados">ExplicadosActivity</string>
 
 </resources>

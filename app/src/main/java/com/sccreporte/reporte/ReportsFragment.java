@@ -111,7 +111,7 @@ public class ReportsFragment extends Fragment
     }
 
     /**
-     * Para cuando agregue un estudio bíblico en otra activity se refresque el fragment
+     * Para cuando agregue un reporte en otra activity se refresque el fragment
      */
     @Override
     public void onStart() {

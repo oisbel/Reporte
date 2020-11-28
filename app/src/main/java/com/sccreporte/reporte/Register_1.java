@@ -19,7 +19,6 @@ public class Register_1 extends AppCompatActivity {
     TextView churchTextView;
     TextView cancelTextView;
     Button nextButton;
-    ImageButton backButton;
     // Objeto JSON con los datos del nuevo usuario a iniciar
     JSONObject userDataJSON;
 
@@ -32,7 +31,6 @@ public class Register_1 extends AppCompatActivity {
         churchTextView = findViewById(R.id.churchTextView);
         cancelTextView = findViewById(R.id.cancelTextView);
         nextButton = findViewById(R.id.nextButton);
-        backButton = findViewById(R.id.backIB);
 
         userDataJSON = new JSONObject();
 
@@ -72,11 +70,5 @@ public class Register_1 extends AppCompatActivity {
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 }

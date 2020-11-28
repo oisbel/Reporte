@@ -2,18 +2,24 @@ package com.sccreporte.reporte;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.ItemTouchHelper;
+
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,7 +37,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,6 +61,8 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
 
     private ImageButton updateButton;
 
+    FloatingActionButton fab; //boton flotante para agregar estudio biblico
+
     // Lista de los estudios biblicos
     List<Biblical> mBiblicalsData;
 
@@ -79,16 +86,21 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
 
         final Context context = view.getContext();
 
-        // Add button click
-       /* addBT = view.findViewById(R.id.addButton);
-        addBT.setOnClickListener(new View.OnClickListener() {
+        fab = view.findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Snackbar snackbar = Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG);
+                //snackbar.getView().setBackgroundColor(Color.GREEN);
+                //snackbar.setAction("Action", null).show();
+
                 Class destinationActivity = CreateBiblicalActivity.class;
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
                 startActivity(startChildActivityIntent);
+
             }
-        });*/
+        });
 
         // Get a reference to the error TextView using findViewById
         mErrorMessageDisplay = view.findViewById(R.id.tv_error_message_display);
@@ -234,7 +246,7 @@ public class BiblicalsFragment extends Fragment implements BiblicalsAdapter.List
 
             // showing snack bar with Undo option
             Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, "Eliminando a - " + name + " - de los Estudios Bíblicos!", Snackbar.LENGTH_LONG);
+                    .make(coordinatorLayout, "Eliminando el estudio..." , Snackbar.LENGTH_LONG);
             snackbar.setAction("CANCELAR", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

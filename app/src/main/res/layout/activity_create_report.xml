@@ -108,6 +108,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/explicadosTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/explicados"
+            android:layout_margin="8dp"
+            style="@style/ayunosStyle"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:clickable="true"
+            app:layout_constraintTop_toBottomOf="@+id/divView"/>
+
+        <View
+            android:id="@+id/divView1"
+            style="@style/userDataDivStyle"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/explicadosTextView"/>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -13,10 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TutorialActivity"></activity>
+        <activity
+            android:name=".ExplicadosActivity"
+            android:label="@string/title_activity_explicados"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Register1_1"
             android:label="@string/title_activity_register1_1"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Register_9" />
         <activity android:name=".Register_8" />
         <activity android:name=".Register_7" />
@@ -48,7 +53,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".CreateReportActivity"
             android:screenOrientation="portrait" />

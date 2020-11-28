@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.databinding.DataBindingUtil;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -78,6 +80,12 @@ public class ReportActivity extends AppCompatActivity {
                 //finish();
             }
         });
+
+        // desactivar el boton de editar si es un reporte de mas d edos meses
+        if(clickedItemIndex > 1){
+            editBT.setEnabled(false);
+            editBT.setTextColor(Color.GRAY);
+        }
     }
 
     @Override

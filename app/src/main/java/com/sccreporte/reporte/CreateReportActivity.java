@@ -1,6 +1,8 @@
 package com.sccreporte.reporte;
 
 import androidx.databinding.DataBindingUtil;
+
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +43,7 @@ public class CreateReportActivity extends AppCompatActivity {
     private TextView nameTV;
     private TextView lugarTV;
     private TextView fechaTV;
+    private TextView explicadosTV;
 
     private Date dateToday;
     private int year;
@@ -68,6 +71,7 @@ public class CreateReportActivity extends AppCompatActivity {
         nameTV = findViewById(R.id.nameTextView);
         lugarTV = findViewById(R.id.lugarTextView);
         fechaTV = findViewById(R.id.fechaTextView);
+        explicadosTV = findViewById(R.id.explicadosTextView);
 
         // Set the user data
         mUser = DataUtils.loadUserData(this);
@@ -108,6 +112,16 @@ public class CreateReportActivity extends AppCompatActivity {
                     return;
                 reportAdded = makeReportData();
                 new CreateReportQueryTask().execute(reportAdded);
+            }
+        });
+
+        //Click para abrir explicados activity
+        explicadosTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Class destinationActivity = ExplicadosActivity.class;
+                Intent startChildActivityIntent = new Intent(getApplicationContext(), destinationActivity);
+                startActivity(startChildActivityIntent);
             }
         });
     }

@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
         helpBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, HelpActivity.class);
+                Intent intent = new Intent(context, TutorialActivity.class);
                 startActivity(intent);
 
             }

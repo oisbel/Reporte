@@ -1,5 +1,6 @@
 package com.sccreporte.reporte;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.sccreporte.reporte.data.Biblical;
 import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.utilities.DataUtils;
@@ -23,6 +25,9 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class CreateBiblicalActivity extends AppCompatActivity {
 
@@ -130,6 +135,8 @@ public class CreateBiblicalActivity extends AppCompatActivity {
     private void ShowErrorMessage(){
         Toast toast = Toast.makeText(this, R.string.create_biblical_error_message, Toast.LENGTH_SHORT);
         toast.show();
+        //Snackbar.make(findViewById(R.id.contentConstraintLayout), R.string.create_biblical_error_message, Snackbar.LENGTH_LONG)
+                //.setAction("Action", null).show();
     }
 
     private void ShowSuccessMessage(){
@@ -188,8 +195,7 @@ public class CreateBiblicalActivity extends AppCompatActivity {
                     // Guardar el estudio biblico en sharepreferences para cargarlo en el biblical fragment
                     DataUtils.saveCreatedBiblical(getApplicationContext(),biblical);
                     ShowSuccessMessage();
-                    //Intent intent = new Intent(getApplicationContext(), BiblicalsFragment.class);
-                    //startActivity(intent);
+
                     finish();
                 }
             }else{
