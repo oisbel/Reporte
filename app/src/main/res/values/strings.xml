@@ -155,25 +155,39 @@
     </string>
 
     <string name="help_main_label">Tutorial</string>
-    <string name="topic_create_report">Como crear un Informe Evangelístico Mensual</string>
+    <string name="topic_create_report">Cómo crear un Informe Evangelístico Mensual</string>
     <string name="details_create_report_help">
-        <b>1</b> - En la vista principal seleccione <i><u>Crear Reporte</u></i>.
-        \n<b>2</b> - Cuando termine de llenar los datos correspondientes a su informe,
+        <b>\u25CB</b> En la vista principal seleccione <i><u>Crear Reporte</u></i>.
+        \n<b>\u25CB</b> Cuando termine de llenar los datos correspondientes a su informe,
         seleccione guardar en la parte superior derecha.
+        \u2022 Tenga en cuenta que solo podrá crear un reporte a partir del día 7 de cada mes.
+        <b>(El reporte creado corresponde al mes anterior)</b>
     </string>
     <string name="explain_create_report_help">
         \u2022 Tenga en cuenta que solo podrá crear un reporte a partir del día 7 de cada mes,
         <b>Este reporte corresponde al mes anterior</b>
     </string>
-    <string name="topic_edit_report">Como cambiar un Informe Evangelístico Mensual</string>
+    <string name="topic_edit_report">Cómo editar un Informe Evangelístico Mensual</string>
     <string name="details_edit_report_help">
-        Si necesita agregar o cambiar datos de algún reporte:
-        \n<b>1</b> - En la vista de navegación inferior seleccione <i><u>Reportes</u></i>.
-        \n<b>2</b> - Vaya al reporte correspondiente.
-        \n<b>3</b> - Seleccione <i><u>Editar</u></i>.
-        \n<b>4</b> - Cuando termine de llenar los datos del informe,
+        \n<b>\u25CB</b> En la vista de navegación inferior seleccione <i><u>Reportes</u></i>.
+        \n<b>\u25CB</b> Vaya al reporte correspondiente.
+        \n<b>\u25CB</b> Seleccione <i><u>Editar</u></i>.
+        \n<b>\u25CB</b> Cuando termine de llenar los datos del informe,
         seleccione guardar en la parte superior derecha.
     </string>
+    <string name="topic_add_biblical">Cómo agregar un Estudio Bíblico</string>
+    <string name="details_add_biblical_help">
+        \n<b>\u25CB</b> En la vista principal seleccione <i><u>Crear Estudio</u></i>,
+        o en la vista de lista de estudios seleccione el botón inferior derecho.
+        \n<b>\u25CB</b> Cuando termine de llenar los datos correspondientes,
+        seleccione guardar en la parte superior derecha.
+    </string>
+    <string name="topic_delete_biblical">Cómo eliminar un Estudio Bíblico</string>
+    <string name="details_delete_biblical_help">
+        \n<b>\u25CB</b> En la vista de navegación inferior seleccione <i><u>Estudios</u></i>.
+        \n<b>\u25CB</b> Una ves localizado el estudio: deslice hacia la izquierda y confirme la eliminación.
+    </string>
+
     <string name="delete">Eliminar</string>
 
     <string name="explicados">Campos del reporte explicados</string>

@@ -35,4 +35,9 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     // Add  gradle dependency for Firebase Job Dispatcher: for scheduling background jobs
     implementation 'com.firebase:firebase-jobdispatcher:0.5.2'
+
+    // for pageviewer
+    //implementation "androidx.viewpager2:viewpager2:1.0.0"
+    //implementation 'me.relex:circleindicator:2.1.4'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
 }
