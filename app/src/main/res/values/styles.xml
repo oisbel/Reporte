@@ -245,6 +245,13 @@
         <item name="android:fontFamily">sans-serif-thin</item>
     </style>
 
+    <style name="instruccionesStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
     <style name="registerLabelStyle">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@android:color/white</item>

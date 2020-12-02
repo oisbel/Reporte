@@ -19,16 +19,16 @@
             android:layout_alignParentLeft="true"
             android:layout_marginBottom="14dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:background="?android:selectableItemBackgroundBorderless"
             android:src="@drawable/ic_action_close" />
         <TextView
             style="@style/lastReportLabelStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="14dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="14dp"
             android:layout_toRightOf="@+id/closeButton"
             android:text="Ayuda" />
         <ImageButton
@@ -36,9 +36,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="14dp"
             android:layout_marginRight="14dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:background="?android:selectableItemBackgroundBorderless"
             android:src="@drawable/ic_action_video" />
     </RelativeLayout>

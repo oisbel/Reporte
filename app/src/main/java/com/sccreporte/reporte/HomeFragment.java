@@ -130,29 +130,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        // Abrir el sitio web de scc
-        sccBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSCCWebPage(getString(R.string.scc_website_url));
-            }
-        });
-
-        // Abrir el sitio web de la radio
-        radioBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSCCWebPage(getString(R.string.radio_website_url));
-            }
-        });
-
-        // Abrir el facebook
-        facebookBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSCCWebPage(getFacebookPageURL());
-            }
-        });
+        assignSocialMediaLinks(DataUtils.loadSocialMediaLinks(context));
 
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(context);
@@ -267,6 +245,51 @@ public class HomeFragment extends Fragment {
         }.execute();
     }
 
+    /**
+     * asigna los link en jsonObject a los botones de las redes sociales
+     * @param jsonObject
+     */
+    private void assignSocialMediaLinks(final JSONObject jsonObject){
+        if(jsonObject == null)
+            return;
+        // Abrir el sitio web de scc
+        sccBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    openSCCWebPage(jsonObject.getString("website"));
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // Abrir el sitio web de la radio
+        radioBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    openSCCWebPage(jsonObject.getString("radio"));
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        // Abrir el facebook
+        facebookBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    openSCCWebPage(getFacebookPageURL(jsonObject.getString("facebook_page_id"),
+                            jsonObject.getString("facebook")));
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     private void openSCCWebPage(String url){
         PackageManager packageManager = getActivity().getPackageManager();
         Uri webpage = Uri.parse(url);
@@ -281,11 +304,11 @@ public class HomeFragment extends Fragment {
      * instalado o no (para que se abra el browser o la app)
      * @return
      */
-    public String getFacebookPageURL(){
+    public String getFacebookPageURL(String facebook_page_id, String facebook_url){
         if(appInstalled("com.facebook.katana")){
-            return "fb://page/" + getString(R.string.facebook_page_id);
+            return "fb://page/" + facebook_page_id;
         }else {
-            return getString(R.string.facebook_url);
+            return facebook_url;
         }
     }
 

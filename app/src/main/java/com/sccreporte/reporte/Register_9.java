@@ -180,6 +180,7 @@ public class Register_9 extends AppCompatActivity {
                         if(user_id != -1){
                             SaveUser(user_id);
                             OpenMainActivity();
+                            DataUtils.clearReportData(getApplicationContext());
                             return;
                         }
                 }else ShowNullMessage();

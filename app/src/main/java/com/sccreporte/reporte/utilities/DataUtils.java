@@ -3,6 +3,7 @@ package com.sccreporte.reporte.utilities;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.JsonReader;
 
 import com.sccreporte.reporte.data.Biblical;
 import com.sccreporte.reporte.data.Report;
@@ -154,22 +155,6 @@ public class DataUtils {
     }
 
     /**
-     * Get the last report data that is need it for edit since it's no time for create a new one.
-     */
-    public static JSONObject loadReportDataForeEdit(Context context){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        try{
-            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("reportInfoForEdit",""));
-            if(jsonObject.toString() != ""){
-                return jsonObject;
-            } else return null;
-        }catch (JSONException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /**
      * Para guardar temporalmente si es tiempo de crear un nuevo reporte
      * @param context
      * @param itIs
@@ -179,17 +164,6 @@ public class DataUtils {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("itIsTimeToNewReport", itIs);
         editor.apply();
-    }
-
-    /**
-     * Get the itIsTimeToNewReport value save it when the app started to see if it is time
-     *  to create a new report or to edit the last one
-     * @param context
-     * @return
-     */
-    public static boolean loadItIsTimeToNewReport(Context context){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPreferences.getBoolean("itIsTimeToNewReport", true);
     }
 
     /**
@@ -443,6 +417,51 @@ public class DataUtils {
             editor.apply();
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Guarda en shared preferences los links de las redes sociales y website
+     * @param context
+     * @param jsonObject
+     */
+    public static void saveSocialMediaLinks(Context context, JSONObject jsonObject){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("socialMediaLinks",jsonObject.toString());
+        editor.apply();
+    }
+
+    /**
+     * Get the social media links
+     */
+    public static JSONObject loadSocialMediaLinks(Context context){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        JSONObject jsonObjectDefault = null;
+        try{
+            String socialMediaDefaults = "{" +
+                    "  \"tutorial\": \"063V0DnwpFM\"," +
+                    "  \"website\": \"https://www.soldadosdelacruz.org\"," +
+                    "  \"radio\": \"https://tunein.com/radio/Radio-Directo-Al-Corazon-s249347/\"," +
+                    "  \"facebook\": \"https://www.facebook.com/radiodirectoalcorazon\"," +
+                    "  \"facebook_page_id\": \"886750211342788\"," +
+                    "  \"youtube\": \"https://www.youtube.com/channel/UCJcClh8xBY3MT1UZY3pR3Dg/\"," +
+                    "  \"twitter\": \"https://twitter.com/SCCMIAMI\"," +
+                    "  \"instagram\": \"https://www.instagram.com/iglesiasoldadosdelacruz/\"," +
+                    "  \"otros\": \"\"" +
+                    "}";
+            jsonObjectDefault = new JSONObject(socialMediaDefaults);
+
+            JSONObject jsonObject = new JSONObject(sharedPreferences.getString("socialMediaLinks",
+                    ""));
+
+            if(jsonObject.toString() != ""){
+                return jsonObject;
+            } else {
+                return jsonObjectDefault;
+            }
+        }catch (JSONException e){
+            return jsonObjectDefault;
         }
     }
 

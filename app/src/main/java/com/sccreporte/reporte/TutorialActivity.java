@@ -3,13 +3,19 @@ package com.sccreporte.reporte;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.sccreporte.reporte.utilities.DataUtils;
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class TutorialActivity extends AppCompatActivity {
@@ -21,6 +27,8 @@ public class TutorialActivity extends AppCompatActivity {
     SpringDotsIndicator circleIndicator3;
     ViewPagerAdapter viewPagerAdapter;
 
+    ImageButton videoButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +36,7 @@ public class TutorialActivity extends AppCompatActivity {
 
         explicadosTV = findViewById(R.id.explicadosTextView);
         closeBT = findViewById(R.id.closeButton);
+        videoButton = findViewById(R.id.videoButton);
 
         viewPager = findViewById(R.id.view_pager);
         circleIndicator3 = findViewById(R.id.indicator);
@@ -59,11 +68,39 @@ public class TutorialActivity extends AppCompatActivity {
             }
         });
 
+        videoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JSONObject jsonObject = DataUtils.loadSocialMediaLinks(getApplicationContext());
+                if (jsonObject == null)
+                    return;
+                String id = "063V0DnwpFM";
+                try{
+                    id = jsonObject.getString("tutorial");
+                }
+                catch (JSONException e){
+                    e.printStackTrace();
+                }
+                openYoutube(id);
+            }
+        });
+
         closeBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+    }
+
+    private void openYoutube(String id){
+        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v=" + id));
+        try {
+            startActivity(appIntent);
+        } catch (ActivityNotFoundException ex) {
+            startActivity(webIntent);
+        }
     }
 }

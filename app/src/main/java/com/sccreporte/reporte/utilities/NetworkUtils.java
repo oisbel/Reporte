@@ -29,8 +29,6 @@ public class NetworkUtils {
 
     final static String BASE_GET_USER_URL = Base_URL + "/getuser";
 
-    final static String BASE_CREATE_USER_URL = Base_URL + "/adduser";
-
     final static String BASE_EDIT_USER_URL = Base_URL + "/edituser";
 
     final static String PARAM_QUERY_USER_ID = "user_id";
@@ -43,7 +41,7 @@ public class NetworkUtils {
 
     final static String BASE_ITISTIME_URL = Base_URL + "/ask";
 
-    final static String BASE_CHURCHS_URL = Base_URL + "/getchurchs";
+    final static String BASE_SOCIAL_MEDIA_URL = Base_URL + "/getsocialmedia";
 
     /**
      * Builds the URL used to query sccreporte.
@@ -187,60 +185,6 @@ public class NetworkUtils {
         urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         String basicAuth = buildBasicAuthorizationString(username, password);
         urlConnection.setRequestProperty("Authorization", basicAuth);
-        urlConnection.setRequestProperty("Accept","application/json");
-        urlConnection.setRequestProperty("accept-charset", "UTF-8");
-        urlConnection.setDoOutput(true);
-        urlConnection.setDoInput(true);
-
-        DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream());
-        out.write(jsonParam.toString().getBytes("UTF-8"));
-        try {
-            InputStream in = urlConnection.getInputStream();
-
-            Scanner scanner = new Scanner(in, "UTF-8");
-            scanner.useDelimiter("\\A");
-
-            boolean hasInput = scanner.hasNext();
-            if (hasInput) {
-                return scanner.next();
-            } else {
-                return null;
-            }
-        } finally {
-            urlConnection.disconnect();
-        }
-    }
-
-    /**
-     * Builds the URL used to query sccreporte.
-     * @return The URL to use to query the sccreporte create user.
-     */
-    public static URL buildCreateUserUrl() {
-        Uri builtUri = Uri.parse(BASE_CREATE_USER_URL).buildUpon()
-                .build();
-
-        URL url = null;
-        try {
-            url = new URL(builtUri.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        return url;
-    }
-    /**
-     * Returns the entire result from the HTTP response after create user.
-     *
-     * @param url The URL to fetch the HTTP response from.
-     * @param jsonParam The json object to sent it with the request.
-     * @return The contents of the HTTP response.
-     * @throws IOException Related to network and stream reading
-     */
-    public static String geCreateUserFromHttpUrl(URL url, JSONObject jsonParam) throws IOException {
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-        urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         urlConnection.setRequestProperty("Accept","application/json");
         urlConnection.setRequestProperty("accept-charset", "UTF-8");
         urlConnection.setDoOutput(true);
@@ -579,13 +523,12 @@ public class NetworkUtils {
         }
     }
 
-
     /**
      * Builds the URL used to query sccreporte.
-     * @return The URL to use to query the sccreporte getchurchs.
+     * @return The URL to use to query the sccreporte getSocialMediaJSON.
      */
-    public static URL buildGetchurchsUrl() {
-        Uri builtUri = Uri.parse(BASE_CHURCHS_URL).buildUpon()
+    public static URL buildGetSocialMediaUrl() {
+        Uri builtUri = Uri.parse(BASE_SOCIAL_MEDIA_URL).buildUpon()
                 .build();
 
         URL url = null;
@@ -604,7 +547,7 @@ public class NetworkUtils {
      * @return The contents of the HTTP response.
      * @throws IOException Related to network and stream reading
      */
-    public static String getChurchsFromHttpUrl(URL url) throws IOException {
+    public static String getSocialMediaFromHttpUrl(URL url) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
         urlConnection.setRequestMethod("GET");
