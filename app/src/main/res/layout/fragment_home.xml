@@ -37,17 +37,11 @@
 
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/menuRelativeLayout"
-        android:fillViewport="true"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/menuRelativeLayout"
+            android:layout_alignParentBottom="true">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -227,89 +221,46 @@
                 app:layout_constraintStart_toEndOf="@+id/imageButtonAddReport"
                 app:layout_constraintTop_toBottomOf="@+id/imageButtonAddReport" />
 
-            <ImageButton
-                android:id="@+id/sccImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="64dp"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="12dp"
-                android:padding="8dp"
-                android:background="?android:selectableItemBackground"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMore"
-                android:src="@drawable/ic_action_scc" />
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewMore"
+            android:fillViewport="true"
+            android:scrollbars="none">
 
-            <ImageButton
-                android:id="@+id/faceBookImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="64dp"
-                android:layout_marginRight="64dp"
-                android:layout_marginTop="12dp"
-                android:padding="8dp"
-                android:background="?android:selectableItemBackground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMore"
-                android:src="@drawable/ic_action_facebook" />
+            <RelativeLayout
+                android:id="@+id/mainRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/radioImageButton"
-                android:layout_width="wrap_content"
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:padding="8dp"
-                android:background="?android:selectableItemBackground"
-                app:layout_constraintEnd_toStartOf="@+id/faceBookImageButton"
-                app:layout_constraintStart_toEndOf="@+id/sccImageButton"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMore"
-                android:src="@drawable/ic_action_radio" />
+                android:layout_marginTop="16dp"
+                android:layout_above="@+id/indicator"/>
 
-            <TextView
-                android:id="@+id/textViewScc"
-                style="@style/moreStyle"
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/scc_label"
-                app:layout_constraintEnd_toEndOf="@+id/sccImageButton"
-                app:layout_constraintStart_toStartOf="@+id/sccImageButton"
-                app:layout_constraintTop_toBottomOf="@+id/sccImageButton" />
+                app:dotsColor="@color/colorForegroundRegister"
+                app:selectedDotColor="@color/colorPrimary"
+                app:dotsSize="3dp"
+                app:dotsSpacing="3dp"
+                app:stiffness="50"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
 
-            <TextView
-                android:id="@+id/textViewRadio"
-                style="@style/moreStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/radio_label"
-                app:layout_constraintEnd_toEndOf="@+id/radioImageButton"
-                app:layout_constraintStart_toStartOf="@+id/radioImageButton"
-                app:layout_constraintTop_toBottomOf="@+id/radioImageButton" />
+            </RelativeLayout>
 
-            <TextView
-                android:id="@+id/textViewFacebook"
-                style="@style/moreStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/facebook_label"
-                app:layout_constraintEnd_toEndOf="@+id/faceBookImageButton"
-                app:layout_constraintStart_toStartOf="@+id/faceBookImageButton"
-                app:layout_constraintTop_toBottomOf="@+id/faceBookImageButton" />
+        </ScrollView>
 
-            <TextView
-                android:id="@+id/textViewMoreFinal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/more_label"
-                app:layout_constraintEnd_toStartOf="@+id/textViewMore"
-                app:layout_constraintStart_toEndOf="@+id/textViewMore"
-                app:layout_constraintTop_toBottomOf="@+id/textViewScc" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
 </RelativeLayout>

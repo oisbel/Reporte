@@ -26,6 +26,9 @@
     <string name="scc_label">SCC</string>
     <string name="radio_label">RADIO</string>
     <string name="facebook_label">FACEBOOK</string>
+    <string name="youtube_label">YOUTUBE</string>
+    <string name="twitter_label">TWITTER</string>
+    <string name="instagram_label">INSTAGRAM</string>
 
     <string name="menu_home">Principal</string>
     <string name="menu_reports">Reportes</string>

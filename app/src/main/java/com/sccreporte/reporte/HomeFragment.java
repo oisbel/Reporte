@@ -9,15 +9,19 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.sccreporte.reporte.data.SocialMediaData;
 import com.sccreporte.reporte.data.User;
 import com.sccreporte.reporte.utilities.DataUtils;
 import com.sccreporte.reporte.utilities.NetworkUtils;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,10 +41,11 @@ public class HomeFragment extends Fragment {
     private ImageButton biblicalBT;
     private TextView userDataTV;
     private TextView welcomeTV; // El email del usuario
-    private ImageButton sccBT;
-    private ImageButton radioBT;
-    private ImageButton facebookBT;
     private User mUser;
+
+    ViewPager viewPager;
+    DotsIndicator dotsIndicator;
+    ViewPagerSocialAdapter viewPagerSocialAdapter;
 
     private AsyncTask mBackgroundTask; // para llamar a ItIsTimeToNewReport
 
@@ -55,6 +60,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
+        final Context context = view.getContext();
 
         helpBT = view.findViewById(R.id.helpButton);
         imageUserBT = view.findViewById(R.id.imageUserButton);
@@ -62,11 +68,46 @@ public class HomeFragment extends Fragment {
         biblicalBT = view.findViewById(R.id.imageButtonBiblical);
         userDataTV = view.findViewById(R.id.myDataTextView);
         welcomeTV = view.findViewById(R.id.welcomeTextView);
-        sccBT = view.findViewById(R.id.sccImageButton);
-        radioBT = view.findViewById(R.id.radioImageButton);
-        facebookBT = view.findViewById(R.id.faceBookImageButton);
 
-        final Context context = view.getContext();
+        viewPager = view.findViewById(R.id.view_pager);
+        dotsIndicator = view.findViewById(R.id.indicator);
+        viewPagerSocialAdapter = new ViewPagerSocialAdapter(context);
+
+        JSONObject jsonObject = DataUtils.loadSocialMediaLinks(context);
+        String sccLink = "";
+        String radioLink = "";
+        String facebookLink = "";
+        String facebook_page_id = "";
+        String youtubeLink = "";
+        String twitterLink = "";
+        String instagramLink = "";
+
+        try{
+            sccLink = jsonObject.getString("website");
+            radioLink = jsonObject.getString("radio");
+            facebookLink = jsonObject.getString("facebook");
+            facebook_page_id = jsonObject.getString("facebook_page_id");
+            youtubeLink = jsonObject.getString("youtube");
+            twitterLink = jsonObject.getString("twitter");
+            instagramLink = jsonObject.getString("instagram");
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        SocialMediaData[] socialMediaData = {
+                new SocialMediaData(R.drawable.ic_action_scc, R.drawable.ic_action_radio, R.drawable.ic_action_facebook,
+                        getString(R.string.scc_label), getString(R.string.radio_label), getString(R.string.facebook_label),
+                        sccLink, radioLink, facebookLink),
+                new SocialMediaData(R.drawable.ic_action_youtube, R.drawable.ic_action_twitter, R.drawable.ic_action_instagram,
+                        getString(R.string.youtube_label), getString(R.string.twitter_label), getString(R.string.instagram_label),
+                        youtubeLink, twitterLink, instagramLink)};
+
+        viewPagerSocialAdapter.FillData(socialMediaData, facebook_page_id);
+
+        viewPager.setAdapter(viewPagerSocialAdapter);
+        dotsIndicator.setViewPager(viewPager);
+
+
 
         // pop up the menu for help
         helpBT.setOnClickListener(new View.OnClickListener() {
@@ -129,8 +170,6 @@ public class HomeFragment extends Fragment {
                 createOrEditReport();
             }
         });
-
-        assignSocialMediaLinks(DataUtils.loadSocialMediaLinks(context));
 
         // cargar los datos del usuario desde share preferences
         mUser = DataUtils.loadUserData(context);
@@ -243,93 +282,5 @@ public class HomeFragment extends Fragment {
                 }
             }
         }.execute();
-    }
-
-    /**
-     * asigna los link en jsonObject a los botones de las redes sociales
-     * @param jsonObject
-     */
-    private void assignSocialMediaLinks(final JSONObject jsonObject){
-        if(jsonObject == null)
-            return;
-        // Abrir el sitio web de scc
-        sccBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try{
-                    openSCCWebPage(jsonObject.getString("website"));
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        // Abrir el sitio web de la radio
-        radioBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try{
-                    openSCCWebPage(jsonObject.getString("radio"));
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        // Abrir el facebook
-        facebookBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try{
-                    openSCCWebPage(getFacebookPageURL(jsonObject.getString("facebook_page_id"),
-                            jsonObject.getString("facebook")));
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    private void openSCCWebPage(String url){
-        PackageManager packageManager = getActivity().getPackageManager();
-        Uri webpage = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if(intent.resolveActivity(packageManager) != null){
-            startActivity(intent);
-        }
-    }
-
-    /**
-     * Devuelve el valor url en dependencia de si facebook app esta
-     * instalado o no (para que se abra el browser o la app)
-     * @return
-     */
-    public String getFacebookPageURL(String facebook_page_id, String facebook_url){
-        if(appInstalled("com.facebook.katana")){
-            return "fb://page/" + facebook_page_id;
-        }else {
-            return facebook_url;
-        }
-    }
-
-    /**
-     * To know if facebook app is installed
-     * @param uri
-     * @return
-     */
-    private boolean appInstalled(String uri)
-    {
-        PackageManager packageManager = getActivity().getPackageManager();
-        try
-        {
-            packageManager.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-            boolean activated =  packageManager.getApplicationInfo(uri, 0).enabled;
-            return activated;
-        }
-        catch(PackageManager.NameNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-        return false;
     }
 }

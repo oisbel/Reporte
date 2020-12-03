@@ -17,7 +17,6 @@ import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class TutorialActivity extends AppCompatActivity {
 
     private TextView explicadosTV;
