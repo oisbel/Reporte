@@ -43,15 +43,17 @@ public class TutorialActivity extends AppCompatActivity {
         viewPagerAdapter = new ViewPagerAdapter(this);
 
         Integer[] images = {R.drawable.tutorial_create_report, R.drawable.tutorial_edit_report,
-                R.drawable.tutorial_edit_biblical, R.drawable.tutorial_delete_biblical};
+                R.drawable.tutorial_edit_biblical, R.drawable.tutorial_delete_biblical, R.drawable.tutorial_contact};
         String[] titles = {getResources().getString(R.string.topic_create_report),
                 getResources().getString(R.string.topic_edit_report),
                 getResources().getString(R.string.topic_add_biblical),
-                getResources().getString(R.string.topic_delete_biblical)};
+                getResources().getString(R.string.topic_delete_biblical),
+                getResources().getString(R.string.topic_contact)};
         String[] details = {getResources().getString(R.string.details_create_report_help),
                 getResources().getString(R.string.details_edit_report_help),
                 getResources().getString(R.string.details_add_biblical_help),
-                getResources().getString(R.string.details_delete_biblical_help)};
+                getResources().getString(R.string.details_delete_biblical_help),
+                getResources().getString(R.string.details_contact_help)};
         viewPagerAdapter.FillData(images,titles,details);
 
         viewPager.setAdapter(viewPagerAdapter);

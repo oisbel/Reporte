@@ -186,6 +186,12 @@
         \n<b>\u25CB</b> En la vista de navegación inferior seleccione <i><u>Estudios</u></i>.
         \n<b>\u25CB</b> Una ves localizado el estudio: deslice hacia la izquierda y confirme la eliminación.
     </string>
+    <string name="topic_contact">Soporte Técnico y Preguntas</string>
+    <string name="details_contact_help">
+        \n<b>\u25CB</b> Si necesita ayuda no dude en contactarnos a <i><u>scruzcristo@gmail.com</u></i>.
+        \nTambién puede recibir ayuda a través del sitio oficial de la Iglesia o mediante su pastor.
+        \nGracias.
+    </string>
 
     <string name="delete">Eliminar</string>
 
